@@ -1,0 +1,1478 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.components &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intervene.synbn" href="../synbn/synbn.html" />
+    <link rel="prev" title="intervene.core.utils" href="../core/utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#synbn">SynBN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#bcause">BCause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.components</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/components/components.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="intervene-components">
+<span id="id1"></span><h1>intervene.components<a class="headerlink" href="#intervene-components" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-intervene.components"></span><p>Pipeline Components init.</p>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.add_confounder_distance" title="intervene.components.add_confounder_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_confounder_distance</span></code></a>(pipeline)()</p></td>
+<td><p>Add the distance of the confounder from the target into the state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.add_constraints" title="intervene.components.add_constraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_constraints</span></code></a>(pipeline)(constraints_path)</p></td>
+<td><p>Add constraints from a constraints yaml file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.add_data_dir" title="intervene.components.add_data_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_data_dir</span></code></a>(pipeline)(data_dir)</p></td>
+<td><p>Add PipelineItem.DATA_DIR.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.add_data_path" title="intervene.components.add_data_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_data_path</span></code></a>(pipeline)(data_path)</p></td>
+<td><p>Add PipelineItem.DATA_PATH.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.add_output_dir" title="intervene.components.add_output_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_output_dir</span></code></a>(pipeline)(output_dir)</p></td>
+<td><p>Add PipelineItem.DATA_DIR.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.bootstrap_dataset" title="intervene.components.bootstrap_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bootstrap_dataset</span></code></a>(pipeline)(n_bootstrap, …)</p></td>
+<td><p>Map function which samples (with replacement) <cite>state.dataframe</cite> and expands out into list of states.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.calculate_aord" title="intervene.components.calculate_aord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_aord</span></code></a>(pipeline)()</p></td>
+<td><p>Component which calculates the AORD (absolute odds ratio difference).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.calculate_odds_ratios" title="intervene.components.calculate_odds_ratios"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_odds_ratios</span></code></a>(pipeline)()</p></td>
+<td><p>Calculate the odds ratio for a BN and add it to the pipeline state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.calculate_pcor" title="intervene.components.calculate_pcor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_pcor</span></code></a>(pipeline)()</p></td>
+<td><p>Component which calculates the PCOR (proportion of correct odds ratios).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.check_real_data" title="intervene.components.check_real_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_real_data</span></code></a>(pipeline)()</p></td>
+<td><p>Check variance and correlation in dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.compute_odds_ratios" title="intervene.components.compute_odds_ratios"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_odds_ratios</span></code></a>(…)</p></td>
+<td><p>Pipeline component which adds odds ratio plots to directory based on a given config.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.confounder_hamming" title="intervene.components.confounder_hamming"><code class="xref py py-obj docutils literal notranslate"><span class="pre">confounder_hamming</span></code></a>(pipeline)()</p></td>
+<td><p>Confounder Absolute Odds Ratio Difference for True Bayesian Networks.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.confounder_mord" title="intervene.components.confounder_mord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">confounder_mord</span></code></a>(pipeline)(state_item, …)</p></td>
+<td><p>Confounder Max Absolute Odds Ratio Difference for True Bayesian Networks.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.critique_learnt_model" title="intervene.components.critique_learnt_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">critique_learnt_model</span></code></a>(pipeline)(n_samples)</p></td>
+<td><p>Evaluate the learnt bayesian network using the model critic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.dag_metrics" title="intervene.components.dag_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dag_metrics</span></code></a>(pipeline)()</p></td>
+<td><p>Component which calculates the DAG Recall.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.enumerate_datasets" title="intervene.components.enumerate_datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enumerate_datasets</span></code></a>(pipeline)()</p></td>
+<td><p>Create a list of the datasets in specified directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.enumerate_datasets_modelstring" title="intervene.components.enumerate_datasets_modelstring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enumerate_datasets_modelstring</span></code></a>(…)</p></td>
+<td><p>Create a list of the datasets in specified directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.enumerate_seeds" title="intervene.components.enumerate_seeds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enumerate_seeds</span></code></a>(pipeline)(repeats)</p></td>
+<td><p>Branch pipeline into one per seed for a single specified dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.estimate_parameters" title="intervene.components.estimate_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_parameters</span></code></a>(pipeline)(pl_algorithm, …)</p></td>
+<td><p>Use the MLE/DFE method to learn the parameters of a BN and stores them in the state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.false_causal_links" title="intervene.components.false_causal_links"><code class="xref py py-obj docutils literal notranslate"><span class="pre">false_causal_links</span></code></a>(pipeline)()</p></td>
+<td><p>Calculate the Number of False Causal Links.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.feature_selection" title="intervene.components.feature_selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_selection</span></code></a>(data, target, n_features, …)</p></td>
+<td><p>Use one of several methods to select the k-most predictive features.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.feature_selection_real" title="intervene.components.feature_selection_real"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_selection_real</span></code></a>(pipeline)(target, …)</p></td>
+<td><p>Perform feature selection on a dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.feature_selection_synthetic" title="intervene.components.feature_selection_synthetic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_selection_synthetic</span></code></a>(…)</p></td>
+<td><p>Perform feature selection on a synthetic dataset, modifying the true structure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.get_target_variable" title="intervene.components.get_target_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_target_variable</span></code></a>(bayesian_network)</p></td>
+<td><p>Get a target variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.get_timestamp" title="intervene.components.get_timestamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_timestamp</span></code></a>(pipeline)()</p></td>
+<td><p>Get timestamp at current step of pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.hamming_distances" title="intervene.components.hamming_distances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hamming_distances</span></code></a>(pipeline)()</p></td>
+<td><p>Component which calculates the structural hamming distance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.impute" title="intervene.components.impute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">impute</span></code></a>(data[, method, data_type])</p></td>
+<td><p>Impute missing data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.impute_missingness" title="intervene.components.impute_missingness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">impute_missingness</span></code></a>(pipeline)(method, data_type)</p></td>
+<td><p>Impute missing data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.insert_modelstring" title="intervene.components.insert_modelstring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_modelstring</span></code></a>(pipeline)(modelstring)</p></td>
+<td><p>Load the true structure of a model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.lazy_module" title="intervene.components.lazy_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lazy_module</span></code></a>(modname[, error_strings, …])</p></td>
+<td><p>Function allowing lazy importing of a module into the namespace.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.load_checkpoint" title="intervene.components.load_checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_checkpoint</span></code></a>(checkpoint_dir)</p></td>
+<td><p>Load a modelstring from a checkpoint directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.load_checkpoint_structure" title="intervene.components.load_checkpoint_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_checkpoint_structure</span></code></a>(…)</p></td>
+<td><p>Load the learnt modelstring, SL algorithm, and learnt dag from a checkpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.load_checkpoint_structure_syn" title="intervene.components.load_checkpoint_structure_syn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_checkpoint_structure_syn</span></code></a>(…)</p></td>
+<td><p>Load structures learnt with synthetic data given a checkpoint directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.load_data_config" title="intervene.components.load_data_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_data_config</span></code></a>(pipeline)()</p></td>
+<td><p>Load the data configuraton into the pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.load_ensemble" title="intervene.components.load_ensemble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_ensemble</span></code></a>(pipeline)(ensemble_dir)</p></td>
+<td><p>Load 128 REFS modelstring.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.load_modelstring_structure" title="intervene.components.load_modelstring_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_modelstring_structure</span></code></a>(pipeline)()</p></td>
+<td><p>Load the true structure of a model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.load_real_data" title="intervene.components.load_real_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_real_data</span></code></a>(pipeline)()</p></td>
+<td><p>Load data from saved path.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.load_synbn_data" title="intervene.components.load_synbn_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_synbn_data</span></code></a>(pipeline)()</p></td>
+<td><p>Load data from saved path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.load_true_structure" title="intervene.components.load_true_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_true_structure</span></code></a>(pipeline)()</p></td>
+<td><p>Load the true structure of a model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.mad" title="intervene.components.mad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mad</span></code></a>(pipeline)()</p></td>
+<td><p>Use the MAD to compare the parameters learnt from the true structure and the true parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.mapper" title="intervene.components.mapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mapper</span></code></a>(pipeline)()</p></td>
+<td><p>Add Component which maps reduced states back out for group manipulation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.merge_on_confounders" title="intervene.components.merge_on_confounders"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_on_confounders</span></code></a>(pipeline)()</p></td>
+<td><p>Combine modelstring merging on seed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.output_convergence_plot" title="intervene.components.output_convergence_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">output_convergence_plot</span></code></a>(pipeline)(plot_type)</p></td>
+<td><p>Output a convergence plot of the MCMC run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.plot_ensemble" title="intervene.components.plot_ensemble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_ensemble</span></code></a>(pipeline)()</p></td>
+<td><p>Plot an ensemble of dags.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.remove_unconfounded_pairs" title="intervene.components.remove_unconfounded_pairs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_unconfounded_pairs</span></code></a>(pipeline)()</p></td>
+<td><p>Remove synthetic networks which don’t have a matching (latent) confounded pair.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.run_cdt_alg" title="intervene.components.run_cdt_alg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_cdt_alg</span></code></a>(pipeline)(algorithm_class, …)</p></td>
+<td><p>Run a CDT structure learning algorithm as a Pipeline component.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.run_ordermcmc" title="intervene.components.run_ordermcmc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_ordermcmc</span></code></a>(pipeline)(checkpoint_path, …)</p></td>
+<td><p>Run MLS on a data-frame.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.save_learnt_bayesian_network" title="intervene.components.save_learnt_bayesian_network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_learnt_bayesian_network</span></code></a>(pipeline)()</p></td>
+<td><p>Save the learnt BN as protobuf in the output directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.save_learnt_dag" title="intervene.components.save_learnt_dag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_learnt_dag</span></code></a>(pipeline)()</p></td>
+<td><p>Save the learnt DAG as an .svg file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.save_metrics" title="intervene.components.save_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_metrics</span></code></a>(pipeline)()</p></td>
+<td><p>Combine metrics with master_file.csv generated by SynBN.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.save_modelstring" title="intervene.components.save_modelstring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_modelstring</span></code></a>(pipeline)()</p></td>
+<td><p>Save the learnt modelstring to a .txt file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.save_odds_ratios" title="intervene.components.save_odds_ratios"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_odds_ratios</span></code></a>(pipeline)()</p></td>
+<td><p>Save all odds ratios into a json file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.select_k_best_with_mi" title="intervene.components.select_k_best_with_mi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_k_best_with_mi</span></code></a>(data_features, …)</p></td>
+<td><p>Select the k-best features according to their mutual information w.r.t.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.sensitivity_analysis" title="intervene.components.sensitivity_analysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sensitivity_analysis</span></code></a>(…)</p></td>
+<td><p>Measure the sensitivity of a BN to latent confounding.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.skeleton_metrics" title="intervene.components.skeleton_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">skeleton_metrics</span></code></a>(pipeline)()</p></td>
+<td><p>Component which calculates the Skeleton Recall.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.store_n_parameters" title="intervene.components.store_n_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">store_n_parameters</span></code></a>(pipeline)()</p></td>
+<td><p>Store the number of parameters in the network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.components.true_structure_as_learnt" title="intervene.components.true_structure_as_learnt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true_structure_as_learnt</span></code></a>(pipeline)()</p></td>
+<td><p>Add the trud add as learnt dag to the pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.components.vstructure_metrics" title="intervene.components.vstructure_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vstructure_metrics</span></code></a>(pipeline)()</p></td>
+<td><p>Component which calculates the V-Structure Precision.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="intervene.components.add_confounder_distance">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">add_confounder_distance</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.add_confounder_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the distance of the confounder from the target into the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state of the pipeline</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The new state of the pipeline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.add_constraints">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">add_constraints</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(constraints_path</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.add_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add constraints from a constraints yaml file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>constraints_path</strong> (<em>Optional</em><em>[</em><em>Path</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.add_data_dir">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">add_data_dir</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(data_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.add_data_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add PipelineItem.DATA_DIR.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>data_dir</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.add_data_path">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">add_data_path</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(data_path</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.add_data_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add PipelineItem.DATA_PATH.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>data_path</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.add_output_dir">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">add_output_dir</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(output_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.add_output_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add PipelineItem.DATA_DIR.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>output_dir</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.bootstrap_dataset">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">bootstrap_dataset</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(n_bootstrap</em>, <em class="sig-param">prop_bootstrap</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.bootstrap_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map function which samples (with replacement) <cite>state.dataframe</cite> and expands out into list of states.</p>
+<p>&#64;param state: The current state
+&#64;param n_bootstrap: The number of bootstraps to perform - downstream this means the number of models.
+&#64;param prop_bootstrap: The proportion of data to sample in the bootstrap
+&#64;return: The new list of states</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>n_bootstrap</strong> (<em>int</em>) – </p></li>
+<li><p><strong>prop_bootstrap</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.calculate_aord">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">calculate_aord</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.calculate_aord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component which calculates the AORD (absolute odds ratio difference).</p>
+<p>The result is then added to the current state.</p>
+<p>&#64;param state: The current state
+&#64;return: The state, with AORD appended</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.calculate_odds_ratios">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">calculate_odds_ratios</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.calculate_odds_ratios" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the odds ratio for a BN and add it to the pipeline state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state of the pipeline</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The next state of the pipeline.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.calculate_pcor">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">calculate_pcor</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.calculate_pcor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component which calculates the PCOR (proportion of correct odds ratios).</p>
+<p>The result is then added to the current state.</p>
+<p>&#64;param state: The current state
+&#64;return: The state, with PCOR appended</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.check_real_data">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">check_real_data</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.check_real_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check variance and correlation in dataset. Raise exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.compute_odds_ratios">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">compute_odds_ratios</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(intervention_config_filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.compute_odds_ratios" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pipeline component which adds odds ratio plots to directory based on a given config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state</p></li>
+<li><p><strong>intervention_config_filepath</strong> (<em>Optional</em><em>[</em><em>Path</em><em>]</em>) – The location of the config file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the new state</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.confounder_hamming">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">confounder_hamming</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.confounder_hamming" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confounder Absolute Odds Ratio Difference for True Bayesian Networks.</p>
+<p>Learnt Bayesian network w/o latent confounders vs Learnt with Latent Confounders
+:type state: State
+:param state: The current state of the pipeline
+:rtype: State
+:return: The new state of the pipeline</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.confounder_mord">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">confounder_mord</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(state_item</em>, <em class="sig-param">true_bn_item</em>, <em class="sig-param">comparison_bn_item</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.confounder_mord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confounder Max Absolute Odds Ratio Difference for True Bayesian Networks.</p>
+<p>Learnt Bayesian network w/o latent confounders vs Learnt with Latent Confounders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state of the pipeline</p></li>
+<li><p><strong>true_bn_item</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.PipelineItem" title="intervene.pipeline.core.PipelineItem"><em>PipelineItem</em></a>) – The PipelineItem specifying the Bayesian network which</p></li>
+</ul>
+</dd>
+</dl>
+<p>is considered the ground truth
+:type comparison_bn_item: PipelineItem
+:param comparison_bn_item: The PipelineItem specifying the Bayesian network
+which will be compared against
+:type state_item: PipelineItem
+:param state_item: The PipelineItem which the metric is stored in
+:rtype: State
+:return: The new state of the pipeline</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.critique_learnt_model">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">critique_learnt_model</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(n_samples</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.critique_learnt_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the learnt bayesian network using the model critic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>n_samples</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.dag_metrics">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">dag_metrics</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.dag_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component which calculates the DAG Recall.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.enumerate_datasets">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">enumerate_datasets</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.enumerate_datasets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of the datasets in specified directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.enumerate_datasets_modelstring">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">enumerate_datasets_modelstring</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(master_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.enumerate_datasets_modelstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of the datasets in specified directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>master_file_path</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.enumerate_seeds">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">enumerate_seeds</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(repeats</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.enumerate_seeds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Branch pipeline into one per seed for a single specified dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>repeats</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.estimate_parameters">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">estimate_parameters</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(pl_algorithm</em>, <em class="sig-param">pl_args</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.estimate_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the MLE/DFE method to learn the parameters of a BN and stores them in the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pl_algorithm</strong> (<em>str</em>) – </p></li>
+<li><p><strong>pl_args</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The state of the pipeline</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>THe new state of the pipeline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.false_causal_links">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">false_causal_links</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.false_causal_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Number of False Causal Links.</p>
+<p>Connection between interv. and targ. where none should exist.
+:type state: State
+:param state: the Current State of the pipeline (State)
+:rtype: State
+:return: the modified state</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.feature_selection">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">feature_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">n_features</span></em>, <em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">method_kwargs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.feature_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use one of several methods to select the k-most predictive features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – </p></li>
+<li><p><strong>n_features</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>method</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘mi’, ‘san’]) – </p></li>
+<li><p><strong>method_kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.feature_selection_real">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">feature_selection_real</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(target</em>, <em class="sig-param">n_features</em>, <em class="sig-param">method</em>, <em class="sig-param">method_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.feature_selection_real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform feature selection on a dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state</p></li>
+<li><p><strong>target</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>) – The target variable to select features with respect to</p></li>
+<li><p><strong>n_features</strong> (<em>int</em>) – The number of features to remain after feature selection</p></li>
+<li><p><strong>method</strong> (<em>FSMethods</em>) – The method used to select features</p></li>
+<li><p><strong>method_kwargs</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.feature_selection_synthetic">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">feature_selection_synthetic</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(n_features</em>, <em class="sig-param">method</em>, <em class="sig-param">method_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.feature_selection_synthetic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform feature selection on a synthetic dataset, modifying the true structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state</p></li>
+<li><p><strong>n_features</strong> (<em>int</em>) – The number of features to remain after feature selection</p></li>
+<li><p><strong>method</strong> (<em>FSMethods</em>) – The method used to select features</p></li>
+<li><p><strong>method_kwargs</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.get_target_variable">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">get_target_variable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bayesian_network</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.get_target_variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a target variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bayesian_network</strong> (<em>DAG</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.get_timestamp">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">get_timestamp</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.get_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get timestamp at current step of pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.hamming_distances">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">hamming_distances</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.hamming_distances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component which calculates the structural hamming distance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.impute">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">impute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'mice'</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">'categorical'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.impute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Impute missing data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>method</strong> (<em>ImputationMethods</em>) – </p></li>
+<li><p><strong>data_type</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.impute_missingness">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">impute_missingness</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(method</em>, <em class="sig-param">data_type</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.impute_missingness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Impute missing data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>method</strong> (<em>ImputationMethods</em>) – </p></li>
+<li><p><strong>data_type</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.insert_modelstring">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">insert_modelstring</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(modelstring</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.insert_modelstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the true structure of a model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>modelstring</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.lazy_module">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">lazy_module</code><span class="sig-paren">(</span><em class="sig-param">modname</em>, <em class="sig-param">error_strings=None</em>, <em class="sig-param">lazy_mod_class=&lt;class 'lazy_import.LazyModule'&gt;</em>, <em class="sig-param">level='leaf'</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.lazy_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function allowing lazy importing of a module into the namespace.</p>
+<p>A lazy module object is created, registered in <cite>sys.modules</cite>, and
+returned. This is a hollow module; actual loading, and <cite>ImportErrors</cite> if
+not found, are delayed until an attempt is made to access attributes of the
+lazy module.</p>
+<p>A handy application is to use <a class="reference internal" href="#intervene.components.lazy_module" title="intervene.components.lazy_module"><code class="xref py py-func docutils literal notranslate"><span class="pre">lazy_module()</span></code></a> early in your own code
+(say, in <cite>__init__.py</cite>) to register all modulenames you want to be lazy.
+Because of registration in <cite>sys.modules</cite> later invocations of
+<cite>import modulename</cite> will also return the lazy object. This means that after
+initial registration the rest of your code can use regular pyhon import
+statements and retain the lazyness of the modules.</p>
+<dl>
+<dt>modname<span class="classifier">str</span></dt><dd><p>The module to import.</p>
+</dd>
+<dt>error_strings<span class="classifier">dict, optional</span></dt><dd><p>A dictionary of strings to use when module-loading fails. Key ‘msg’
+sets the message to use (defaults to <code class="xref py py-attr docutils literal notranslate"><span class="pre">lazy_import._MSG</span></code>). The
+message is formatted using the remaining dictionary keys. The default
+message informs the user of which module is missing (key ‘module’),
+what code loaded the module as lazy (key ‘caller’), and which package
+should be installed to solve the dependency (key ‘install_name’).
+None of the keys is mandatory and all are given smart names by default.</p>
+</dd>
+<dt>lazy_mod_class: type, optional</dt><dd><p>Which class to use when instantiating the lazy module, to allow
+deep customization. The default is <code class="xref py py-class docutils literal notranslate"><span class="pre">LazyModule</span></code> and custom
+alternatives <strong>must</strong> be a subclass thereof.</p>
+</dd>
+<dt>level<span class="classifier">str, optional</span></dt><dd><blockquote>
+<div><p>Which submodule reference to return. Either a reference to the ‘leaf’
+module (the default) or to the ‘base’ module. This is useful if you’ll
+be using the module functionality in the same place you’re calling
+<a class="reference internal" href="#intervene.components.lazy_module" title="intervene.components.lazy_module"><code class="xref py py-func docutils literal notranslate"><span class="pre">lazy_module()</span></code></a> from, since then you don’t need to run <cite>import</cite>
+again. Setting <em>level</em> does not affect which names/modules get
+registered in <cite>sys.modules</cite>.
+For <em>level</em> set to ‘base’ and <em>modulename</em> ‘aaa.bbb.ccc’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aaa</span> <span class="o">=</span> <span class="n">lazy_import</span><span class="o">.</span><span class="n">lazy_module</span><span class="p">(</span><span class="s2">&quot;aaa.bbb.ccc&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;base&#39;</span><span class="p">)</span>
+<span class="c1"># &#39;aaa&#39; becomes defined in the current namespace, with</span>
+<span class="c1">#  (sub)attributes &#39;aaa.bbb&#39; and &#39;aaa.bbb.ccc&#39;.</span>
+<span class="c1"># It&#39;s the lazy equivalent to:</span>
+<span class="kn">import</span> <span class="nn">aaa.bbb.ccc</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>For <em>level</em> set to ‘leaf’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccc</span> <span class="o">=</span> <span class="n">lazy_import</span><span class="o">.</span><span class="n">lazy_module</span><span class="p">(</span><span class="s2">&quot;aaa.bbb.ccc&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;leaf&#39;</span><span class="p">)</span>
+<span class="c1"># Only &#39;ccc&#39; becomes set in the current namespace.</span>
+<span class="c1"># Lazy equivalent to:</span>
+<span class="kn">from</span> <span class="nn">aaa.bbb</span> <span class="kn">import</span> <span class="n">ccc</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="simple">
+<dt>module</dt><dd><p>The module specified by <em>modname</em>, or its base, depending on <em>level</em>.
+The module isn’t immediately imported. Instead, an instance of
+<em>lazy_mod_class</em> is returned. Upon access to any of its attributes, the
+module is finally loaded.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lazy_import</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span> <span class="o">=</span> <span class="n">lazy_import</span><span class="o">.</span><span class="n">lazy_module</span><span class="p">(</span><span class="s2">&quot;numpy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span>
+<span class="go">Lazily-loaded module numpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span> <span class="ow">is</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;numpy&#39;</span><span class="p">]</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="c1"># This causes the full loading of the module ...</span>
+<span class="go">3.141592653589793</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span> <span class="c1"># ... and the module is changed in place. </span>
+<span class="go">&lt;module &#39;numpy&#39; from &#39;/usr/local/lib/python/site-packages/numpy/__init__.py&#39;&gt;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lazy_import</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># The following succeeds even when asking for a module that&#39;s not available</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">missing</span> <span class="o">=</span> <span class="n">lazy_import</span><span class="o">.</span><span class="n">lazy_module</span><span class="p">(</span><span class="s2">&quot;missing_module&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">missing</span>
+<span class="go">Lazily-loaded module missing_module</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">missing</span> <span class="ow">is</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;missing_module&#39;</span><span class="p">]</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">missing</span><span class="o">.</span><span class="n">some_attr</span> <span class="c1"># This causes the full loading of the module, which now fails.</span>
+<span class="go">ImportError: __main__ attempted to use a functionality that requires module missing_module, but it couldn&#39;t be loaded. Please install missing_module and retry.</span>
+</pre></div>
+</div>
+<p><code class="xref py py-func docutils literal notranslate"><span class="pre">lazy_callable()</span></code>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">LazyModule</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_checkpoint">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_checkpoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">checkpoint_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a modelstring from a checkpoint directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>checkpoint_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_checkpoint_structure">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_checkpoint_structure</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(checkpoint_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_checkpoint_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the learnt modelstring, SL algorithm, and learnt dag from a checkpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>checkpoint_dir</strong> (<em>Optional</em><em>[</em><em>Path</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_checkpoint_structure_syn">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_checkpoint_structure_syn</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(learnt_structures_dir</em>, <em class="sig-param">checkpoint_num</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_checkpoint_structure_syn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load structures learnt with synthetic data given a checkpoint directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>learnt_structures_dir</strong> (<em>Optional</em><em>[</em><em>Path</em><em>]</em>) – </p></li>
+<li><p><strong>checkpoint_num</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_data_config">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_data_config</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_data_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the data configuraton into the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – the current state</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the modified state</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_ensemble">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_ensemble</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(ensemble_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_ensemble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load 128 REFS modelstring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<em>List</em><em>[</em><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a><em>]</em>) – </p></li>
+<li><p><strong>ensemble_dir</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_modelstring_structure">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_modelstring_structure</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_modelstring_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the true structure of a model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_real_data">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_real_data</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_real_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data from saved path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_synbn_data">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_synbn_data</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_synbn_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load data from saved path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.load_true_structure">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">load_true_structure</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.load_true_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the true structure of a model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.mad">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">mad</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.mad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the MAD to compare the parameters learnt from the true structure and the true parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The state of the pipeline</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>THe new state of the pipeline</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.mapper">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">mapper</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.mapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Component which maps reduced states back out for group manipulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>states</strong> (<em>List</em><em>[</em><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a><em>]</em>) – The current state</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The modified state</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.merge_on_confounders">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">merge_on_confounders</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.merge_on_confounders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine modelstring merging on seed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – the current state.</p></li>
+<li><p><strong>states</strong> (<em>List</em><em>[</em><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the modified state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.output_convergence_plot">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">output_convergence_plot</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(plot_type</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.output_convergence_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output a convergence plot of the MCMC run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state of the pipeline</p></li>
+<li><p><strong>plot_type</strong> (<em>PlotTypes</em>) – the type of plot to produce</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the updated state</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.plot_ensemble">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">plot_ensemble</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.plot_ensemble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot an ensemble of dags. Uses the baynet ensemble function.</p>
+<p>&#64;param state: The current state.
+&#64;return: The new state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>List</em><em>[</em><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.remove_unconfounded_pairs">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">remove_unconfounded_pairs</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.remove_unconfounded_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove synthetic networks which don’t have a matching (latent) confounded pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>states</strong> (<em>List</em><em>[</em><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.run_cdt_alg">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">run_cdt_alg</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(algorithm_class</em>, <em class="sig-param">algorithm_params</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.run_cdt_alg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a CDT structure learning algorithm as a Pipeline component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – The current state of the pipeline</p></li>
+<li><p><strong>algorithm_class</strong> (<em>Type</em><em>[</em><a class="reference internal" href="../bcause/cdt_algorithms.html#intervene.bcause.cdt_algorithms.CDTAlg" title="intervene.bcause.cdt_algorithms.CDTAlg"><em>CDTAlg</em></a><em>]</em>) – The structure learning algorithm class to use</p></li>
+<li><p><strong>algorithm_params</strong> (<em>Optional</em><em>[</em><em>dict</em><em>]</em>) – The parameters of the structure learning algorithm</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The next state (with the added learnt DAG)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.run_ordermcmc">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">run_ordermcmc</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(checkpoint_path</em>, <em class="sig-param">steps</em>, <em class="sig-param">max_plusone</em>, <em class="sig-param">score</em>, <em class="sig-param">search_space_alg</em>, <em class="sig-param">true_search_space</em>, <em class="sig-param">max_initial_children</em>, <em class="sig-param">mi_alpha</em>, <em class="sig-param">ggm_alpha</em>, <em class="sig-param">verbosity</em>, <em class="sig-param">hub_node_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.run_ordermcmc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run MLS on a data-frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>checkpoint_path</strong> (<em>Optional</em><em>[</em><em>Path</em><em>]</em>) – </p></li>
+<li><p><strong>steps</strong> (<em>int</em>) – </p></li>
+<li><p><strong>max_plusone</strong> (<em>int</em>) – </p></li>
+<li><p><strong>score</strong> (<em>ScoreFuncs</em>) – </p></li>
+<li><p><strong>search_space_alg</strong> (<em>SearchSpaceAlgs</em>) – </p></li>
+<li><p><strong>true_search_space</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>max_initial_children</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>mi_alpha</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – </p></li>
+<li><p><strong>ggm_alpha</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – </p></li>
+<li><p><strong>verbosity</strong> (<em>optim.VerbosityLevel</em>) – </p></li>
+<li><p><strong>hub_node_threshold</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.save_learnt_bayesian_network">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">save_learnt_bayesian_network</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.save_learnt_bayesian_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the learnt BN as protobuf in the output directory. Filename ‘learnt_bayesian network.pb’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.save_learnt_dag">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">save_learnt_dag</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.save_learnt_dag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the learnt DAG as an .svg file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.save_metrics">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">save_metrics</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.save_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine metrics with master_file.csv generated by SynBN.</p>
+<p>Only timestamp not enough for file name, when doing it in a loop it overwrites some file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>states</strong> (<em>List</em><em>[</em><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.save_modelstring">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">save_modelstring</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.save_modelstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the learnt modelstring to a .txt file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.save_odds_ratios">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">save_odds_ratios</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.save_odds_ratios" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save all odds ratios into a json file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – current state</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>next state</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.select_k_best_with_mi">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">select_k_best_with_mi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_features</span></em>, <em class="sig-param"><span class="n">data_target</span></em>, <em class="sig-param"><span class="n">k</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.select_k_best_with_mi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the k-best features according to their mutual information w.r.t. the targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_features</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>data_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>]) – </p></li>
+<li><p><strong>k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.sensitivity_analysis">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">sensitivity_analysis</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(intervention_config_filepath</em>, <em class="sig-param">strength</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.sensitivity_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure the sensitivity of a BN to latent confounding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p></li>
+<li><p><strong>intervention_config_filepath</strong> (<em>Optional</em><em>[</em><em>Path</em><em>]</em>) – </p></li>
+<li><p><strong>strength</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>float</em><em>]</em><em>, </em><em>float</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.skeleton_metrics">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">skeleton_metrics</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.skeleton_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component which calculates the Skeleton Recall.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.store_n_parameters">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">store_n_parameters</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.store_n_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the number of parameters in the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.true_structure_as_learnt">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">true_structure_as_learnt</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.true_structure_as_learnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the trud add as learnt dag to the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.components.vstructure_metrics">
+<code class="sig-prename descclassname">intervene.components.</code><code class="sig-name descname">vstructure_metrics</code><span class="sig-paren">(</span><em class="sig-param">pipeline)(</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.components.vstructure_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Component which calculates the V-Structure Precision.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><em>State</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../pipeline/core.html#intervene.pipeline.core.State" title="intervene.pipeline.core.State">State</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../synbn/synbn.html" class="btn btn-neutral float-right" title="intervene.synbn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../core/utils.html" class="btn btn-neutral float-left" title="intervene.core.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

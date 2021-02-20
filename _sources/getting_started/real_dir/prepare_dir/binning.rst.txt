@@ -1,0 +1,62 @@
+Binning Continuous Data in Mixed-Type Datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Intervene is currently optimised to handle data sets with a low number of discreet values. If the dataset you would like to analyse contains columns that have continuous data, it is possiable to use the pre-processing module to bin the data.
+
+Binning can be done using the 'prepocess' subcomand within the CLI interface. The basic command is:
+
+``intervene preprocess --data data_path --output output_path``
+
+With only the path to the data and the output path specified by the user. This command will result in all columns binned into three even catagories using the funcition `qcut from the pandas library`_ .
+
+.. _`qcut from the pandas library`: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.qcut.html
+
+The binning can be further optimised with the following options.
+
+.. list-table::
+   :widths: 25 25 75
+   :header-rows: 1
+
+   * - option
+     - type
+     - description
+   * - n_bins
+     - int
+     - The number of catagories to bin to.
+   * - cols_to_bin
+     - string
+     - Specify which columns to bin. Example: '[col1,col2]'
+   * - label
+     - bool
+     - If activated will display presentage label. Example: 0% - 33%, 33% - 66%, 66% - 100%.
+   * - param_file
+     - path
+     - path to a .yaml paramter configuration file that allows maximum flexibility over the binning.
+
+For example:
+
+``intervene preprocess --data data_path --output output_path --n_bins 2 --cols_to_bin [col1,col2] --label True``
+
+This command will bin the columns 'col1' and 'col2' to two categories with labels
+
+**Example Configuration File**
+
+ ::
+
+   variables:
+  - name: "col1"
+    bin_type: "cut"
+    bins: [(0, 5), (5, 10)]
+    labels: ["level1", "level2"]
+  - name: "col2"
+    bin_type: "qcut"
+    bins: 3
+    labels: ["level1", "level2", "level3"]
+
+This confguration will result in the binning of the column 'col1' to two bins using the function `cut from the pandas library`_ . The first bin will include values from 0 to 5 and will be labeled 'level1' and the second bin will include values from 5 to 10 and will be labeled 'level2'. The lower value isn't included in the bin. For example, the number 5 will be in 'level1'. The column 'col2' will be binned to three bins using the qcut function and will bare the labels 'level1' for the first bin and so forth.
+
+The command to bin the data based on the parameters in the configuration is as following:
+
+``intervene preprocess --data data_path --output output_path --param_file path_to_param_file``
+
+.. _`cut from the pandas library`: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.cut.html

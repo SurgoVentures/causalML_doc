@@ -1,0 +1,45 @@
+Getting Started
+==================
+
+Welcome to the getting started index! If you're unsure where to start :ref:`installation` is a good bet!
+
+
+.. toctree::
+    :maxdepth: 3
+
+    intro_to_causal
+
+.. toctree::
+    :maxdepth: 3
+
+    installation
+
+.. toctree::
+    :maxdepth: 3
+
+    package_overview
+
+.. toctree::
+    :maxdepth: 3
+
+    cli
+
+.. toctree::
+    :maxdepth: 3
+
+    synth
+
+.. toctree::
+    :maxdepth: 3
+
+    real
+
+.. toctree::
+    :maxdepth: 3
+
+    faq
+
+.. toctree::
+    :maxdepth: 3
+
+    advanced

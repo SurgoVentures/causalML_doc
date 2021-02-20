@@ -1,0 +1,73 @@
+Package Overview
+================
+
+Intervene is a (python) package for creating, inferring and evaluating causal models based on tabular or relational data.
+It aims to provide a high-level set of commands for running common tasks in a user-friendly way.
+However, the underlying operations are exposed so that if low-level operations are required, then they can be used
+directly by an "advanced user".
+Our goal is to provide the most reliable system for causal modelling so that a user may make decisions with **confidence**.
+
+The three main capabilities of Intervene are:
+
+1. Create data based on a ground truth causal model.
+2. Infer the structure of a causal model based on provided data.
+3. Analyze and evaluate a given causal structure based on the underlying data.
+
+
+Creating Data
+-------------
+
+Trusting a model is difficult.
+Particularly with Causal models where the ground truth is (most likely) unknown.
+To help alleviate some of this uncertainty we provide the capability for a use to generate data with similar
+properties to the data they are trying to draw conclusions about.
+Armed with this synthetic data, a user can determine how well the model performs on data similar to their own through a
+suite of performance metrics.
+
+
+Inferring Causal Structure
+--------------------------
+
+Being able to determine cause and effect from data is the main goal of Intervene.
+We use a state-of-the-art modelling system to give insights into data.
+
+
+Analyzing and Evaluating
+------------------------
+
+The potential of Causal modelling is realised when we start to ask **Counterfactual** questions of the data.
+A well-calibrated causal model allows the user to mimic random trials which otherwise would not be possible in the real world.
+
+
+
+Getting Support
+---------------
+
+We make use of GitHub for our reporting issues and raising feature requests.
+To get in contact, please `contact us via GitHub`_ [#]_.
+
+.. _contact us via GitHub: https://github.com/predictive-analytics-lab/Intervene/issues/new/choose
+.. [#] https://github.com/predictive-analytics-lab/Intervene/issues/new/choose
+
+
+Development Team
+----------------
+
+This project is the work of a number of people in the `Predictive Analytics Lab`_ at the `University of Sussex AI Group`_.
+
+.. _Predictive Analytics Lab: https://predictive-analytics-lab.github.io/
+.. _University of Sussex AI Group: https://www.sussex.ac.uk/
+
+License
+-------
+
+To be advised.
+Currently the project is closed-source.
+Unauthorized duplication and/or distribution of files within this repository is strictly prohibited.
+
+Institutional Partners
+----------------------
+
+Work produced is in conjunction with the team at `The Surgo Foundation`_.
+
+.. _The Surgo Foundation: http://surgofoundation.org/

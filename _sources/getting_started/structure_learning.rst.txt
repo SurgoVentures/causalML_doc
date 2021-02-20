@@ -1,0 +1,223 @@
+Structure Learning
+---------------------
+
+Structure learning aims to learn the (potentially causal) directed acyclic graph (DAG) given a dataset.
+There are broadly three types:
+
+    1. Score-based
+    2. Constraint-based
+    3. Hybrid
+
+It is the job of a score-based algorithm to optimize a given score, generally adding or removing edges which cause an increase.
+Constraint-based algorithms generally start fully connected, removing edges as they pass (conditional) independence tests.
+Hybrid algorithms are an amalgamation of the two approaches.
+
+The main structure learning algorithm in this library is OrderMCMC, or BiDAG. This is a hybrid approach, and we use the
+qNML score as our optimization target.
+
+OrderMCMC
+^^^^^^^^^^
+
+OrderMCMC is a search approach which explores the DAG space using the *order
+MCM* schemes. The order MCMC is based on the concept of node ordering
+:math:`\prec` which is a permutation of the :math:`N` node labels
+(i.e. the nodes are lined up in a chain according to given permutation).
+This constraint ensures that all such consistent structures are acyclic.
+Only the DAGs sharing the same (predetermined) topological ordering of
+the nodes are considered. The score of the order then consists of the
+sum of the scores of the DAGs consistent with it:
+
+.. math:: R(\prec | D) \propto \sum_{\mathcal{G} \in \prec} \prod_{i=1}^N S(X_i, \Pi_{X_i}| D)
+
+To reduce the complexity of the algorithm, an initial search space is
+used applying a constraint based model (e.g. PC algorithm) to allow only
+a subset of potential parents for each node. The search space is then
+enlarged such that each node can have an additional parent among the
+remaining nodes outside its permissible parent set.
+
+Each state of the chain, consists of the following steps:
+
+#. consider the search space, :math:`\mathcal{H}_j`, and enlarge it [1]_
+
+#. consider the order, :math:`\prec_j`, of the previous state :math:`j`
+   of the chain [2]_
+
+#. sample a node :math:`i` uniformly at random
+
+#. define all orders, :math:`nbd^i(\prec_j)`, with node :math:`i` placed
+   elsewhere in the order or at its current position (i.e. all possible
+   local transpositions for node :math:`i`) and score them using all the
+   DAGs consistent with the given order
+
+#. sample a proposed order :math:`\prec' \in nbd^i(\prec_j)`
+   proportionally to the scores of all the orders in
+   :math:`nbd^i(\prec_j)`
+
+#. accept the new order :math:`\prec_{j+1} = \prec'`
+
+#. select the maximally scoring DAG, :math:`G^{\star}_{j+1}`, in
+   :math:`\prec_{j+1}`
+
+#. define the new search space as
+   :math:`\mathcal{H}_{j+1} = \mathcal{H}_j \cup G^{\star}_{j+1}`
+
+There are a few differences in our implementation of OrderMCMC compared to the BiDAG paper.
+These are listed below:
+
+Initial Search Space
+"""""""""""""""""""""""
+
+The initial search space defines the starting parent set that nodes can
+take, and orders are scored using. In the paper, the PC algorithm is
+used to define this starting point. In our implementation, for each
+variable: we take the top 5 other variables which maximize the mutual
+information score. We found this achieves similar (or better)
+performance in much shorter timeframes. The relevant function can be found `here. <../api/bcause/ordermcmc.search_space.html?highlight=from_mutual_information#intervene.bcause.ordermcmc.search_space.SearchSpace.from_mutual_information>`_
+
+Steps in Order space:
+"""""""""""""""""""""""
+
+Each *plus-one* random movements are made, then either accepted or
+rejected. In the BiDAG paper, the number of steps is not specified. In
+our implementation this is a hyper-parameter and **defaults at 25,000**.
+
+Three types of steps in order space are used in our implementation of
+OrderMCMC:
+
+-  Adjacent Swaps, where adjacent nodes are swapped in the order (80%)
+-  Random Swaps, where two random nodes are swapped in the order (10%)
+-  Random Inserts, where a node is removed, then inserted, into a random
+   position in the order (10%)
+
+In the paper, “Neighbourhood” Swaps are also used, however, they
+were not found to improve performance and so are not used by default.
+There is a “use_nbd” flag in the `MCMC object. <../api/bcause/ordermcmc.optimisation.html>`_
+
+MCMC Acceptance Criteria
+"""""""""""""""""""""""""
+
+We use a form of simulated annealing to promote more random moves
+initially in the optimization, eventually cooling off, making score
+improvements gradually more important.
+
+:math:`\gamma = \frac{1}{max(0.01, \frac{t^2}{N^2})}`
+
+where :math:`t` is the current step and :math:`N` is the total steps.
+
+:math:`p < e^{\gamma(s_t - s_{t-1})}`
+
+where :math:`p \sim U(0, 1)` , and :math:`s_t` is the score at step
+:math:`t`.
+
+This is not done in the BiDAG paper, and we have seen it improve
+performance.
+
+
+Constraint Implementation
+"""""""""""""""""""""""""
+
+Below we specify how each type of constraints is implemented - to see
+how to use the constraints please refer to the Adding Constraints
+section.
+
+Allowed Edges:
+~~~~~~~~~~~~~~
+
+-  Creates an edge blacklist = (all possible edges - allowed edges)
+-  Stop any edges from the blacklist being added to:
+
+   -  The initial search space
+   -  The updated search space during Plus-one steps
+
+Exclude Edges:
+~~~~~~~~~~~~~~
+
+-  Manual blacklist which stops edges being added to:
+
+   -  The initial search space
+   -  The updated search space during Plus-one steps
+
+Include Edges:
+~~~~~~~~~~~~~~
+
+-  Creates an edge whitelist which is enforced by:
+
+   -  Ensuring the order never violates the edge enforcement
+   -  Ensuring the only parents sets evaluated include the enforced
+      edges
+
+Ignore Nodes:
+~~~~~~~~~~~~~
+
+-  Variables are removed from the DataFrame
+
+Input Nodes:
+~~~~~~~~~~~~
+
+-  Nodes which cannot have parents, enforced by:
+
+   -  Placing the nodes at the end of the order
+   -  Blacklists all nodes from connecting to it as in *Allowed Edges*
+
+Output Nodes:
+~~~~~~~~~~~~~
+
+-  Nodes which cannot have children, enforced by:
+
+   -  Placing the nodes at the start of the order
+   -  Blacklists the node from connecting to any other nodes as in
+      *Allowed Edges*
+
+qNML Score
+^^^^^^^^^^^^^^^
+
+The qNML is a modification of the NML (Normalized Maximum Likelihood)
+criterion, which is based on the Minimum Description Length method. Data
+are viewed as codes to be compressed by the model, and the model has to
+compress data by finding regularities. The aim is then to find the
+model, from a set of candidates, that allows the shortest description
+codelength (i.e. the greatest compression) of the data.
+
+The NML provides a distribution that satisfies this minimum codelenth
+principle:
+
+.. math::
+
+    P_{NML}(\mathcal{D}; G) = \frac{P(D | \hat{\theta}(D; G))}{\sum_{D'}P(D' | \hat{\theta}(D'; G))},
+
+
+where :math:`\hat{\theta}(D; G)` is the maximum likelihood code and the
+normalizing constant :math:`\sum_{D'}P(D' | \hat{\theta}(D'; G))` is the
+sum of maximum likelihoods of all potential data sets :math:`D'` of
+fixed size :math:`n \cdot N` that could be observed in an experiment.
+
+The normalizing constant of the NML criterion renders the computation
+infeasible. Sacrificing the score equivalence a decomposable version,
+the *factorized NML*, can be used:
+
+.. math:: P^1_{NML}(D_{X_i, j}; G) = \frac{P(D | \hat{\theta}(D_{X_i, j}; G))}{\sum_{D'}P(D' | \hat{\theta}(D'; G))},
+
+where :math:`j` is a parent configuration, :math:`{\Pi_{X_i}=j}`, and
+the normalizing sum goes over all the possible :math:`D'_i`-column
+vectors of length :math:`N`, i.e.
+:math:`D'_i \in \left\{1, \dots, r_i \right\}^N`.
+
+In 2018, Silande et al. introduced the *quotient NML* score, qNML, a
+modification of the fNML that is score equivalent. It can be factorized
+as the sum of :math:`N` terms, one for each variable :math:`X_i \in X`.
+The difference between this score and fNML is that it does not require
+an additional partioning based on the parent configurations.
+
+.. math:: s^{qNML} = \sum_{i=1}^N s_i^{qNML} (\mathcal{D}, \mathcal{G}) = \sum_{i=1}^N \ln \left( \frac{P^1_{NML} (D_{X_i, \Pi_{X_i}}, G)}{P^1_{NML} (D_{\Pi_{X_i}}, G)}\right)
+
+To compute the score, all the parent configurations are collapsed into a
+N-dim vector (variable) :math:`Y` with
+:math:`y=\left\{1, \dots, q_i\right\}, \forall y \in Y`.
+
+
+.. [1]
+   The search space of the first state of the chain is the output of a
+   constraint based model
+
+.. [2]
+   The order of the first state of the chain is randomly defined

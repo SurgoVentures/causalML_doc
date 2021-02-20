@@ -1,0 +1,7 @@
+Preparing Real Data
+--------------------
+
+.. include:: real_dir/prepare_dir/requirements.rst
+.. include:: real_dir/prepare_dir/binning.rst
+.. include:: real_dir/prepare_dir/impute.rst
+.. include:: real_dir/prepare_dir/feature_selection.rst

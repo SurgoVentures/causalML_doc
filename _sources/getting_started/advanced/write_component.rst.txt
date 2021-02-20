@@ -1,0 +1,11 @@
+Creating a pipeline component.
+--------------------------------
+
+In order to add functionality to the pipeline framework, it must be wrapped in a function decorated with the ``@pipelinemethod`` decorator. For example, replacing the structure learning algorithm with a function ``SL_algorithm`` such that it can be used within a pipeline;
+
+
+.. literalinclude:: component_example.py
+    :linenos:
+    :language: python
+
+This ``run_new_method`` pipeline method could then be used in a custom pipeline.

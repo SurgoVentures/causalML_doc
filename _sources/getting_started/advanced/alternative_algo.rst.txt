@@ -1,0 +1,4 @@
+Running an Alternative Algorithm
+--------------------------------
+
+Bad idea. Wouldn't recommend it. But you can, so this is how you do it. To be written by CR.

@@ -1,0 +1,15 @@
+Real Data
+===========
+
+This section will guide you on running intervene on real data-sets (datasets without a synthetic DAG).
+The main points covered will be:
+
+- The commands required
+- Pre-processing (Including :ref:`Imputing Missing Data` and :ref:`Feature Selection`)
+- :ref:`Adding Constraints` to the Structure Learning
+
+
+.. include:: real_dir/prepare.rst
+.. include:: real_dir/run.rst
+.. include:: real_dir/analysis.rst
+

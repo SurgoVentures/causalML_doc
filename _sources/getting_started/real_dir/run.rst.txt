@@ -1,0 +1,24 @@
+Running on Real Data
+--------------------
+
+Just as for synthetic data, a predefined pipeline for real data can be run using the CLI and
+and is configurable by a range of command-line options.
+The command for running the real-pipeline is
+::
+
+    intervene real
+
+followed by the desired option and their values. Since for real-data we do not have access to a
+ground-truth, there is no evaluative aspect as there is for the synthetic pipeline. What the real-pipeline
+does allow for that its counterpart does not, however, is the performing of interventions which is
+of course one of the primary motivations for causal-modelling in the first place. Given a graph
+consisting of variables causal relations, we can predict the result of intervening, according to Pearl's do-calculus,
+on a variable or set of variables with respect to some target variable.
+
+In the following sections, we first give a sketch of the make-up of the real-pipeline before diving
+deeper into those components that require additional explanation to configure, use or interpret.
+
+.. include:: real_dir/run_dir/pipeline.rst
+.. include:: real_dir/run_dir/constraints.rst
+.. include:: real_dir/run_dir/interventions.rst
+.. include:: real_dir/run_dir/output.rst

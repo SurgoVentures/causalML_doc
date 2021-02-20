@@ -1,0 +1,30 @@
+Parameter Estimation
+--------------------
+
+The global distribution of a Bayesian network :math:`P(X \mid G, \Theta)` factorize into a set of local distributions:
+
+.. math::
+
+    P(X \mid G, \Theta) = \prod_{i = 1}^{D} P(X_{i} \mid \Pi_{X_{i}}, \Theta_{X_{i}}),
+
+Discrete BNs assume that a variable :math:`X_{i}` is distributed multinomially conditioned on a configuration of its parents
+:math:`X_{i}=k\mid\Pi_{X_{i}} \sim Mul(\pi_{ik\mid j})`,
+where :math:`\pi_{i k \mid j}=\mathrm{P}\left(X_{i}=k \mid \Pi_{X_{i}}=j\right)` is the probability when
+:math:`X_i = k` conditioned on the jth value of the possible parent combinations. These discrete conditional
+distributions can be represented a conditional probability table (CPT). We can apply algorithms to independently
+learn each of these CPTs.
+
+Maximum Likelihood Estimation (MLE)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Maximum Likelihood Estimation is one such way to estimate the parameters in a CPT, given: a node, it's parents, and
+their corresponding data. MLE is quite simple, it is simply the frequency of the nodes taking on each value, whilst
+conditioned on each of the parent values. This is then normalized by the total count when the parents are said condition.
+
+.. math::
+
+    \theta_{i j k}=\frac{n_{i j k}}{\sum_{j^{\prime}} n_{i j^{\prime} k}}
+
+where :math:`\theta_{i j k}` is the parameter value when node i, is value j, with parent configuration k.
+:math:`n_{i j k}` is the frequency when node i has value j, with parent configuration k. MLE is the default (read: only)
+option in Intervene accessible from the CLI.

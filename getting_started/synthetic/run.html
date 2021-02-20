@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Running Intervene on Synthetic Data &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Running Intervene on Synthetic Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/getting_started/synthetic/run.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-intervene-on-synthetic-data">
+<h1>Running Intervene on Synthetic Data<a class="headerlink" href="#running-intervene-on-synthetic-data" title="Permalink to this headline">¶</a></h1>
+<p>After we successfully generated synthetic data, what can we do with it?</p>
+<p>Intervene has a number of designated ‘pipelines’, aimed at achiving different goals.</p>
+<p>Below you can find a table of these pipelines:</p>
+<div class="section" id="synthetic-pipelines">
+<h2>Synthetic Pipelines<a class="headerlink" href="#synthetic-pipelines" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Table of Synthetic Pipelines</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>standard</p></td>
+<td><p>The standard pipeline. The OrderMCMC structure learning algorithm is first run, the performance is recorded, and a synthetic report is produced.</p></td>
+</tr>
+<tr class="row-odd"><td><p>diagnostic</p></td>
+<td><p>The standard pipeline + diagnostics: Memory tracking, Convergence Plots, Extra Logging, Table of captured Hub Nodes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="running-on-the-cli">
+<h2>Running on the CLI<a class="headerlink" href="#running-on-the-cli" title="Permalink to this headline">¶</a></h2>
+<p>Both pipelines can be run via the command line interface.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">-h</span></code> on the command line to be reminded of the specific commands avilable for synthetic data!</p>
+</div>
+<p>As with generating synthetic data, we will need:</p>
+<ol class="arabic simple">
+<li><p>A specified <em>data</em> folder, where the generated data will be stored.</p></li>
+<li><p>A <em>data configuration</em> yaml file, which specifies the requirments from the generated data.</p></li>
+</ol>
+<p>We will <strong>also</strong> need:</p>
+<ol class="arabic simple" start="3">
+<li><p>A specified <em>output</em> folder, where the output from running the pipeline is saved.</p></li>
+<li><p>The name of the pipeline to use.</p></li>
+</ol>
+<p>With these four things, we can simply run intervene with the command:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">--data</span> <span class="pre">/my/data/folder</span> <span class="pre">--yaml</span> <span class="pre">my/data/config.yml</span> <span class="pre">--output</span> <span class="pre">my/data/output/folder</span> <span class="pre">-p</span> <span class="pre">diagnostic</span></code></p>
+<p>This will generate the data specified in config.yml. <strong>Unless the data matching the configuration has already been
+generated in the specified</strong> <code class="code bash docutils literal notranslate"><span class="pre">--data</span></code> <strong>directory.</strong></p>
+<p>Notice the <code class="code bash docutils literal notranslate"><span class="pre">-p</span> <span class="pre">diagnostic</span></code> - this means the diagnostic pipeline has been specified. Replace this with <code class="code bash docutils literal notranslate"><span class="pre">-p</span> <span class="pre">standard</span></code> to run the standard pipeline.</p>
+</div>
+<div class="section" id="common-datasets">
+<h2>Common Datasets<a class="headerlink" href="#common-datasets" title="Permalink to this headline">¶</a></h2>
+<p>As has been seen, we can generate our own data with Intervene. However, we can also use a number of <em>common</em> datasets found in the literature.
+This can be done easily, by specifying the <code class="code bash docutils literal notranslate"><span class="pre">--bif</span></code> option in the pipeline to one of the available datasets:</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Table of available common datasets</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Nodes</p></td>
+<td><p>Arcs</p></td>
+</tr>
+<tr class="row-even"><td><p>alarm</p></td>
+<td><p>37</p></td>
+<td><p>46</p></td>
+</tr>
+<tr class="row-odd"><td><p>andes</p></td>
+<td><p>223</p></td>
+<td><p>338</p></td>
+</tr>
+<tr class="row-even"><td><p>asia</p></td>
+<td><p>8</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>barley</p></td>
+<td><p>48</p></td>
+<td><p>84</p></td>
+</tr>
+<tr class="row-even"><td><p>cancer</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>child</p></td>
+<td><p>20</p></td>
+<td><p>25</p></td>
+</tr>
+<tr class="row-even"><td><p>diabetes</p></td>
+<td><p>413</p></td>
+<td><p>602</p></td>
+</tr>
+<tr class="row-odd"><td><p>earthquake</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>hailfinder</p></td>
+<td><p>56</p></td>
+<td><p>66</p></td>
+</tr>
+<tr class="row-odd"><td><p>hepar2</p></td>
+<td><p>70</p></td>
+<td><p>123</p></td>
+</tr>
+<tr class="row-even"><td><p>insurance</p></td>
+<td><p>27</p></td>
+<td><p>52</p></td>
+</tr>
+<tr class="row-odd"><td><p>link</p></td>
+<td><p>724</p></td>
+<td><p>1125</p></td>
+</tr>
+<tr class="row-even"><td><p>mildew</p></td>
+<td><p>35</p></td>
+<td><p>46</p></td>
+</tr>
+<tr class="row-odd"><td><p>munin</p></td>
+<td><p>1041</p></td>
+<td><p>1388</p></td>
+</tr>
+<tr class="row-even"><td><p>pathfinder</p></td>
+<td><p>109</p></td>
+<td><p>195</p></td>
+</tr>
+<tr class="row-odd"><td><p>pigs</p></td>
+<td><p>441</p></td>
+<td><p>592</p></td>
+</tr>
+<tr class="row-even"><td><p>sachs</p></td>
+<td><p>11</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-odd"><td><p>survey</p></td>
+<td><p>6</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>water</p></td>
+<td><p>32</p></td>
+<td><p>66</p></td>
+</tr>
+<tr class="row-odd"><td><p>win95pts</p></td>
+<td><p>76</p></td>
+<td><p>112</p></td>
+</tr>
+</tbody>
+</table>
+<p>We also have to specify options for number of samples <code class="code bash docutils literal notranslate"><span class="pre">-n</span></code>, and number of repeats (datasets generated) <code class="code bash docutils literal notranslate"><span class="pre">-r</span></code>.</p>
+<p>As an example, if we wanted to generate 5 datasets from the ALARM network, with 20,000 samples each,
+and then run the standard pipeline we would use the command:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">--data</span> <span class="pre">/my/data/folder</span> <span class="pre">--bif</span> <span class="pre">alarm</span> <span class="pre">--output</span> <span class="pre">my/data/output/folder</span> <span class="pre">-p</span> <span class="pre">standard</span> <span class="pre">-n</span> <span class="literal number"><span class="pre">20000</span></span> <span class="pre">-r</span> <span class="literal number"><span class="pre">5</span></span></code></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

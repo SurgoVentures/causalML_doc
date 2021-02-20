@@ -1,0 +1,10 @@
+Algorithms
+============
+
+This section will provide an overview of the algorithms used within the intervene library. There are broadly two
+categories of algorithm employed: **structural estimation**, and **parameter estimation**. First, a structure learning
+algorithm must be used to estimate the (CP)DAG. Following this a parameter estimation method must be used to infer the
+parameters -- forming a Bayesian network.
+
+.. include:: structure_learning.rst
+.. include:: parameter_learning.rst

@@ -1,0 +1,11 @@
+Quick Start
+==============
+
+This section will provide two basic use-cases. One for synthetic data, another for real data.
+
+Running on Synthetic Data
+----------------------------
+
+
+Running on Real Data
+------------------------

@@ -1,0 +1,4 @@
+Binning Continuous Data in Mixed-Type Datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is how you bin continuous data and when you need to do it. To be written by MZ.

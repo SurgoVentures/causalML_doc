@@ -1,0 +1,1226 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.synbn.modifier &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intervene.synbn.structure" href="structure.html" />
+    <link rel="prev" title="intervene.synbn" href="synbn.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#synbn">SynBN</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="synbn.html">intervene.synbn</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.synbn.modifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">intervene.synbn.structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="synbn_utils.html">intervene.synbn.synbn_utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#bcause">BCause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.synbn.modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/synbn/modifier.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-intervene.synbn.modifier">
+<span id="intervene-synbn-modifier"></span><h1>intervene.synbn.modifier<a class="headerlink" href="#module-intervene.synbn.modifier" title="Permalink to this headline">¶</a></h1>
+<p>SynBN dataset Modifier.</p>
+<p><strong>Classes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.Confounder" title="intervene.synbn.modifier.Confounder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Confounder</span></code></a>(node, target_node, …)</p></td>
+<td><p>A Dataclass containing information pertinent to introduced confounders.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.ConfounderStrength" title="intervene.synbn.modifier.ConfounderStrength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfounderStrength</span></code></a>(value)</p></td>
+<td><p>An enum specifiying the strength of a confounder.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.ConfounderType" title="intervene.synbn.modifier.ConfounderType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfounderType</span></code></a>(value)</p></td>
+<td><p>An enum representing a type of confounder.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph" title="intervene.synbn.modifier.SyntheticLinkedGraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyntheticLinkedGraph</span></code></a>(nodes, *, seed, …)</p></td>
+<td><p>From structure create a Graph object.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exceptions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.InputError" title="intervene.synbn.modifier.InputError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputError</span></code></a></p></td>
+<td><p>Exception encompassing user input errors.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.add_all_confounders" title="intervene.synbn.modifier.add_all_confounders"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_all_confounders</span></code></a>(dag)</p></td>
+<td><p>Add confounders to all pairs of nodes in a DAG.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.bin_mixed_data" title="intervene.synbn.modifier.bin_mixed_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bin_mixed_data</span></code></a>(data, *, n_bins, is_label, …)</p></td>
+<td><p>Bin mixed data set according to parameters, saved a new .csv file with the result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.central_tendency" title="intervene.synbn.modifier.central_tendency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">central_tendency</span></code></a>(data, *[, data_type])</p></td>
+<td><p>Central tendency imputation: replace with mode if data are categorical, median otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.classify_confounder_targeted" title="intervene.synbn.modifier.classify_confounder_targeted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_confounder_targeted</span></code></a>(active_dag, …)</p></td>
+<td><p>Classify confounders in a DAG with respect to a target and intevening variable pair.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.drop_missing_rows" title="intervene.synbn.modifier.drop_missing_rows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">drop_missing_rows</span></code></a>(data)</p></td>
+<td><p>Delete all non respondent entries (rows).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.get_active_paths" title="intervene.synbn.modifier.get_active_paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_paths</span></code></a>(dag, node_from, node_to)</p></td>
+<td><p>Get the active paths between nodes in a DAG.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.get_target_variable" title="intervene.synbn.modifier.get_target_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_target_variable</span></code></a>(bayesian_network)</p></td>
+<td><p>Get a target variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.hot_deck" title="intervene.synbn.modifier.hot_deck"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hot_deck</span></code></a>(data, *[, k, data_type, …])</p></td>
+<td><p>KNN for missing values imputation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.mar" title="intervene.synbn.modifier.mar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mar</span></code></a>(data, rates[, num_missing_cols, …])</p></td>
+<td><p>Create MAR dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.mcar" title="intervene.synbn.modifier.mcar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mcar</span></code></a>(data, rates[, missing_cols, …])</p></td>
+<td><p>Create MCAR dataset (missingness does not depend on the values of variables in the dataset).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.mice" title="intervene.synbn.modifier.mice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mice</span></code></a>(data, *[, data_type])</p></td>
+<td><p>Multivariate Imputation by Chained Equations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.missingness_presence" title="intervene.synbn.modifier.missingness_presence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">missingness_presence</span></code></a>(data[, verbose])</p></td>
+<td><p>Check presence of missing data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.missingness_vars" title="intervene.synbn.modifier.missingness_vars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">missingness_vars</span></code></a>(data)</p></td>
+<td><p>Check presence of missing data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.mnar" title="intervene.synbn.modifier.mnar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mnar</span></code></a>(data, rates[, missing_cols, …])</p></td>
+<td><p>Create MNAR dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.non_respondents_del" title="intervene.synbn.modifier.non_respondents_del"><code class="xref py py-obj docutils literal notranslate"><span class="pre">non_respondents_del</span></code></a>(data)</p></td>
+<td><p>Delete all non respondent entries (rows).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.random_noise" title="intervene.synbn.modifier.random_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_noise</span></code></a>(data, *, rates[, noise_cols, …])</p></td>
+<td><p>Add random noise to pandas.DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.regression" title="intervene.synbn.modifier.regression"><code class="xref py py-obj docutils literal notranslate"><span class="pre">regression</span></code></a>(data, *[, data_type])</p></td>
+<td><p>Regression for missing values imputation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.skip_pattern" title="intervene.synbn.modifier.skip_pattern"><code class="xref py py-obj docutils literal notranslate"><span class="pre">skip_pattern</span></code></a>(data[, num_missing_cols, error])</p></td>
+<td><p>Create MAR with multiple one-to-one skip pattern dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.systematic_noise" title="intervene.synbn.modifier.systematic_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematic_noise</span></code></a>(data, *, rates[, …])</p></td>
+<td><p>Add systematic noise to pandas.DataFrame.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.systematic_order_noise" title="intervene.synbn.modifier.systematic_order_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">systematic_order_noise</span></code></a>(data, *, rates[, …])</p></td>
+<td><p>Add order systematic noise to pandas.DataFrame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.to_multiple_sources" title="intervene.synbn.modifier.to_multiple_sources"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_multiple_sources</span></code></a>(data[, …])</p></td>
+<td><p>Split a dataset into num_sources datasets with num_shared_nodes shared columns and no shared rows (partition of data points).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.to_single_source" title="intervene.synbn.modifier.to_single_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_single_source</span></code></a>(data_1, data_2, col_list_1, …)</p></td>
+<td><p>Map two DataFrames together.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="intervene.synbn.modifier.Confounder">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">Confounder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em>, <em class="sig-param"><span class="n">target_node</span></em>, <em class="sig-param"><span class="n">intervening_node</span></em>, <em class="sig-param"><span class="n">intervention_distance</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.Confounder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A Dataclass containing information pertinent to introduced confounders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target_node</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>intervening_node</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>intervention_distance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.Confounder.get_metadata" title="intervene.synbn.modifier.Confounder.get_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata</span></code></a>()</p></td>
+<td><p>Return the properties of a Confounder as a dictionary.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.synbn.modifier.Confounder.get_metadata">
+<code class="sig-name descname">get_metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.Confounder.get_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the properties of a Confounder as a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary of confounder properties.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.modifier.ConfounderStrength">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">ConfounderStrength</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.ConfounderStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enum specifiying the strength of a confounder.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.ConfounderStrength.to_alpha" title="intervene.synbn.modifier.ConfounderStrength.to_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_alpha</span></code></a>()</p></td>
+<td><p>Convert the strength of the confounder to an Alpha value.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.synbn.modifier.ConfounderStrength.to_alpha">
+<code class="sig-name descname">to_alpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.ConfounderStrength.to_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the strength of the confounder to an Alpha value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.modifier.ConfounderType">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">ConfounderType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.ConfounderType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enum representing a type of confounder.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="intervene.synbn.modifier.InputError">
+<em class="property">exception </em><code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">InputError</code><a class="headerlink" href="#intervene.synbn.modifier.InputError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception encompassing user input errors.</p>
+<dl class="py method">
+<dt id="intervene.synbn.modifier.InputError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.InputError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">SyntheticLinkedGraph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nodes</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">seed</span></em>, <em class="sig-param"><span class="n">structure_type</span></em>, <em class="sig-param"><span class="n">structure_params</span></em>, <em class="sig-param"><span class="n">structure</span></em>, <em class="sig-param"><span class="n">indegree_cap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.synbn.structure.syntheticgraph.SyntheticGraph</span></code></p>
+<p>From structure create a Graph object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>int</em>) – </p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – </p></li>
+<li><p><strong>structure_type</strong> (<em>str</em>) – </p></li>
+<li><p><strong>structure_params</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>structure</strong> (<em>DAG</em>) – </p></li>
+<li><p><strong>indegree_cap</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Create Structure Graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>int</em>) – </p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – </p></li>
+<li><p><strong>structure_type</strong> (<em>str</em>) – </p></li>
+<li><p><strong>structure_params</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>structure</strong> (<em>DAG</em>) – </p></li>
+<li><p><strong>indegree_cap</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.adj" title="intervene.synbn.modifier.SyntheticLinkedGraph.adj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">adj</span></code></a></p></td>
+<td><p>Adjacency Matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.cpds" title="intervene.synbn.modifier.SyntheticLinkedGraph.cpds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cpds</span></code></a></p></td>
+<td><p>Conditional Probability Densities of the graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.edges" title="intervene.synbn.modifier.SyntheticLinkedGraph.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a></p></td>
+<td><p>Edges.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.n_dlc" title="intervene.synbn.modifier.SyntheticLinkedGraph.n_dlc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">n_dlc</span></code></a></p></td>
+<td><p>Get the number of direct latent confounders.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.nodes" title="intervene.synbn.modifier.SyntheticLinkedGraph.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></p></td>
+<td><p>Edges.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.structure" title="intervene.synbn.modifier.SyntheticLinkedGraph.structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">structure</span></code></a></p></td>
+<td><p>Structure of the graph.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.cap_indegree" title="intervene.synbn.modifier.SyntheticLinkedGraph.cap_indegree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cap_indegree</span></code></a>(structure, indegree_cap)</p></td>
+<td><p>Cap the in-degree of a generated structure by pruning.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.generate_parameters" title="intervene.synbn.modifier.SyntheticLinkedGraph.generate_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_parameters</span></code></a>([data_type, seed])</p></td>
+<td><p>Generate Parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.generate_samples" title="intervene.synbn.modifier.SyntheticLinkedGraph.generate_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_samples</span></code></a>([n_samples, seed])</p></td>
+<td><p>Sample from the distribution of the bayesian network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.introduce_latent_confounders" title="intervene.synbn.modifier.SyntheticLinkedGraph.introduce_latent_confounders"><code class="xref py py-obj docutils literal notranslate"><span class="pre">introduce_latent_confounders</span></code></a>(samples, …)</p></td>
+<td><p>Introduce Direct Latent Confounders into a BN, given Direct Latent Confounders are present.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.plot" title="intervene.synbn.modifier.SyntheticLinkedGraph.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(structure[, display])</p></td>
+<td><p>Plot the graph structure - for use in Interactive Notebooks etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.modifier.SyntheticLinkedGraph.save" title="intervene.synbn.modifier.SyntheticLinkedGraph.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(filename)</p></td>
+<td><p>Save the graph structure as a png.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.adj">
+<em class="property">property </em><code class="sig-name descname">adj</code><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.adj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjacency Matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.cap_indegree">
+<em class="property">static </em><code class="sig-name descname">cap_indegree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structure</span></em>, <em class="sig-param"><span class="n">indegree_cap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.cap_indegree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cap the in-degree of a generated structure by pruning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – The current structure</p></li>
+<li><p><strong>indegree_cap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The max indegree of a node.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the pruned structure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.cpds">
+<em class="property">property </em><code class="sig-name descname">cpds</code><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.cpds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conditional Probability Densities of the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[Union[List[ConditionalProbabilityTable], List[ConditionalProbabilityDistribution]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.edges">
+<em class="property">property </em><code class="sig-name descname">edges</code><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.generate_parameters">
+<code class="sig-name descname">generate_parameters</code><span class="sig-paren">(</span><em class="sig-param">data_type=&lt;ParameterType.DISCRETE: 0&gt;</em>, <em class="sig-param">seed=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.generate_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate Parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterType</span></code>) – </p></li>
+<li><p><strong>seed</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+<li><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SyntheticGraph</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.generate_samples">
+<code class="sig-name descname">generate_samples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_samples</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.generate_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample from the distribution of the bayesian network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> – </p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – Sampler seed</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em>) – The number of samples to generate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.introduce_latent_confounders">
+<code class="sig-name descname">introduce_latent_confounders</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">samples</span></em>, <em class="sig-param"><span class="n">confounder_type</span></em>, <em class="sig-param"><span class="n">n_latent_confounders</span></em>, <em class="sig-param"><span class="n">max_latent_confounders</span></em>, <em class="sig-param"><span class="n">confounder_strength</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.introduce_latent_confounders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Introduce Direct Latent Confounders into a BN, given Direct Latent Confounders are present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>n_latent_confounders</strong> (<em>int</em>) – The (maximum) number of latent confounders to introduce</p></li>
+<li><p><strong>confounder_type</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>lc.ConfounderType</em><em>]</em>) – Confounder type to introduce (given n_latent_confounders is &gt; 0)</p></li>
+<li><p><strong>max_latent_confounders</strong> (<em>int</em>) – </p></li>
+<li><p><strong>confounder_strength</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Tuple[<a class="reference internal" href="structure.html#intervene.synbn.structure.SyntheticGraph" title="intervene.synbn.structure.SyntheticGraph">SyntheticGraph</a>, pd.DataFrame, Dict[str, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.n_dlc">
+<em class="property">property </em><code class="sig-name descname">n_dlc</code><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.n_dlc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of direct latent confounders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.nodes">
+<em class="property">property </em><code class="sig-name descname">nodes</code><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Set</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.plot">
+<em class="property">static </em><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structure</span></em>, <em class="sig-param"><span class="n">display</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the graph structure - for use in Interactive Notebooks etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<em>DAG</em>) – the DAG structure</p></li>
+<li><p><strong>dpi</strong> (<em>int</em>) – the dots-per-inch of the plot</p></li>
+<li><p><strong>display</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the graph structure as a png.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<em>DAG</em>) – the DAG structure</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – the name of the output file which will be saved</p></li>
+<li><p><strong>dpi</strong> (<em>int</em>) – the dots-per-inch of the plot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.modifier.SyntheticLinkedGraph.structure">
+<em class="property">property </em><code class="sig-name descname">structure</code><a class="headerlink" href="#intervene.synbn.modifier.SyntheticLinkedGraph.structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure of the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.add_all_confounders">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">add_all_confounders</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.add_all_confounders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add confounders to all pairs of nodes in a DAG.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.bin_mixed_data">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">bin_mixed_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">n_bins</span></em>, <em class="sig-param"><span class="n">is_label</span></em>, <em class="sig-param"><span class="n">param_file_path</span></em>, <em class="sig-param"><span class="n">data_cols</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.bin_mixed_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bin mixed data set according to parameters, saved a new .csv file with the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_path</strong> – path to the mixed data set</p></li>
+<li><p><strong>output_path</strong> – path where the mixed dataset will be saved</p></li>
+<li><p><strong>param_file_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – path to the binning param file</p></li>
+<li><p><strong>data_cols</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>]) – columns to be binned</p></li>
+<li><p><strong>n_bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of bins</p></li>
+<li><p><strong>is_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – are labels required</p></li>
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.central_tendency">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">central_tendency</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">'categorical'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.central_tendency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Central tendency imputation: replace with mode if data are categorical, median otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.dataframe</em>) – data with missing values</p></li>
+<li><p><strong>data_type</strong> (<em>string</em>) – data type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Complete data including missing values prediction if valid data_type, erro otherwise</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>pandas.dataframe if valid data_type, error otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.classify_confounder_targeted">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">classify_confounder_targeted</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">active_dag</span></em>, <em class="sig-param"><span class="n">intervening</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">prefix_filter</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.classify_confounder_targeted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify confounders in a DAG with respect to a target and intevening variable pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>active_dag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p></li>
+<li><p><strong>intervening</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>prefix_filter</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ConfounderType</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Confounder</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.drop_missing_rows">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">drop_missing_rows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.drop_missing_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all non respondent entries (rows).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.dataframe</em>) – data with missing values</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>data without missing values rowq (at least ons Nan in the row)</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.get_active_paths">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">get_active_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dag</span></em>, <em class="sig-param"><span class="n">node_from</span></em>, <em class="sig-param"><span class="n">node_to</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.get_active_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active paths between nodes in a DAG.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p></li>
+<li><p><strong>node_from</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>node_to</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.get_target_variable">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">get_target_variable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bayesian_network</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.get_target_variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a target variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bayesian_network</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.hot_deck">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">hot_deck</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">k</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">'categorical'</span></em>, <em class="sig-param"><span class="n">missing_neighbors_threshold</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.hot_deck" title="Permalink to this definition">¶</a></dt>
+<dd><p>KNN for missing values imputation.</p>
+<p>KNN based on hamming distance and mode aggregation if data are categorical,
+euclidean distance and median otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – data with missing values</p></li>
+<li><p><strong>k</strong> (<em>integer</em>) – number of neighbors to consider for the imputation</p></li>
+<li><p><strong>data_type</strong> (<em>string</em>) – data type</p></li>
+<li><p><strong>missing_neighbors_threshold</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – minimum of neighbors among the k ones that</p></li>
+</ul>
+</dd>
+</dl>
+<p>are not also missing to infer the correct value.
+:type missing_neighbors_threshold: float
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:return: Complete data including missing values prediction if valid data_type, error otherwise
+:type: pandas.DataFrame if valid data_type, error otherwise</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.mar">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">mar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">rates</span></em>, <em class="sig-param"><span class="n">num_missing_cols</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">num_indep_cols</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">alphas</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">dataset</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">uniform_rates</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.mar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MAR dataset.</p>
+<p>Include MAR in multiple columns,
+based on a linear relation with num_indep_cols other columns
+:type data: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:param data: data, not necessarily complete
+:type data: pandas.DataFrame
+:type rates: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]
+:param rates: replacement rate (between 0 and 1), one for each missing_col.
+If single value is passed, all missing_col will have the same missingness rate
+:type rates: list or integer
+:type num_missing_cols: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>
+:param num_missing_cols: number of columns where to incude missing data (randomly defined)
+:type num_missing_cols: integer
+:type num_indep_cols: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]
+:param num_indep_cols: number of columns defining the missingness, one for each missing_col.
+If single value is passed, all missing_col will depend on the same number of indep_cols
+:type num_indep_cols: list or integer
+:type alphas: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]
+:param alphas: linear relation intercept, one for each missing_col.
+If single value is passed, all missing_col will have the same alpha value
+:typr alphas: list or integer
+:type dataset: <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>
+:param dataset: flag, whether the <code class="docutils literal notranslate"><span class="pre">rates</span></code> argument refers to the whole
+dataset missingness or to the single column missingness
+:type dataset: boolean
+:type uniform_rates: <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>
+:param uniform_rates: flag, whether the <code class="docutils literal notranslate"><span class="pre">rates</span></code> argument is distributed uniformly or
+randomly across the <code class="docutils literal notranslate"><span class="pre">num_missing_cols</span></code> missing_col. Used only if <code class="docutils literal notranslate"><span class="pre">dataset=True</span></code>
+:type uniform_rates: boolean
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:return: mar data
+:type: pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.mcar">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">mcar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">rates</span></em>, <em class="sig-param"><span class="n">missing_cols</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_missing_cols</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.mcar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MCAR dataset (missingness does not depend on the values of variables in the dataset).</p>
+<p>Replace each element of the dataframe with nan with a selected probability.
+:type data: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:param data: complete data
+:type data: pandas.DataFrame
+:type rates: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]
+:param rates: replacement probability (between 0 and 1).
+To apply to each column/variable if missing_cols or num_missing_cols are specified,
+to the entire dataset otherwise.
+:type rates: list or float
+:type missing_cols: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]
+:param missing_cols: column name where to incude missing data
+:type missing_cols: list or single string
+:type num_missing_cols: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>
+:param num_missing_cols: number of columns where to incude missing data (randomly defined)
+:type num_missing_cols: integer
+If ‘num_missing_cols’ and ‘missing_cols’ not specified,
+missing data included in all variables of the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mcar data</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.mice">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">mice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">'categorical'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.mice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multivariate Imputation by Chained Equations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – data with missing values</p></li>
+<li><p><strong>data_type</strong> (<em>string</em>) – data type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Complete data including missing values prediction if valid data_type, error otherwise</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>pandas.DataFrame if valid data_type, error otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.missingness_presence">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">missingness_presence</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.missingness_presence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check presence of missing data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – data</p></li>
+<li><p><strong>verbose</strong> (<em>boolean</em>) – print flag</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>bool indicating the presence (True) or absence (False) of NaN in data</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.missingness_vars">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">missingness_vars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.missingness_vars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check presence of missing data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of variables containing NaN’s, empty list if no vars</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>List[]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.mnar">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">mnar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">rates</span></em>, <em class="sig-param"><span class="n">missing_cols</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_missing_cols</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.mnar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MNAR dataset.</p>
+<p>For a specific value of a variable,
+randomly change it with one of the variable levels (including the real one)
+:type data: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:param data: data
+:type data: pandas.DataFrame
+:type rates: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]
+:param rates: replacement probability (between 0 and 1).
+To apply to each column/variable if missing_cols or num_missing_cols are specified
+:type rates: list or float
+:type missing_cols: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]
+:param missing_cols: column name where to incude missing
+:type missing_cols: list or single string
+:type num_missing_cols: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>
+:param num_missing_cols: number of columns where to incude missing (randomly defined)
+:type num_missing_cols: integer
+If ‘num_missing_cols’ and ‘missing_cols’ not specified,
+missing included in all variables of the dataset
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:return: data with systematic missing in column values
+:type: pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.non_respondents_del">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">non_respondents_del</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.non_respondents_del" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all non respondent entries (rows).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.dataframe</em>) – data with missing values</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>data without non respondent (all Nan’s rows)</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.random_noise">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">random_noise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">rates</span></em>, <em class="sig-param"><span class="n">noise_cols</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_noise_cols</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.random_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add random noise to pandas.DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – data</p></li>
+<li><p><strong>rates</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – replacement probability (between 0 and 1).</p></li>
+</ul>
+</dd>
+</dl>
+<p>To apply to each column/variable if noise_cols
+or num_noise_cols are specified, to the entire dataset otherwise.
+:type rates: list or float
+:type noise_cols: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]
+:param noise_cols: column name where to include noise
+:type noise_cols: list or single string
+:type num_noise_cols: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>
+:param num_noise_cols: number of columns where to incude noise (randomly defined)
+:type num_noise_cols: integer
+If ‘num_noise_cols’ and ‘noise_cols’ not specified,
+noise included in all variables of the dataset
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:return: data with random noise in column values
+:type: pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.regression">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">regression</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data_type</span><span class="o">=</span><span class="default_value">'categorical'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.regression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regression for missing values imputation.</p>
+<p>Independently predict the missing values of each variable
+based on the values of the other observed variables.
+Multinomial logistic regression and mode as initial imputation
+are used if data are categorical, linear regression and median otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – data with missing values</p></li>
+<li><p><strong>data_type</strong> (<em>string</em>) – data type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Complete data including missing values prediction if valid data_type, error otherwise</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>pandas.DataFrame if valid data_type, error otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.skip_pattern">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">skip_pattern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">num_missing_cols</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">error</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.skip_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create MAR with multiple one-to-one skip pattern dataset.</p>
+<p>Include skip pattern in a single column, based on a specific value
+of other column (all randomly defined)
+:type data: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:param data: data, not necessarily complete
+:type data: pandas.DataFrame
+:type num_missing_cols: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>
+:param num_missing_cols: number of columns where to incude missing data (randomly defined)
+:type num_missing_cols: integer
+:type error: <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>
+:param error: percentage of skip pattern error allowed
+(i.e. percentage of rows without missing values even if they should)
+:typr error: float
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:return: mar data
+:type: pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.systematic_noise">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">systematic_noise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">rates</span></em>, <em class="sig-param"><span class="n">noise_cols</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_noise_cols</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.systematic_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add systematic noise to pandas.DataFrame.</p>
+<p>For a specific value of a variable,
+randomly change it with one of the variable levels (including the real one).
+:param data: data
+:type data: pandas.DataFrame
+:param rates: replacement probability (between 0 and 1).
+To apply to each column/variable if noise_cols or num_noise_cols are specified
+:type rates: list or float
+:param noise_cols: column name where to incude noise
+:type noise_cols: list or single string
+:param num_noise_cols: number of columns where to incude noise (randomly defined)
+:type num_noise_cols: integer
+If ‘num_noise_cols’ and ‘noise_cols’ not specified,
+noise included in all variables of the dataset
+:return: data with systematic noise in column values
+:type: pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.systematic_order_noise">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">systematic_order_noise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">rates</span></em>, <em class="sig-param"><span class="n">noise_cols</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_noise_cols</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.systematic_order_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add order systematic noise to pandas.DataFrame.</p>
+<p>If the order of the potential
+answers is not randomised, then the respondent is more likely to choose the
+first options. For a specific variable, all the values after its third quartile
+are randomly changed with one of its level before the first quartile.
+:type data: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:param data: data
+:type data: pandas.DataFrame
+:type rates: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]
+:param rates: replacement probability (between 0 and 1).
+To apply to each column/variable if noise_cols or num_noise_cols are specified
+:type rates: list or float
+:type noise_cols: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]
+:param noise_cols: column name where to incude noise
+:type noise_cols: list or single string
+:type num_noise_cols: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>
+:param num_noise_cols: number of columns where to incude noise (randomly defined)
+:type num_noise_cols: integer
+If ‘num_noise_cols’ and ‘noise_cols’ not specified,
+noise included in all variables of the dataset
+:rtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>
+:return: data with systematic noise in column values
+:type: pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.to_multiple_sources">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">to_multiple_sources</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">num_shared_nodes</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">num_sources</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">categorical_data</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.to_multiple_sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a dataset into num_sources datasets with num_shared_nodes shared columns and no shared rows (partition of data points).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>num_shared_nodes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>num_sources</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>categorical_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.modifier.to_single_source">
+<code class="sig-prename descclassname">intervene.synbn.modifier.</code><code class="sig-name descname">to_single_source</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_1</span></em>, <em class="sig-param"><span class="n">data_2</span></em>, <em class="sig-param"><span class="n">col_list_1</span></em>, <em class="sig-param"><span class="n">col_list_2</span></em>, <em class="sig-param"><span class="n">suffix_1</span></em>, <em class="sig-param"><span class="n">suffix_2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.modifier.to_single_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map two DataFrames together.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>data_2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>col_list_1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>col_list_2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>suffix_1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>suffix_2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="structure.html" class="btn btn-neutral float-right" title="intervene.synbn.structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="synbn.html" class="btn btn-neutral float-left" title="intervene.synbn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

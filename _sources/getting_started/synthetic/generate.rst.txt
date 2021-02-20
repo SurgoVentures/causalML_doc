@@ -1,0 +1,208 @@
+Generating Synthetic Data
+---------------------------
+
+Intervene contains the functionality to generate a variety of synthetic data-sets. This functionality enables the user to perform experiments whilst also having
+access to the **ground truth** Bayesian network, DAG, and data.
+
+Bayesian networks created by experts exist, alongside the corresponding *ground truth* structures and parameters. However;
+working with these networks can have its limitiations as the user doen't have full control of the properties of the data/network.
+
+Synthetic Output
+++++++++++++++++++++
+
+When a set of synthetic datasets are generated, there are two levels of output: The first is **experiment-level**, containing global
+information about all of the generated datasets. The second output is **dataset-level**, where the output from
+individually generated datasets is stored.
+
+Experiment-level output
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: File directory of the experiment-level output:
+   :widths: 25 50
+   :header-rows: 1
+
+   * - Filename
+     - Description
+
+   * - master_file.csv
+     - CSV file containing a record of all of the generated synthetic data, with associated properties.
+
+   * - data_config.yml
+     - A copy of the configuration file used to generate the data.
+
+   * - 1..n/
+     - Numbered folders, each containing dataset level output.
+
+
+Dataset-level output
+^^^^^^^^^^^^^^^^^^^^^
+
+.. table:: File directory of the dataset-level output:
+    :widths: 25 50
+
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+    |       Filename      |                                                    Description                                                    |
+    +=====================+===================================================================================================================+
+    | bayesian_network.pb | Protobuf file encoding the generated Bayesian Network, including structures and parameters                        |
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+    | chart.svg           | Visualisation of the DAG, using the `Graphviz <http://www.graphviz.org/>`_ plotting library                       |
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+    | data.csv            | CSV file containing the generated synthetic data                                                                  |
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+    | edge_list.csv       | CSV file containing the list of edges in the DAG                                                                  |
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+    | modelstring.txt     | TXT file containing the modelstring (string encoding the DAG)                                                     |
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+    | network_edits.yml   | A YML file containing any of the confounders which were made Latent - used for Latent confounder experimentation. |
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+    | parameters.yml      | A YML file containing the configuration with which this dataset was generated                                     |
+    +---------------------+-------------------------------------------------------------------------------------------------------------------+
+
+Example master file output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. table:: Slice of an example master_file.csv:
+    :widths: 10 10 10 10 15 10 10
+
+    +-------+------+---------------------+-------------------+----------------+---------------+-----+
+    | index | seed | number of variables | number of samples | structure type | in-degree cap | ess |
+    +=======+======+=====================+===================+================+===============+=====+
+    |   0   |   1  |          40         |        5000       |   forest fire  |      -1       |  20 |
+    +-------+------+---------------------+-------------------+----------------+---------------+-----+
+    |   1   |   2  |          40         |        5000       |   forest fire  |      -1       |  20 |
+    +-------+------+---------------------+-------------------+----------------+---------------+-----+
+    |   2   |   3  |          40         |        5000       |   forest fire  |      -1       |  20 |
+    +-------+------+---------------------+-------------------+----------------+---------------+-----+
+
+.. role:: bash(code)
+   :language: bash
+
+Generating Synthetic Data
++++++++++++++++++++++++++++
+
+Now we know what synthetic data Intervene *can* produce, *how* does one produce it?
+
+The easiest, and the least error prone way, is to use the CLI (command-line interface).
+
+Generating synthetic data from the CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tip::
+    Use :bash:`intervene synthetic -h` on the command line to be reminded of the specific commands for synthetic data!
+
+To generate synthetic data, we must specifiy the folowing:
+
+1. A specified *data* folder, where the generated data will be stored.
+2. A *data configuration* yaml file, which specifies the requirments from the generated data.
+3. A specified *output* folder, where any output will be stored - **do not worry about this if you have not read the
+   section on running synthetic data, this can just be the same as your data folder**
+
+With the paths to these three items, we can run the command:
+:bash:`intervene synthetic --data /my/data/folder --yaml my/data/config.yml --output my/data/output/folder -p none`
+
+where the dummy data paths are replaced with the appropriate ones.
+
+In this case, we have specified :bash:`-p none`, which specifies we do not wish to run a pipeline, only generate the
+data. More on this in the section on running synthetic data.
+
+Now we know how to generate synthjetic data! Except, how do we create a *data configuration yaml file*?
+
+Specifying [Synthetic Data] Configuration Files
++++++++++++++++++++++++++++++++++++++++++++++++++
+Lets start with an example:
+
+Example Configuration File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Below is an example data configuration yaml file, which will produce **10 random datasets** of the **forest-fire structure type**,
+with **40 variables**, **5000 samples**, and an **effective sample size of 20**.
+
+.. code-block:: yaml
+
+    ess: [20]
+    number_of_variables: [40]
+    number_of_samples: [5000]
+    noise_type: []
+    noise_level: []
+    seed: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    max_levels: [4]
+    structure_type: ['forest fire']
+    confounder_strength: []
+    n_latent_confounders: []
+    n_linked_datasets: []
+    mixing_parameter: []
+    missing_type: []
+    missing_level: []
+    latent_confounder_type: []
+    confounder_strength: []
+
+This configuration can be copied, with values replaced as nessecery.
+
+Configuration properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Above we find an example for a data configuration - but what does each property mean?
+
+.. table::
+    :widths: 25 50
+
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Property               | Description                                                                                                                                                        |
+    +========================+====================================================================================================================================================================+
+    | ess                    | Effective sample size - controls the alpha parameter of the dirichlet used to sample each conditional multinomial. Lower value = higher imbalance = lower entropy. |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | number_of_variables    | The number of variables the dataset will have.                                                                                                                     |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | number_of_samples      | the number of samples the dataset will have.                                                                                                                       |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | noise_type             | The type of noise to add to the dataset - options are: Random, Order, or Systematic. Refer to noise section for more information.                                  |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | noise_level            | The amount of noise to add to the dataset - options are: Low, Med, High - Refer to noise section for more information.                                             |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | seed                   | The random seed(s) to generate from. Adding multiple seeds allows you to generate multiple (different) networks.                                                   |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | max_levels             | The maximum amount of levels (cardinality) for each variable. Levels uniformly sampled between (2, max levels).                                                    |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | structure_type         |The graph generation algorithm to use.                                                                                                                              |
+    |                        |Options are: forest fire, ic-dag, preferential attachment, waxman, small-world. Refer to the below table for more information                                       |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | confounder_strength    | The strength of introduced latent confounders. Options are Low, Med, High.                                                                                         |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | n_latent_confounders   | The number of latent confounders to introduce.                                                                                                                     |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | n_linked_datasets      | The number of datasets to link in the creation of this dataset.                                                                                                    |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | mixing_parameter       | Parameter between 0 and 1. Specifying how 'joint' a Bayesian network is with the other links. 0 is fully independent. 1 is fully mixed.                            |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | missing_type           | The type of missing data to introduce. Options are: Random, Order, or Systematic.                                                                                  |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | missing_level          | The amount of missingness to add to the dataset - options are: Low, Med, High - Refer to noise section for more information.                                       |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | latent_confounder_type | The type of latent confounder to add. Options are: DIRECT_DISCONNECTED, DIRECT_1HOP, DIRECT_NHOP, INTERVENING_PREDECESSING, TARGET_PREDECESSING                    |
+    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Structure Types
+^^^^^^^^^^^^^^^^^
+
+In order to generate a synthetic Bayesian network a DAG is required. To maximize the variation in the generated synthetic data-sets, a different DAG is generated for each seed.
+To facilitate this, a graph generation algorithm is used. Each graph generation algorithm will generally generate a graph with different characteristics than other algorithms.
+The space of DAGs is super-exponential with respect to variables, and so it is important that Intervene offers many graph generation algorithms which cover different parts of the DAG space.
+
+Specifically, Intervene implements five graph generation algorithms:
+
+- **Forest Fire**: https://www.cs.cornell.edu/home/kleinber/kdd05-time.pdf
+- **ic-dag**: https://link.springer.com/chapter/10.1007/3-540-36127-8_35
+- **preferential attachment**: https://science.sciencemag.org/content/286/5439/509
+- **waxman**: https://ieeexplore.ieee.org/document/12889
+- **small-world**: https://en.wikipedia.org/wiki/Small-world_network
+
+
+Latent Confounder Types
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A latent confounder is a unobserved node which has two (or more) children in a Bayesian network.
+When generating synthetic networks with Intervene latent confounders (H) can be introduced, these have been categorized
+into *types*, with respect to an intervention (I) and target (T) variable:
+
+- **DIRECT_DISCONNECTED**: C → I / C → T
+- **DIRECT_1HOP**: C → I / C → T / I → T
+- **DIRECT_NHOP**: C → I / C → T / I ... → ... T
+- **INTERVENING_PREDECESSING**: C → I / C → A / I ... → ... T
+- **TARGET_PREDECESSING**: C → A / C → T / I ... → ... T
+

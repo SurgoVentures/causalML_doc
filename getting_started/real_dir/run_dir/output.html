@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Output &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Output</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/getting_started/real_dir/run_dir/output.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="output">
+<h1>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h1>
+<p>In order to run the real-pipeline, the user needs to be specify output directory. This can be
+done by providing a path (relative or absolute) to the option <code class="code bash docutils literal notranslate"><span class="pre">--output</span></code>. The directory need not already exist
+and any parent directories in its path will be created recursively. This serves as the root output directory
+to which the output of the real-pipeline is to be saved.
+Since it is convenient for the user to be able to use the same output directory for multiple runs and
+for different datasets, each run is uniquely identifiable by a time stamp generated at runtime
+within a subdirectory taking the name of the data .csv file (minus .csv).
+More concretely, the output directory is structured as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="n">output</span> <span class="n">directory</span> <span class="p">(</span><span class="n">user</span><span class="o">-</span><span class="n">specified</span><span class="p">)</span>
+<span class="o">|</span>
+<span class="o">+--</span> <span class="n">name</span> <span class="n">of</span> <span class="n">data</span> <span class="o">.</span><span class="n">csv</span> <span class="n">file</span> <span class="p">(</span><span class="n">user</span><span class="o">-</span><span class="n">specified</span><span class="p">)</span>
+    <span class="o">|</span>
+    <span class="o">+--</span> <span class="n">timestamp</span> <span class="n">of</span> <span class="n">run</span>
+        <span class="o">|</span>
+        <span class="o">+--</span> <span class="n">output</span> <span class="mi">1</span>
+        \<span class="o">--</span> <span class="n">output</span> <span class="mi">2</span>
+        \<span class="o">--</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>with a practical example of an output directory produced for <code class="code bash docutils literal notranslate"><span class="pre">--data</span> <span class="pre">alarm.csv</span></code> and
+<code class="code bash docutils literal notranslate"><span class="pre">--output</span> <span class="pre">my_output_dir</span></code> (along with various interventions specified on target variable CVP)
+given below</p>
+<a class="reference internal image-reference" href="getting_started/real_dir/run_dir/real_dir/run_dir/output_dir_example.png"><img alt="getting_started/real_dir/run_dir/real_dir/run_dir/output_dir_example.png" src="getting_started/real_dir/run_dir/real_dir/run_dir/output_dir_example.png" style="width: 300px;" /></a>
+<p>The various outputs of the pipeline are collated in the <strong>report.html</strong> file.
+This contains information about the constraints enforced, plots of the odds ratios
+produced by any specified interventions, and a visual representation of the learnt graph.
+Checkpoints created following each expansion step of the Order MCMC algorithm can be found
+in a subdirectory entitled <strong>checkpoints</strong>. These checkpoints can be resumed from by supplying
+their file path to the <code class="code bash docutils literal notranslate"><span class="pre">--checkpoints</span></code> option in subsequent runs.
+A description of each of the output files is given in the table below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 92%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>convergence_plot_chain.png</p></td>
+<td><p>Plot showing the score of the estimated structure at each iteration of Order MCMC.</p></td>
+</tr>
+<tr class="row-odd"><td><p>learnt_dag.svg</p></td>
+<td><p>Plot of the learnt graphical model.</p></td>
+</tr>
+<tr class="row-even"><td><p>modelstring.txt</p></td>
+<td><p>Contains string specifying the learnt graphical model.</p></td>
+</tr>
+<tr class="row-odd"><td><p>odds_ratio*.svg</p></td>
+<td><p>Plots prefixed with odds_ratio, followed by the name of a variable and two numbers show the odds ratios computed with the aforementioned variable as the target, with the target level indicated by the first number, and the reference level indcated by the second number (see section <strong>Performing Interventions</strong> for more details).</p></td>
+</tr>
+<tr class="row-even"><td><p>odds_ratio_results.csv</p></td>
+<td><p>Tabulated results (odds ratios) of the interventions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>report.html</p></td>
+<td><p>HTML file summarising the results of the run.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

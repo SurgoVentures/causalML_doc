@@ -1,0 +1,49 @@
+Components of the Real-Pipeline
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. role:: bash(code)
+   :language: bash
+
+The main components of the real-pipeline are described below in order of execution. This tables
+is intended to just serve as an overview and we direct the reader to dedicated sections for more
+information regarding the particular components.
+
++----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Components           | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
++======================+============================================================================================================================================================================================================================================================================================================================================================================================================================+
+| Constraints          | Using prior knowledge we can constrain which edges should or should not be taken place before another, we would want to ensure that the former cannot be a descendent of the latter. This can be enabled by passing a path to a .yml configuration file to the :bash:`--constraints` option. See section **constraints**                                                                                                   |
++----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Structure learning   | Runs an algorithm (Order MCMC) that attempts to infer the causal structure of a dataset. This is enabled by default but can be disabled with the :bash:`--no-sl` (no structure learning) option.                                                                                                                                                                                                                           |
++----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Parameter estimation | If interventions are to be performed, the learnt structure is converted into a belief network by estimation of the conditional probability tables of each node from the data.                                                                                                                                                                                                                                              |
++----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Interventions        | Performs interventions on a belief network based on a configuration file and computes the odds ratio for each outcome with respect to a reference level. This can be enabled by passing a path to a .yml configuration file to the :bash:`--interventions` option. See section **Interventions** for information about what interventions are, how to configure the associated .yml file, and how to intepret the results. |
++----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Sensitivity analysis | Assesses how robust the learnt belief network under the influence of latent confounding. This can be enabled with the :bash:`--measure-sensitivity` switch-option but has :bash:`--interventions` being set as a pre-requisite. See section **Sensitivity Analysis** for an explanation of its purpose, how it works, and how to interpret the results.                                                                    |
++----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+The current available implementations of each of these is listed below.
+
+Structure Learning
+++++++++++++++++++++++
+
+The primary structure learning algorithm implemented in intervene is OrderMCMC, using the scoring function qNML. This is the default algorithm
+which is used across all CLI access points.
+
+The user also has access to:
+
+- the BIC score with OrderMCMC
+- the BIC score with GES
+- the constraint based algorithm, PC.
+
+These are not currently accessible through the CLI, please refer to the advanced sections for information on how to access these in Python.
+
+Parameter Estimation
++++++++++++++++++++++++++
+
+There are two parameter estimation techniques available to the user:
+
+- Maximum Likelihood Estimation (MLE)
+- Discriminative Frequency Estimation (DFE)
+
+Currently, only MLE is accessible through the CLI, and is the default.

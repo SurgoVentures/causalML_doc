@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Command-line Interface &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Quick Start" href="quick_start.html" />
+    <link rel="prev" title="Package Overview" href="package_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_overview.html">Package Overview</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command-line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-command-line-interface">Understanding the Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-list">Command List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#intervene">intervene</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Command-line Interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/getting_started/cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-line-interface">
+<h1>Command-line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="understanding-the-command-line-interface">
+<h2>Understanding the Command Line Interface<a class="headerlink" href="#understanding-the-command-line-interface" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to run intervene is via the text-based command-line interface (CLI).</p>
+<p>After following the steps detailed in the <em>installation</em> section you should have all of intervene and all its dependencies installed. To use the cli, make sure the python environment for which the installation was done, is activated. The basic stracture of intervene’s CLI is as following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">subcommand</span> <span class="o">--</span><span class="n">arg</span> <span class="mi">1</span> <span class="o">--</span><span class="n">arg2</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The CLI has a simple but strict syntax. The subcommand follows the entry-point ‘intervene’, with the options specified afterwards.
+Two hyphens followed by a word (e.g. –yaml my_yaml.yml) identify a command-line option’s use. One hyphen
+can be used if an option has a short-form (-d for –data, for instance) but not all commands have this option.
+A summary of the options, along with their default values, can be displayed by typing
+the command followed by <em>-h</em> or <em>–help</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">subcommand</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>One type of option that warrants special mention is the ‘switch-option’. Options of this type are an on/off toggle, and do not need to be parameterised.
+One example is the option <em>–no-sl</em>, belonging to the ‘real’ subcommand: there is no need to follow the option with True; typing the option alone will disable the structure learning component.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">real</span> <span class="o">-</span><span class="n">d</span> <span class="n">data</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">output_dir</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">sl</span>
+</pre></div>
+</div>
+<p>The main subcommands in intervene are:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>synthetic</p></td>
+<td><p>generating and running synthetic data.</p></td>
+</tr>
+<tr class="row-even"><td><p>real</p></td>
+<td><p>running real data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>preprocess</p></td>
+<td><p>preprocessing real data.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Detailed guides on the specific subcommands can be found in the subsequent sections of this guide.</p>
+</div>
+<div class="section" id="command-list">
+<h2>Command List<a class="headerlink" href="#command-list" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="intervene">
+<h3>intervene<a class="headerlink" href="#intervene" title="Permalink to this headline">¶</a></h3>
+<p>💫    Welcome to Intervene    💫</p>
+<p>A tool for deriving causal relationships from data.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>intervene <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="section" id="intervene-preprocess">
+<h4>preprocess<a class="headerlink" href="#intervene-preprocess" title="Permalink to this headline">¶</a></h4>
+<p>Perform data pre-processing.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>intervene preprocess <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-d">
+<span id="cmdoption-intervene-preprocess-data"></span><code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--data</code><code class="sig-prename descclassname"> &lt;data&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-d" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> Path to data .csv file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-o">
+<span id="cmdoption-intervene-preprocess-output"></span><code class="sig-name descname">-o</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--output</code><code class="sig-prename descclassname"> &lt;output&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-o" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> Path to output file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-constraints">
+<code class="sig-name descname">--constraints</code><code class="sig-prename descclassname"> &lt;constraints&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to constraints YAML config file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-param-file">
+<code class="sig-name descname">--param-file</code><code class="sig-prename descclassname"> &lt;param_file&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-param-file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to binning parameters YAML config file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-n-bins">
+<code class="sig-name descname">--n-bins</code><code class="sig-prename descclassname"> &lt;n_bins&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-n-bins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of bins when full param file is not available.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-cols-to-bin">
+<code class="sig-name descname">--cols-to-bin</code><code class="sig-prename descclassname"> &lt;cols_to_bin&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-cols-to-bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Columns to bin when full param file is not available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-label">
+<code class="sig-name descname">--label</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-intervene-preprocess-label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple percentage labels when full param file is not available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-imputation-method">
+<code class="sig-name descname">--imputation-method</code><code class="sig-prename descclassname"> &lt;imputation_method&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-imputation-method" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p>mice|central_tendency|hot_deck|regression|drop</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-fs-method">
+<code class="sig-name descname">--fs-method</code><code class="sig-prename descclassname"> &lt;fs_method&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-fs-method" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p>mi|san</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-n-features">
+<code class="sig-name descname">--n-features</code><code class="sig-prename descclassname"> &lt;n_features&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-n-features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of features to keep from feature selection.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-interventions">
+<code class="sig-name descname">--interventions</code><code class="sig-prename descclassname"> &lt;interventions&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-interventions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to interventions YAML config file. Required for feature selection.. Option is required for param/value pairs{‘fs_method’= [None]}.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-epochs">
+<code class="sig-name descname">--epochs</code><code class="sig-prename descclassname"> &lt;epochs&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-epochs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of epochs to train SAN for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>32</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-batch-size">
+<code class="sig-name descname">--batch-size</code><code class="sig-prename descclassname"> &lt;batch_size&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-batch-size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Batch size to use when training SAN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-hdim">
+<code class="sig-name descname">--hdim</code><code class="sig-prename descclassname"> &lt;hdim&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-hdim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dimensionality of the hidden layers in SAN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>128</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-n-heads">
+<code class="sig-name descname">--n-heads</code><code class="sig-prename descclassname"> &lt;n_heads&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-n-heads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of attention heads in SAN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-preprocess-scoring-method">
+<code class="sig-name descname">--scoring-method</code><code class="sig-prename descclassname"> &lt;scoring_method&gt;</code><a class="headerlink" href="#cmdoption-intervene-preprocess-scoring-method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to use to score the features with SAN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>global</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p>global|instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="intervene-real">
+<h4>real<a class="headerlink" href="#intervene-real" title="Permalink to this headline">¶</a></h4>
+<p>Run the Intervene toolbox on a real data .csv file.</p>
+<p>Learnt model and performance results will be stored in the specified output directory.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>intervene real <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt id="cmdoption-intervene-real-d">
+<span id="cmdoption-intervene-real-data"></span><code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--data</code><code class="sig-prename descclassname"> &lt;data&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-d" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> Path to data .csv file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-o">
+<span id="cmdoption-intervene-real-output"></span><code class="sig-name descname">-o</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--output</code><code class="sig-prename descclassname"> &lt;output&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-o" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> Path to where the output should be written.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-checkpoint">
+<code class="sig-name descname">--checkpoint</code><code class="sig-prename descclassname"> &lt;checkpoint&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to checkpoint directory from which to restart.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-constraints">
+<code class="sig-name descname">--constraints</code><code class="sig-prename descclassname"> &lt;constraints&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to constraints YAML config file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-interventions">
+<code class="sig-name descname">--interventions</code><code class="sig-prename descclassname"> &lt;interventions&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-interventions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to interventions YAML config file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-measure-sensitivity">
+<code class="sig-name descname">--measure-sensitivity</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-intervene-real-measure-sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether to perform sensitivity analysis alongside the interventions.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-dry-run">
+<code class="sig-name descname">--dry-run</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-intervene-real-dry-run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a list of actions to be performed without executing.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-steps">
+<code class="sig-name descname">--steps</code><code class="sig-prename descclassname"> &lt;steps&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of iterations to run each MCMC chain for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>25000</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-max-plus-one">
+<code class="sig-name descname">--max-plus-one</code><code class="sig-prename descclassname"> &lt;max_plus_one&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-max-plus-one" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of expansion steps to perform during Order MCMC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-no-sl">
+<code class="sig-name descname">--no-sl</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-intervene-real-no-sl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether to run OrderMCMC to learn the DAG structure. If False, the provided checkpoint model is used (thus requires checkpoint path to be set).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-ensemble">
+<code class="sig-name descname">--ensemble</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-intervene-real-ensemble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether to run the real pipeline in ensemble modeIf True, a bootstrap ensemble will be used.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-bootstrap_prop">
+<span id="cmdoption-intervene-real-bootstrap-prop"></span><code class="sig-name descname">--bootstrap_prop</code><code class="sig-prename descclassname"> &lt;bootstrap_prop&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-bootstrap_prop" title="Permalink to this definition">¶</a></dt>
+<dd><p>The proportion of data to sample with replacement when creating a bootstrap ensemble.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-modelstring">
+<code class="sig-name descname">--modelstring</code><code class="sig-prename descclassname"> &lt;modelstring&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-modelstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>A modelstring to use in place of structure learning. Loads the corresponding DAG. Resuming learning from modelstring currently not supported (learn_structure must be set to False)</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-real-timeout">
+<code class="sig-name descname">--timeout</code><code class="sig-prename descclassname"> &lt;timeout&gt;</code><a class="headerlink" href="#cmdoption-intervene-real-timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of seconds the pipeline is allowed to run for before timing out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>3600</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="intervene-synthetic">
+<h4>synthetic<a class="headerlink" href="#intervene-synthetic" title="Permalink to this headline">¶</a></h4>
+<p>Run Intervene on synthetic data.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>intervene synthetic <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-d">
+<span id="cmdoption-intervene-synthetic-data"></span><code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--data</code><code class="sig-prename descclassname"> &lt;data&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-d" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> Location of the generated/to-be-generated data.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-b">
+<span id="cmdoption-intervene-synthetic-bif"></span><code class="sig-name descname">-b</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--bif</code><code class="sig-prename descclassname"> &lt;bif&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-b" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the predefined BIF network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p>alarm|andes|asia|barley|cancer|child|diabetes|earthquake|hailfinder|hepar2|insurance|link|mildew|munin|pathfinder|pigs|sachs|survey|water|win95pts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-y">
+<span id="cmdoption-intervene-synthetic-yaml"></span><code class="sig-name descname">-y</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--yaml</code><code class="sig-prename descclassname"> &lt;yaml&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-y" title="Permalink to this definition">¶</a></dt>
+<dd><p>path to YAML config file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-o">
+<span id="cmdoption-intervene-synthetic-output"></span><code class="sig-name descname">-o</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--output</code><code class="sig-prename descclassname"> &lt;output&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-o" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> Path to where the output should be written.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-n">
+<span id="cmdoption-intervene-synthetic-num_samples"></span><span id="cmdoption-intervene-synthetic-num-samples"></span><code class="sig-name descname">-n</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--num_samples</code><code class="sig-prename descclassname"> &lt;num_samples&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-n" title="Permalink to this definition">¶</a></dt>
+<dd><p>If you are specifying a Bif file, how many samples do you want to draw? If not specifying a Bif, this will be ignored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>100</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-r">
+<span id="cmdoption-intervene-synthetic-repeats"></span><code class="sig-name descname">-r</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--repeats</code><code class="sig-prename descclassname"> &lt;repeats&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>If you are specifying a Bif file, how many repeats do you want to have? If not specifying a Bif, this will be ignored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-p">
+<span id="cmdoption-intervene-synthetic-pipeline"></span><code class="sig-name descname">-p</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--pipeline</code><code class="sig-prename descclassname"> &lt;pipeline&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which pipeline do you wnat to run?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>standard</p>
+</dd>
+<dt class="field-even">Options</dt>
+<dd class="field-even"><p>standard|diagnostic|refs|none</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-dry-run">
+<code class="sig-name descname">--dry-run</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-intervene-synthetic-dry-run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a list of actions to be performed without executing.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-wandb">
+<code class="sig-name descname">--wandb</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-intervene-synthetic-wandb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log results to wandb.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-m">
+<span id="cmdoption-intervene-synthetic-modelstring-dir"></span><code class="sig-name descname">-m</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--modelstring-dir</code><code class="sig-prename descclassname"> &lt;modelstring_dir&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to the modelstring directory. Required for the REFS pipeline. Option is required for param/value pairs{‘pipeline’= [‘refs’]}.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-steps">
+<code class="sig-name descname">--steps</code><code class="sig-prename descclassname"> &lt;steps&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of iterations to run each MCMC chain for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>25000</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-max-plus-one">
+<code class="sig-name descname">--max-plus-one</code><code class="sig-prename descclassname"> &lt;max_plus_one&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-max-plus-one" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of expansion steps to perform during Order MCMC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-hub-node-threshold">
+<code class="sig-name descname">--hub-node-threshold</code><code class="sig-prename descclassname"> &lt;hub_node_threshold&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-hub-node-threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>The in-degree threshold for a node qualifying as a hub-node.Only applicable to the diagnostic pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-learnt-structures">
+<code class="sig-name descname">--learnt-structures</code><code class="sig-prename descclassname"> &lt;learnt_structures&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-learnt-structures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to previous output folder which contains checkpoints.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-intervene-synthetic-timeout">
+<code class="sig-name descname">--timeout</code><code class="sig-prename descclassname"> &lt;timeout&gt;</code><a class="headerlink" href="#cmdoption-intervene-synthetic-timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of seconds the pipeline is allowed to run for before timing out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>3600</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>The CLI has been designed to cover most use-cases but the options are by no means sufficient to cover
+every element of intervene as to do so would be overwhelming considering the range of possibilities.
+There may be components in intervene that are absent from the predefined pipelines in which case a custom pipeline needs to be written (see section
+<em>Advanced Usage</em>).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="package_overview.html" class="btn btn-neutral float-left" title="Package Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

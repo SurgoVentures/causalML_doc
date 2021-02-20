@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.core.cli &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intervene.core.evaluation" href="evaluation.html" />
+    <link rel="prev" title="intervene.core" href="core.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core.html">intervene.core</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.core.cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html">intervene.core.evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="synthetic_data.html">intervene.core.synthetic_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="synthetic_data.bif_datasets.html">intervene.core.synthetic_data.bif_datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="templating.html">intervene.core.templating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html">intervene.core.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#synbn">SynBN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#bcause">BCause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.core.cli</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/core/cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-intervene.core.cli">
+<span id="intervene-core-cli"></span><h1>intervene.core.cli<a class="headerlink" href="#module-intervene.core.cli" title="Permalink to this headline">¶</a></h1>
+<p>Functions for Intervene’s command line interface.</p>
+<p><strong>Classes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf" title="intervene.core.cli.RequiredIf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RequiredIf</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Class for enforcing an option as a requirement for another when set to a particular value.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.core.cli.check_exists" title="intervene.core.cli.check_exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_exists</span></code></a>(path)</p></td>
+<td><p>Check whether a filepath exists.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.core.cli.map_param" title="intervene.core.cli.map_param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_param</span></code></a>(func)</p></td>
+<td><p>Generate a callback that applies a function/sequence of functions to the param’s value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.core.cli.real_data_pipeline" title="intervene.core.cli.real_data_pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">real_data_pipeline</span></code></a>(*, data_path, output_dir)</p></td>
+<td><p>Use to perform a standard workflow on real data, based on given args.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.core.cli.strings_from_literal" title="intervene.core.cli.strings_from_literal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strings_from_literal</span></code></a>(literal_type)</p></td>
+<td><p>Extract the list of values from a given Literal type.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="intervene.core.cli.RequiredIf">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.core.cli.</code><code class="sig-name descname">RequiredIf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.RequiredIf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">click_option_group._core.GroupedOption</span></code></p>
+<p>Class for enforcing an option as a requirement for another when set to a particular value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+<li><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Initialise the option.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+<li><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.get_default" title="intervene.core.cli.RequiredIf.get_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_default</span></code></a>(ctx)</p></td>
+<td><p>Given a context variable this calculates the default value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.get_error_hint" title="intervene.core.cli.RequiredIf.get_error_hint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_error_hint</span></code></a>(ctx)</p></td>
+<td><p>Get a stringified version of the param for use in error messages to indicate which param caused the error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.handle_parse_result" title="intervene.core.cli.RequiredIf.handle_parse_result"><code class="xref py py-obj docutils literal notranslate"><span class="pre">handle_parse_result</span></code></a>(ctx, opts, args)</p></td>
+<td><p>Handle the parsed results.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.process_value" title="intervene.core.cli.RequiredIf.process_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_value</span></code></a>(ctx, value)</p></td>
+<td><p>Given a value and context this runs the logic to convert the value as necessary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.prompt_for_value" title="intervene.core.cli.RequiredIf.prompt_for_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prompt_for_value</span></code></a>(ctx)</p></td>
+<td><p>This is an alternative flow that can be activated in the full value processing if a value does not exist.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.type_cast_value" title="intervene.core.cli.RequiredIf.type_cast_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_cast_value</span></code></a>(ctx, value)</p></td>
+<td><p>Given a value this runs it properly through the type system.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.group" title="intervene.core.cli.RequiredIf.group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">group</span></code></a></p></td>
+<td><p>Returns the reference to the group for this option</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.core.cli.RequiredIf.human_readable_name" title="intervene.core.cli.RequiredIf.human_readable_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">human_readable_name</span></code></a></p></td>
+<td><p>Returns the human readable name of this parameter.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.get_default">
+<code class="sig-name descname">get_default</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.RequiredIf.get_default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a context variable this calculates the default value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.get_error_hint">
+<code class="sig-name descname">get_error_hint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.RequiredIf.get_error_hint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a stringified version of the param for use in error messages to
+indicate which param caused the error.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.group">
+<em class="property">property </em><code class="sig-name descname">group</code><a class="headerlink" href="#intervene.core.cli.RequiredIf.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the reference to the group for this option</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">OptionGroup</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><cite>OptionGroup</cite> the group instance for this option</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.handle_parse_result">
+<code class="sig-name descname">handle_parse_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">opts</span></em>, <em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.RequiredIf.handle_parse_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle the parsed results.</p>
+<p>Raises an error if required_if’s value is set but this option’s isnt’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ctx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code>) – </p></li>
+<li><p><strong>opts</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – </p></li>
+<li><p><strong>args</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.human_readable_name">
+<em class="property">property </em><code class="sig-name descname">human_readable_name</code><a class="headerlink" href="#intervene.core.cli.RequiredIf.human_readable_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the human readable name of this parameter.  This is the
+same as the name for options, but the metavar for arguments.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.process_value">
+<code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.RequiredIf.process_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value and context this runs the logic to convert the
+value as necessary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.prompt_for_value">
+<code class="sig-name descname">prompt_for_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.RequiredIf.prompt_for_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an alternative flow that can be activated in the full
+value processing if a value does not exist.  It will prompt the
+user until a valid value exists and then returns the processed
+value as result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.core.cli.RequiredIf.type_cast_value">
+<code class="sig-name descname">type_cast_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.RequiredIf.type_cast_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value this runs it properly through the type system.
+This automatically handles things like <cite>nargs</cite> and <cite>multiple</cite> as
+well as composite types.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.core.cli.check_exists">
+<code class="sig-prename descclassname">intervene.core.cli.</code><code class="sig-name descname">check_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.check_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether a filepath exists. Intended for use in callbacks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.core.cli.map_param">
+<code class="sig-prename descclassname">intervene.core.cli.</code><code class="sig-name descname">map_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.map_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a callback that applies a function/sequence of functions to the param’s value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]]) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Option</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.core.cli.real_data_pipeline">
+<code class="sig-prename descclassname">intervene.core.cli.</code><code class="sig-name descname">real_data_pipeline</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data_path</span></em>, <em class="sig-param"><span class="n">output_dir</span></em>, <em class="sig-param"><span class="n">constraints_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">checkpoint_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">interventions</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">modelstring</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">measure_sensitivity</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">learn_structure</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">steps</span><span class="o">=</span><span class="default_value">25000</span></em>, <em class="sig-param"><span class="n">max_plus_one</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">ensemble</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">bootstrap_prop</span><span class="o">=</span><span class="default_value">0.8</span></em>, <em class="sig-param"><span class="n">dry_run</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">3600</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.real_data_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use to perform a standard workflow on real data, based on given args.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p></li>
+<li><p><strong>output_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p></li>
+<li><p><strong>constraints_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – </p></li>
+<li><p><strong>checkpoint_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – </p></li>
+<li><p><strong>interventions</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – </p></li>
+<li><p><strong>modelstring</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>measure_sensitivity</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>learn_structure</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>steps</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>max_plus_one</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>ensemble</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>bootstrap_prop</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+<li><p><strong>dry_run</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>timeout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.core.cli.strings_from_literal">
+<code class="sig-prename descclassname">intervene.core.cli.</code><code class="sig-name descname">strings_from_literal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">literal_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.core.cli.strings_from_literal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the list of values from a given Literal type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>literal_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="evaluation.html" class="btn btn-neutral float-right" title="intervene.core.evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="core.html" class="btn btn-neutral float-left" title="intervene.core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

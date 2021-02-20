@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Feature Selection &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Feature Selection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/getting_started/real_dir/prepare_dir/feature_selection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feature-selection">
+<h1>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">¶</a></h1>
+<p>It is often the case that not all features are useful for predicting variables of interest.
+Feature selection is the process of eliminating redundant features from the data with the view to
+decrease the learning time complexity and increase performance.
+The main motivation for reducing the dimensionality of the data and keeping the number of features
+as low as possible is to decrease the training time and enhance the performance of machine learning
+algorithms. Feature selection is inherently multi-objective in nature, with competing objectives of
+minimizing the number of features and minimizing the prediction error.</p>
+<p>The structural learning algorithm of intervene uses markov chain monte-carlo (MCMC) as its engine;
+MCMC is notoriously computationally intensive but can be made efficient for causal discovery by restricting
+the search to variable orderings, instead of global structure, the number of possibilities of which is
+superexponential with respect to the number of variables. Even using this trick, however, the search for the optimal
+structure has time complexity that is polynomial in the number of variables and so being able
+to do any kind of feature reduction is greatly beneficial.</p>
+<div class="section" id="feature-selection-in-intervene">
+<h2>Feature Selection in intervene<a class="headerlink" href="#feature-selection-in-intervene" title="Permalink to this headline">¶</a></h2>
+<p>Feature selection in intervene can be accessed via the CLI using the <em>preprocess</em> subcommand.
+We currently offer two methods: one based on mutual information (MI) and one based on a
+a neural network with a self-attention mechanism (SAN).</p>
+<p>When performing interventional analysis, in order to correctly capture the causal effects, the only set of required
+variables are those in the active path between the evidence and target variables. An active path between nodes
+X and Y given nodes E is any path between X and Y such that:</p>
+<ul class="simple">
+<li><p>For any v-structure (A → C ← B) on the path, either C or one of its descendents is in E</p></li>
+<li><p>No other nodes on the path are in E</p></li>
+</ul>
+<p>The goal of this feature selection is therefore to extract only the nodes on the unconditional active paths between the
+evidence and target variables. The feature selection is naturally integrated with existing intervention functionality;
+specified using a yaml file (see section <em>Performing Interventions</em>), feature selection will attempt to find the
+<span class="math notranslate nohighlight">\(k\)</span> nodes (<code class="code bash docutils literal notranslate"><span class="pre">--n-features</span></code>) on the active path, of specified target and evidence variables, by evaluating
+which are most predictive of them. Since feature-selection is
+indifferent to whether a variable is nominally a target or an evidence node, we refer to them
+collectively as ‘targets’.
+The <code class="code bash docutils literal notranslate"><span class="pre">--interventions</span></code> and  <code class="code bash docutils literal notranslate"><span class="pre">--n-features</span></code> options apply to both of the supported feature selection methods.
+It is important to note that <code class="code bash docutils literal notranslate"><span class="pre">--n-features</span></code> draws only from those features not contained in the set
+of target variables.
+Since the targets are required for interventions they must always be included in the data and thus do
+not contribute to <span class="math notranslate nohighlight">\(k\)</span>.
+As such the total number of variables in the graph after feature selection will be <span class="math notranslate nohighlight">\(k\)</span> + 1 +
+number of evidence nodes, not <span class="math notranslate nohighlight">\(k\)</span>.</p>
+</div>
+<div class="section" id="mutual-information-estimation">
+<h2>Mutual-Information Estimation<a class="headerlink" href="#mutual-information-estimation" title="Permalink to this headline">¶</a></h2>
+<p>Mutual information (MI) has a straightforward interpretation as the amount of shared information between distributions,
+More technically, for two random variables, X and Y, the MI is proportional to the ratio between the joint distribution
+and the product of their marginal distributions. For discrete variables it can be written as</p>
+<div class="math notranslate nohighlight">
+\[I(X; Y) = \sum_{y \in Y} \sum_{x \in X} p(x,y) \textrm{log}\frac{p(x, y}{p(x)p(y)}\]</div>
+<p>This is strictly non-negative and is equal to zero if and only if the X and Y
+are completely independent (meaning Y and X tell us nothing about each other), with higher values
+indicating higher dependency. Thus, MI can be utilised as a measure of features’ relevance and reundancy,
+having the benefit of  not being constrained by linearity between the variables, while also being able
+to handle continuous and discrete features (with an arbitrary number of categories) alike.
+For our purposes, the mutual information is computed between the set of all features and each target
+(the set of which is disjoint from the features) independently and the intersection between
+the ranked features iteratively computed, with each iteration the subset of each feature ranking is
+expanded by 1, starting from <span class="math notranslate nohighlight">\(k\)</span>, until <span class="math notranslate nohighlight">\(k\)</span> features have been selected.</p>
+<p>Feature selection with MI can be performed via the CLI’s preprocess subcommand by setting the value
+of the option <code class="code bash docutils literal notranslate"><span class="pre">--fs-method</span></code> to <strong>mi</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">preprocess</span> <span class="o">-</span><span class="n">d</span> <span class="n">data</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">new_data</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">interventions</span> <span class="n">interventions</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">fs</span><span class="o">-</span><span class="n">method</span> <span class="n">mi</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="self-attention-network-san">
+<h2>Self-Attention Network (SAN)<a class="headerlink" href="#self-attention-network-san" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="getting_started/real_dir/prepare_dir/real_dir/prepare_dir/san-diagram.png"><img alt="getting_started/real_dir/prepare_dir/real_dir/prepare_dir/san-diagram.png" src="getting_started/real_dir/prepare_dir/real_dir/prepare_dir/san-diagram.png" style="width: 600px;" /></a>
+<p>The neural network architecture that implements an attention mechanism over the input features.
+Given inputs features <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{N \times F}\)</span>, the first layer computes an attention mask
+with learned weight matrix <span class="math notranslate nohighlight">\(W \in \mathbb{R}^{F \times F}\)</span> and associated bias term
+<span class="math notranslate nohighlight">\(b \in \mathbb{R}^{F}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[A(x) = \frac{1}{H} \bigoplus_h \textrm{softmax}(W_h X^ + b)\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> denotes the index among the <span class="math notranslate nohighlight">\(H\)</span> attention heads.
+Simply put, we take <span class="math notranslate nohighlight">\(H\)</span> weight matrices and multiply each of them by the input features,
+transform the output into a probaility distribution with the softmax operator to yield <span class="math notranslate nohighlight">\(H\)</span>
+scores which are then averaged over, yielding an attention mask by which we element-wise multiply
+with the original inputs.</p>
+<p>With the network trained to predict the target variables, <span class="math notranslate nohighlight">\(Y \in \mathbb{R}^O\)</span>, the weight
+matrices can be understood to represent the relations between the different features.
+Post-training, we can obtain a <em>global</em> estimate of each feature’s importance by extracting the
+diagonal of the weight matrices, applying softmax, and averaging, or an <em>instance-based</em> estimate by
+computing the attention masks for all samples individually and averaging.</p>
+<p>Feature selection with SAN can be performed via the CLI’s preprocess subcommand by setting the value
+of the option <code class="code bash docutils literal notranslate"><span class="pre">--fs-method</span></code> to <em>san</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">preprocess</span> <span class="o">-</span><span class="n">d</span> <span class="n">data</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">new_data</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">interventions</span> <span class="n">interventions</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">fs</span><span class="o">-</span><span class="n">method</span> <span class="n">san</span>
+</pre></div>
+</div>
+<p>Detailed descriptions of the associated parameters are given in the table
+below. For a more in-depth explanation of SAN generally, vide Škrlj, Blaž, et al [1].</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>–batch-size</p></td>
+<td><p>Determines the batch-size used to train the SAN with stochastic gradient descent.
+The smaller the batch-size the lower the memory consumption and the noisier the
+estimate of the gradient.</p></td>
+</tr>
+<tr class="row-odd"><td><p>–epochs</p></td>
+<td><p>Number of epochs to train the SAN for. An epoch corresponds to a complete pass
+through the data and thus <span class="math notranslate nohighlight">\(\lceil{\frac{N}{m}}\rceil\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> and
+<span class="math notranslate nohighlight">\(m\)</span> are the number of samples in the data and the batch size, respectively.</p></td>
+</tr>
+<tr class="row-even"><td><p>–hdim</p></td>
+<td><p>Number of units in eac of the SAN’s hidden layer. The SAN consists of an initial
+attention layer which modulates the importance of the input features, followed by
+a fully-connected hidden and output layer with weight matrices of size
+<span class="math notranslate nohighlight">\(F \times hdim\)</span> and <span class="math notranslate nohighlight">\(hdim \times O\)</span>, respectively (where <span class="math notranslate nohighlight">\(O\)</span> is
+the total number of (ungrouped) outputs).</p></td>
+</tr>
+<tr class="row-odd"><td><p>–n-heads</p></td>
+<td><p>Number of heads (<span class="math notranslate nohighlight">\(M\)</span>) to use in the SAN’s attention layer.</p></td>
+</tr>
+<tr class="row-even"><td><p>–scoring-methods</p></td>
+<td><p>The method used to determine importance of each feature, post-training.
+If ‘global’, feature importance is evaluated determined weight matrices.
+If ‘instance’, feature importance is determined by computing the average of the
+attention layer’s outputs over the data samples.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[1] <a class="reference external" href="https://arxiv.org/abs/2002.04464">https://arxiv.org/abs/2002.04464</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

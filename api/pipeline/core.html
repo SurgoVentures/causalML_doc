@@ -1,0 +1,2376 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.pipeline.core &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="intervene.pipeline" href="pipeline.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#synbn">SynBN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#bcause">BCause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#pipeline">Pipeline</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pipeline.html">intervene.pipeline</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.pipeline.core</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.pipeline.core</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/pipeline/core.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-intervene.pipeline.core">
+<span id="intervene-pipeline-core"></span><h1>intervene.pipeline.core<a class="headerlink" href="#module-intervene.pipeline.core" title="Permalink to this headline">¶</a></h1>
+<p>core of pipeline components.</p>
+<p><strong>Classes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr" title="intervene.pipeline.core.DiagnosticStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiagnosticStr</span></code></a></p></td>
+<td><p>Strings used during diagnostics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.Metric" title="intervene.pipeline.core.Metric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Metric</span></code></a>()</p></td>
+<td><p>Metric.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat" title="intervene.pipeline.core.MetricFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetricFloat</span></code></a>([x])</p></td>
+<td><p>Metric Float.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt" title="intervene.pipeline.core.MetricInt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetricInt</span></code></a></p></td>
+<td><p>Metric Int.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr" title="intervene.pipeline.core.MetricStr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetricStr</span></code></a></p></td>
+<td><p>Metric Str.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel" title="intervene.pipeline.core.OutputLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OutputLabel</span></code></a></p></td>
+<td><p>Output Label.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.Pipeline" title="intervene.pipeline.core.Pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pipeline</span></code></a>([timeout])</p></td>
+<td><p>Object to store functions and state of pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.PipelineItem" title="intervene.pipeline.core.PipelineItem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PipelineItem</span></code></a>(value)</p></td>
+<td><p>Enum containing allowed pipeline State attribute names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.State" title="intervene.pipeline.core.State"><code class="xref py py-obj docutils literal notranslate"><span class="pre">State</span></code></a>()</p></td>
+<td><p>Class defining the state of the pipeline.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.pipelinemethod" title="intervene.pipeline.core.pipelinemethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pipelinemethod</span></code></a>()</p></td>
+<td><p>Decorate functions pipeline methods.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="intervene.pipeline.core.DiagnosticStr">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">DiagnosticStr</code><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Strings used during diagnostics.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.capitalize" title="intervene.pipeline.core.DiagnosticStr.capitalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capitalize</span></code></a>()</p></td>
+<td><p>Return a capitalized version of the string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.casefold" title="intervene.pipeline.core.DiagnosticStr.casefold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">casefold</span></code></a>()</p></td>
+<td><p>Return a version of the string suitable for caseless comparisons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.center" title="intervene.pipeline.core.DiagnosticStr.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a centered string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.count" title="intervene.pipeline.core.DiagnosticStr.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the number of non-overlapping occurrences of substring sub in string S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.encode" title="intervene.pipeline.core.DiagnosticStr.encode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code></a>([encoding, errors])</p></td>
+<td><p>Encode the string using the codec registered for encoding.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.endswith" title="intervene.pipeline.core.DiagnosticStr.endswith"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endswith</span></code></a>(suffix[, start[, end]])</p></td>
+<td><p>Return True if S ends with the specified suffix, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.expandtabs" title="intervene.pipeline.core.DiagnosticStr.expandtabs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expandtabs</span></code></a>([tabsize])</p></td>
+<td><p>Return a copy where all tab characters are expanded using spaces.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.find" title="intervene.pipeline.core.DiagnosticStr.find"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.format" title="intervene.pipeline.core.DiagnosticStr.format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Return a formatted version of S, using substitutions from args and kwargs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.format_map" title="intervene.pipeline.core.DiagnosticStr.format_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_map</span></code></a>(mapping)</p></td>
+<td><p>Return a formatted version of S, using substitutions from mapping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.index" title="intervene.pipeline.core.DiagnosticStr.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isalnum" title="intervene.pipeline.core.DiagnosticStr.isalnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isalnum</span></code></a>()</p></td>
+<td><p>Return True if the string is an alpha-numeric string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isalpha" title="intervene.pipeline.core.DiagnosticStr.isalpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isalpha</span></code></a>()</p></td>
+<td><p>Return True if the string is an alphabetic string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isascii" title="intervene.pipeline.core.DiagnosticStr.isascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isascii</span></code></a>()</p></td>
+<td><p>Return True if all characters in the string are ASCII, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isdecimal" title="intervene.pipeline.core.DiagnosticStr.isdecimal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isdecimal</span></code></a>()</p></td>
+<td><p>Return True if the string is a decimal string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isdigit" title="intervene.pipeline.core.DiagnosticStr.isdigit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isdigit</span></code></a>()</p></td>
+<td><p>Return True if the string is a digit string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isidentifier" title="intervene.pipeline.core.DiagnosticStr.isidentifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isidentifier</span></code></a>()</p></td>
+<td><p>Return True if the string is a valid Python identifier, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.islower" title="intervene.pipeline.core.DiagnosticStr.islower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">islower</span></code></a>()</p></td>
+<td><p>Return True if the string is a lowercase string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isnumeric" title="intervene.pipeline.core.DiagnosticStr.isnumeric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isnumeric</span></code></a>()</p></td>
+<td><p>Return True if the string is a numeric string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isprintable" title="intervene.pipeline.core.DiagnosticStr.isprintable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isprintable</span></code></a>()</p></td>
+<td><p>Return True if the string is printable, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isspace" title="intervene.pipeline.core.DiagnosticStr.isspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isspace</span></code></a>()</p></td>
+<td><p>Return True if the string is a whitespace string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.istitle" title="intervene.pipeline.core.DiagnosticStr.istitle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">istitle</span></code></a>()</p></td>
+<td><p>Return True if the string is a title-cased string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.isupper" title="intervene.pipeline.core.DiagnosticStr.isupper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isupper</span></code></a>()</p></td>
+<td><p>Return True if the string is an uppercase string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.join" title="intervene.pipeline.core.DiagnosticStr.join"><code class="xref py py-obj docutils literal notranslate"><span class="pre">join</span></code></a>(iterable, /)</p></td>
+<td><p>Concatenate any number of strings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.ljust" title="intervene.pipeline.core.DiagnosticStr.ljust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ljust</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a left-justified string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.lower" title="intervene.pipeline.core.DiagnosticStr.lower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lower</span></code></a>()</p></td>
+<td><p>Return a copy of the string converted to lowercase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.lstrip" title="intervene.pipeline.core.DiagnosticStr.lstrip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lstrip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with leading whitespace removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.maketrans" title="intervene.pipeline.core.DiagnosticStr.maketrans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maketrans</span></code></a></p></td>
+<td><p>Return a translation table usable for str.translate().</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.partition" title="intervene.pipeline.core.DiagnosticStr.partition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partition</span></code></a>(sep, /)</p></td>
+<td><p>Partition the string into three parts using the given separator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.replace" title="intervene.pipeline.core.DiagnosticStr.replace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace</span></code></a>(old, new[, count])</p></td>
+<td><p>Return a copy with all occurrences of substring old replaced by new.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.rfind" title="intervene.pipeline.core.DiagnosticStr.rfind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfind</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.rindex" title="intervene.pipeline.core.DiagnosticStr.rindex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rindex</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.rjust" title="intervene.pipeline.core.DiagnosticStr.rjust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rjust</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a right-justified string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.rpartition" title="intervene.pipeline.core.DiagnosticStr.rpartition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rpartition</span></code></a>(sep, /)</p></td>
+<td><p>Partition the string into three parts using the given separator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.rsplit" title="intervene.pipeline.core.DiagnosticStr.rsplit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsplit</span></code></a>([sep, maxsplit])</p></td>
+<td><p>Return a list of the words in the string, using sep as the delimiter string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.rstrip" title="intervene.pipeline.core.DiagnosticStr.rstrip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rstrip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with trailing whitespace removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.split" title="intervene.pipeline.core.DiagnosticStr.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>([sep, maxsplit])</p></td>
+<td><p>Return a list of the words in the string, using sep as the delimiter string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.splitlines" title="intervene.pipeline.core.DiagnosticStr.splitlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">splitlines</span></code></a>([keepends])</p></td>
+<td><p>Return a list of the lines in the string, breaking at line boundaries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.startswith" title="intervene.pipeline.core.DiagnosticStr.startswith"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startswith</span></code></a>(prefix[, start[, end]])</p></td>
+<td><p>Return True if S starts with the specified prefix, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.strip" title="intervene.pipeline.core.DiagnosticStr.strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with leading and trailing whitespace removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.swapcase" title="intervene.pipeline.core.DiagnosticStr.swapcase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">swapcase</span></code></a>()</p></td>
+<td><p>Convert uppercase characters to lowercase and lowercase characters to uppercase.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.title" title="intervene.pipeline.core.DiagnosticStr.title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code></a>()</p></td>
+<td><p>Return a version of the string where each word is titlecased.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.translate" title="intervene.pipeline.core.DiagnosticStr.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate</span></code></a>(table, /)</p></td>
+<td><p>Replace each character in the string using the given translation table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.upper" title="intervene.pipeline.core.DiagnosticStr.upper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">upper</span></code></a>()</p></td>
+<td><p>Return a copy of the string converted to uppercase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.DiagnosticStr.zfill" title="intervene.pipeline.core.DiagnosticStr.zfill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zfill</span></code></a>(width, /)</p></td>
+<td><p>Pad a numeric string with zeros on the left, to fill a field of the given width.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.capitalize">
+<code class="sig-name descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.capitalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a capitalized version of the string.</p>
+<p>More specifically, make the first character have upper case and the rest lower
+case.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.casefold">
+<code class="sig-name descname">casefold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.casefold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a version of the string suitable for caseless comparisons.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.center">
+<code class="sig-name descname">center</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a centered string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of non-overlapping occurrences of substring sub in
+string S[start:end].  Optional arguments start and end are
+interpreted as in slice notation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">'utf-8'</span></em>, <em class="sig-param"><span class="n">errors</span><span class="o">=</span><span class="default_value">'strict'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode the string using the codec registered for encoding.</p>
+<dl class="simple">
+<dt>encoding</dt><dd><p>The encoding in which to encode the string.</p>
+</dd>
+<dt>errors</dt><dd><p>The error handling scheme to use for encoding errors.
+The default is ‘strict’ meaning that encoding errors raise a
+UnicodeEncodeError.  Other possible values are ‘ignore’, ‘replace’ and
+‘xmlcharrefreplace’ as well as any other name registered with
+codecs.register_error that can handle UnicodeEncodeErrors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.endswith">
+<code class="sig-name descname">endswith</code><span class="sig-paren">(</span><em class="sig-param">suffix</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.endswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S ends with the specified suffix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+suffix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.expandtabs">
+<code class="sig-name descname">expandtabs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tabsize</span><span class="o">=</span><span class="default_value">8</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.expandtabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy where all tab characters are expanded using spaces.</p>
+<p>If tabsize is not given, a tab size of 8 characters is assumed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.find">
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lowest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a formatted version of S, using substitutions from args and kwargs.
+The substitutions are identified by braces (‘{‘ and ‘}’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.format_map">
+<code class="sig-name descname">format_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mapping</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.format_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a formatted version of S, using substitutions from mapping.
+The substitutions are identified by braces (‘{‘ and ‘}’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lowest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isalnum">
+<code class="sig-name descname">isalnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isalnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an alpha-numeric string, False otherwise.</p>
+<p>A string is alpha-numeric if all characters in the string are alpha-numeric and
+there is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isalpha">
+<code class="sig-name descname">isalpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isalpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an alphabetic string, False otherwise.</p>
+<p>A string is alphabetic if all characters in the string are alphabetic and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isascii">
+<code class="sig-name descname">isascii</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all characters in the string are ASCII, False otherwise.</p>
+<p>ASCII characters have code points in the range U+0000-U+007F.
+Empty string is ASCII too.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isdecimal">
+<code class="sig-name descname">isdecimal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isdecimal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a decimal string, False otherwise.</p>
+<p>A string is a decimal string if all characters in the string are decimal and
+there is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isdigit">
+<code class="sig-name descname">isdigit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isdigit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a digit string, False otherwise.</p>
+<p>A string is a digit string if all characters in the string are digits and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isidentifier">
+<code class="sig-name descname">isidentifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isidentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a valid Python identifier, False otherwise.</p>
+<p>Call keyword.iskeyword(s) to test whether string s is a reserved identifier,
+such as “def” or “class”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.islower">
+<code class="sig-name descname">islower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.islower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a lowercase string, False otherwise.</p>
+<p>A string is lowercase if all cased characters in the string are lowercase and
+there is at least one cased character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isnumeric">
+<code class="sig-name descname">isnumeric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isnumeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a numeric string, False otherwise.</p>
+<p>A string is numeric if all characters in the string are numeric and there is at
+least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isprintable">
+<code class="sig-name descname">isprintable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isprintable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is printable, False otherwise.</p>
+<p>A string is printable if all of its characters are considered printable in
+repr() or if it is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isspace">
+<code class="sig-name descname">isspace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a whitespace string, False otherwise.</p>
+<p>A string is whitespace if all characters in the string are whitespace and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.istitle">
+<code class="sig-name descname">istitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.istitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a title-cased string, False otherwise.</p>
+<p>In a title-cased string, upper- and title-case characters may only
+follow uncased characters and lowercase characters only cased ones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.isupper">
+<code class="sig-name descname">isupper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.isupper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an uppercase string, False otherwise.</p>
+<p>A string is uppercase if all cased characters in the string are uppercase and
+there is at least one cased character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.join">
+<code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iterable</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate any number of strings.</p>
+<p>The string whose method is called is inserted in between each given string.
+The result is returned as a new string.</p>
+<p>Example: ‘.’.join([‘ab’, ‘pq’, ‘rs’]) -&gt; ‘ab.pq.rs’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.ljust">
+<code class="sig-name descname">ljust</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.ljust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a left-justified string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.lower">
+<code class="sig-name descname">lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string converted to lowercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.lstrip">
+<code class="sig-name descname">lstrip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.lstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with leading whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.maketrans">
+<em class="property">static </em><code class="sig-name descname">maketrans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.maketrans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a translation table usable for str.translate().</p>
+<p>If there is only one argument, it must be a dictionary mapping Unicode
+ordinals (integers) or characters to Unicode ordinals, strings or None.
+Character keys will be then converted to ordinals.
+If there are two arguments, they must be strings of equal length, and
+in the resulting dictionary, each character in x will be mapped to the
+character at the same position in y. If there is a third argument, it
+must be a string, whose characters will be mapped to None in the result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.partition">
+<code class="sig-name descname">partition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the string into three parts using the given separator.</p>
+<p>This will search for the separator in the string.  If the separator is found,
+returns a 3-tuple containing the part before the separator, the separator
+itself, and the part after it.</p>
+<p>If the separator is not found, returns a 3-tuple containing the original string
+and two empty strings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.replace">
+<code class="sig-name descname">replace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">old</span></em>, <em class="sig-param"><span class="n">new</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy with all occurrences of substring old replaced by new.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>count</dt><dd><p>Maximum number of occurrences to replace.
+-1 (the default value) means replace all occurrences.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>If the optional argument count is given, only the first count occurrences are
+replaced.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.rfind">
+<code class="sig-name descname">rfind</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.rfind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.rindex">
+<code class="sig-name descname">rindex</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.rindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.rjust">
+<code class="sig-name descname">rjust</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.rjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a right-justified string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.rpartition">
+<code class="sig-name descname">rpartition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.rpartition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the string into three parts using the given separator.</p>
+<p>This will search for the separator in the string, starting at the end. If
+the separator is found, returns a 3-tuple containing the part before the
+separator, the separator itself, and the part after it.</p>
+<p>If the separator is not found, returns a 3-tuple containing two empty strings
+and the original string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.rsplit">
+<code class="sig-name descname">rsplit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.rsplit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in the string, using sep as the delimiter string.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sep</dt><dd><p>The delimiter according which to split the string.
+None (the default value) means split according to any whitespace,
+and discard empty strings from the result.</p>
+</dd>
+<dt>maxsplit</dt><dd><p>Maximum number of splits to do.
+-1 (the default value) means no limit.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Splits are done starting at the end of the string and working to the front.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.rstrip">
+<code class="sig-name descname">rstrip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.rstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with trailing whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.split">
+<code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in the string, using sep as the delimiter string.</p>
+<dl class="simple">
+<dt>sep</dt><dd><p>The delimiter according which to split the string.
+None (the default value) means split according to any whitespace,
+and discard empty strings from the result.</p>
+</dd>
+<dt>maxsplit</dt><dd><p>Maximum number of splits to do.
+-1 (the default value) means no limit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.splitlines">
+<code class="sig-name descname">splitlines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keepends</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.splitlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the lines in the string, breaking at line boundaries.</p>
+<p>Line breaks are not included in the resulting list unless keepends is given and
+true.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.startswith">
+<code class="sig-name descname">startswith</code><span class="sig-paren">(</span><em class="sig-param">prefix</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.startswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S starts with the specified prefix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+prefix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.strip">
+<code class="sig-name descname">strip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with leading and trailing whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.swapcase">
+<code class="sig-name descname">swapcase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.swapcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert uppercase characters to lowercase and lowercase characters to uppercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.title">
+<code class="sig-name descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a version of the string where each word is titlecased.</p>
+<p>More specifically, words start with uppercased characters and all remaining
+cased characters have lower case.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace each character in the string using the given translation table.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>table</dt><dd><p>Translation table, which must be a mapping of Unicode ordinals to
+Unicode ordinals, strings, or None.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The table must implement lookup/indexing via __getitem__, for instance a
+dictionary or list.  If this operation raises LookupError, the character is
+left untouched.  Characters mapped to None are deleted.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.upper">
+<code class="sig-name descname">upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.upper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string converted to uppercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.DiagnosticStr.zfill">
+<code class="sig-name descname">zfill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.DiagnosticStr.zfill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad a numeric string with zeros on the left, to fill a field of the given width.</p>
+<p>The string is never truncated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.Metric">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">Metric</code><a class="headerlink" href="#intervene.pipeline.core.Metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Metric.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.MetricFloat">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">MetricFloat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricFloat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.pipeline.core.core.Metric</span></code></p>
+<p>Metric Float.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat.as_integer_ratio" title="intervene.pipeline.core.MetricFloat.as_integer_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_integer_ratio</span></code></a>()</p></td>
+<td><p>Return integer ratio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat.conjugate" title="intervene.pipeline.core.MetricFloat.conjugate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conjugate</span></code></a>()</p></td>
+<td><p>Return self, the complex conjugate of any float.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat.fromhex" title="intervene.pipeline.core.MetricFloat.fromhex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fromhex</span></code></a>()</p></td>
+<td><p>Create a floating-point number from a hexadecimal string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat.hex" title="intervene.pipeline.core.MetricFloat.hex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex</span></code></a>()</p></td>
+<td><p>Return a hexadecimal representation of a floating-point number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat.is_integer" title="intervene.pipeline.core.MetricFloat.is_integer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_integer</span></code></a>()</p></td>
+<td><p>Return True if the float is an integer.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat.imag" title="intervene.pipeline.core.MetricFloat.imag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imag</span></code></a></p></td>
+<td><p>the imaginary part of a complex number</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricFloat.real" title="intervene.pipeline.core.MetricFloat.real"><code class="xref py py-obj docutils literal notranslate"><span class="pre">real</span></code></a></p></td>
+<td><p>the real part of a complex number</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricFloat.as_integer_ratio">
+<code class="sig-name descname">as_integer_ratio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricFloat.as_integer_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return integer ratio.</p>
+<p>Return a pair of integers, whose ratio is exactly equal to the original float
+and with a positive denominator.</p>
+<p>Raise OverflowError on infinities and a ValueError on NaNs.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(10, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(0, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-.</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(-1, 4)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricFloat.conjugate">
+<code class="sig-name descname">conjugate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricFloat.conjugate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self, the complex conjugate of any float.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricFloat.fromhex">
+<code class="sig-name descname">fromhex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricFloat.fromhex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a floating-point number from a hexadecimal string.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;0x1.ffffp10&#39;</span><span class="p">)</span>
+<span class="go">2047.984375</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;-0x1p-1074&#39;</span><span class="p">)</span>
+<span class="go">-5e-324</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricFloat.hex">
+<code class="sig-name descname">hex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricFloat.hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a hexadecimal representation of a floating-point number.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+<span class="go">&#39;-0x1.999999999999ap-4&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">3.14159</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+<span class="go">&#39;0x1.921f9f01b866ep+1&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="intervene.pipeline.core.MetricFloat.imag">
+<code class="sig-name descname">imag</code><a class="headerlink" href="#intervene.pipeline.core.MetricFloat.imag" title="Permalink to this definition">¶</a></dt>
+<dd><p>the imaginary part of a complex number</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricFloat.is_integer">
+<code class="sig-name descname">is_integer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricFloat.is_integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the float is an integer.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="intervene.pipeline.core.MetricFloat.real">
+<code class="sig-name descname">real</code><a class="headerlink" href="#intervene.pipeline.core.MetricFloat.real" title="Permalink to this definition">¶</a></dt>
+<dd><p>the real part of a complex number</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.MetricInt">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">MetricInt</code><a class="headerlink" href="#intervene.pipeline.core.MetricInt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.pipeline.core.core.Metric</span></code></p>
+<p>Metric Int.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.as_integer_ratio" title="intervene.pipeline.core.MetricInt.as_integer_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_integer_ratio</span></code></a>()</p></td>
+<td><p>Return integer ratio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.bit_length" title="intervene.pipeline.core.MetricInt.bit_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bit_length</span></code></a>()</p></td>
+<td><p>Number of bits necessary to represent self in binary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.conjugate" title="intervene.pipeline.core.MetricInt.conjugate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conjugate</span></code></a></p></td>
+<td><p>Returns self, the complex conjugate of any int.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.from_bytes" title="intervene.pipeline.core.MetricInt.from_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_bytes</span></code></a>(byteorder, *[, signed])</p></td>
+<td><p>Return the integer represented by the given array of bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.to_bytes" title="intervene.pipeline.core.MetricInt.to_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bytes</span></code></a>(length, byteorder, *[, signed])</p></td>
+<td><p>Return an array of bytes representing an integer.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.denominator" title="intervene.pipeline.core.MetricInt.denominator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">denominator</span></code></a></p></td>
+<td><p>the denominator of a rational number in lowest terms</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.imag" title="intervene.pipeline.core.MetricInt.imag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imag</span></code></a></p></td>
+<td><p>the imaginary part of a complex number</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.numerator" title="intervene.pipeline.core.MetricInt.numerator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numerator</span></code></a></p></td>
+<td><p>the numerator of a rational number in lowest terms</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricInt.real" title="intervene.pipeline.core.MetricInt.real"><code class="xref py py-obj docutils literal notranslate"><span class="pre">real</span></code></a></p></td>
+<td><p>the real part of a complex number</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricInt.as_integer_ratio">
+<code class="sig-name descname">as_integer_ratio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricInt.as_integer_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return integer ratio.</p>
+<p>Return a pair of integers, whose ratio is exactly equal to the original int
+and with a positive denominator.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(10, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(-10, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="go">(0, 1)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricInt.bit_length">
+<code class="sig-name descname">bit_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricInt.bit_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of bits necessary to represent self in binary.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span>
+<span class="go">&#39;0b100101&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
+<span class="go">6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricInt.conjugate">
+<code class="sig-name descname">conjugate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricInt.conjugate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns self, the complex conjugate of any int.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="intervene.pipeline.core.MetricInt.denominator">
+<code class="sig-name descname">denominator</code><a class="headerlink" href="#intervene.pipeline.core.MetricInt.denominator" title="Permalink to this definition">¶</a></dt>
+<dd><p>the denominator of a rational number in lowest terms</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricInt.from_bytes">
+<code class="sig-name descname">from_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">byteorder</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">signed</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricInt.from_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the integer represented by the given array of bytes.</p>
+<dl class="simple">
+<dt>bytes</dt><dd><p>Holds the array of bytes to convert.  The argument must either
+support the buffer protocol or be an iterable object producing bytes.
+Bytes and bytearray are examples of built-in objects that support the
+buffer protocol.</p>
+</dd>
+<dt>byteorder</dt><dd><p>The byte order used to represent the integer.  If byteorder is ‘big’,
+the most significant byte is at the beginning of the byte array.  If
+byteorder is ‘little’, the most significant byte is at the end of the
+byte array.  To request the native byte order of the host system, use
+<a href="#id1"><span class="problematic" id="id2">`</span></a>sys.byteorder’ as the byte order value.</p>
+</dd>
+<dt>signed</dt><dd><p>Indicates whether two’s complement is used to represent the integer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="intervene.pipeline.core.MetricInt.imag">
+<code class="sig-name descname">imag</code><a class="headerlink" href="#intervene.pipeline.core.MetricInt.imag" title="Permalink to this definition">¶</a></dt>
+<dd><p>the imaginary part of a complex number</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="intervene.pipeline.core.MetricInt.numerator">
+<code class="sig-name descname">numerator</code><a class="headerlink" href="#intervene.pipeline.core.MetricInt.numerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>the numerator of a rational number in lowest terms</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="intervene.pipeline.core.MetricInt.real">
+<code class="sig-name descname">real</code><a class="headerlink" href="#intervene.pipeline.core.MetricInt.real" title="Permalink to this definition">¶</a></dt>
+<dd><p>the real part of a complex number</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricInt.to_bytes">
+<code class="sig-name descname">to_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span></em>, <em class="sig-param"><span class="n">byteorder</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">signed</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricInt.to_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array of bytes representing an integer.</p>
+<dl class="simple">
+<dt>length</dt><dd><p>Length of bytes object to use.  An OverflowError is raised if the
+integer is not representable with the given number of bytes.</p>
+</dd>
+<dt>byteorder</dt><dd><p>The byte order used to represent the integer.  If byteorder is ‘big’,
+the most significant byte is at the beginning of the byte array.  If
+byteorder is ‘little’, the most significant byte is at the end of the
+byte array.  To request the native byte order of the host system, use
+<a href="#id3"><span class="problematic" id="id4">`</span></a>sys.byteorder’ as the byte order value.</p>
+</dd>
+<dt>signed</dt><dd><p>Determines whether two’s complement is used to represent the integer.
+If signed is False and a negative integer is given, an OverflowError
+is raised.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.MetricStr">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">MetricStr</code><a class="headerlink" href="#intervene.pipeline.core.MetricStr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.pipeline.core.core.Metric</span></code></p>
+<p>Metric Str.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.capitalize" title="intervene.pipeline.core.MetricStr.capitalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capitalize</span></code></a>()</p></td>
+<td><p>Return a capitalized version of the string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.casefold" title="intervene.pipeline.core.MetricStr.casefold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">casefold</span></code></a>()</p></td>
+<td><p>Return a version of the string suitable for caseless comparisons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.center" title="intervene.pipeline.core.MetricStr.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a centered string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.count" title="intervene.pipeline.core.MetricStr.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the number of non-overlapping occurrences of substring sub in string S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.encode" title="intervene.pipeline.core.MetricStr.encode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code></a>([encoding, errors])</p></td>
+<td><p>Encode the string using the codec registered for encoding.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.endswith" title="intervene.pipeline.core.MetricStr.endswith"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endswith</span></code></a>(suffix[, start[, end]])</p></td>
+<td><p>Return True if S ends with the specified suffix, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.expandtabs" title="intervene.pipeline.core.MetricStr.expandtabs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expandtabs</span></code></a>([tabsize])</p></td>
+<td><p>Return a copy where all tab characters are expanded using spaces.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.find" title="intervene.pipeline.core.MetricStr.find"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.format" title="intervene.pipeline.core.MetricStr.format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Return a formatted version of S, using substitutions from args and kwargs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.format_map" title="intervene.pipeline.core.MetricStr.format_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_map</span></code></a>(mapping)</p></td>
+<td><p>Return a formatted version of S, using substitutions from mapping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.index" title="intervene.pipeline.core.MetricStr.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isalnum" title="intervene.pipeline.core.MetricStr.isalnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isalnum</span></code></a>()</p></td>
+<td><p>Return True if the string is an alpha-numeric string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isalpha" title="intervene.pipeline.core.MetricStr.isalpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isalpha</span></code></a>()</p></td>
+<td><p>Return True if the string is an alphabetic string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isascii" title="intervene.pipeline.core.MetricStr.isascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isascii</span></code></a>()</p></td>
+<td><p>Return True if all characters in the string are ASCII, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isdecimal" title="intervene.pipeline.core.MetricStr.isdecimal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isdecimal</span></code></a>()</p></td>
+<td><p>Return True if the string is a decimal string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isdigit" title="intervene.pipeline.core.MetricStr.isdigit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isdigit</span></code></a>()</p></td>
+<td><p>Return True if the string is a digit string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isidentifier" title="intervene.pipeline.core.MetricStr.isidentifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isidentifier</span></code></a>()</p></td>
+<td><p>Return True if the string is a valid Python identifier, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.islower" title="intervene.pipeline.core.MetricStr.islower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">islower</span></code></a>()</p></td>
+<td><p>Return True if the string is a lowercase string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isnumeric" title="intervene.pipeline.core.MetricStr.isnumeric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isnumeric</span></code></a>()</p></td>
+<td><p>Return True if the string is a numeric string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isprintable" title="intervene.pipeline.core.MetricStr.isprintable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isprintable</span></code></a>()</p></td>
+<td><p>Return True if the string is printable, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isspace" title="intervene.pipeline.core.MetricStr.isspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isspace</span></code></a>()</p></td>
+<td><p>Return True if the string is a whitespace string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.istitle" title="intervene.pipeline.core.MetricStr.istitle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">istitle</span></code></a>()</p></td>
+<td><p>Return True if the string is a title-cased string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.isupper" title="intervene.pipeline.core.MetricStr.isupper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isupper</span></code></a>()</p></td>
+<td><p>Return True if the string is an uppercase string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.join" title="intervene.pipeline.core.MetricStr.join"><code class="xref py py-obj docutils literal notranslate"><span class="pre">join</span></code></a>(iterable, /)</p></td>
+<td><p>Concatenate any number of strings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.ljust" title="intervene.pipeline.core.MetricStr.ljust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ljust</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a left-justified string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.lower" title="intervene.pipeline.core.MetricStr.lower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lower</span></code></a>()</p></td>
+<td><p>Return a copy of the string converted to lowercase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.lstrip" title="intervene.pipeline.core.MetricStr.lstrip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lstrip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with leading whitespace removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.maketrans" title="intervene.pipeline.core.MetricStr.maketrans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maketrans</span></code></a></p></td>
+<td><p>Return a translation table usable for str.translate().</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.partition" title="intervene.pipeline.core.MetricStr.partition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partition</span></code></a>(sep, /)</p></td>
+<td><p>Partition the string into three parts using the given separator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.replace" title="intervene.pipeline.core.MetricStr.replace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace</span></code></a>(old, new[, count])</p></td>
+<td><p>Return a copy with all occurrences of substring old replaced by new.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.rfind" title="intervene.pipeline.core.MetricStr.rfind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfind</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.rindex" title="intervene.pipeline.core.MetricStr.rindex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rindex</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.rjust" title="intervene.pipeline.core.MetricStr.rjust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rjust</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a right-justified string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.rpartition" title="intervene.pipeline.core.MetricStr.rpartition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rpartition</span></code></a>(sep, /)</p></td>
+<td><p>Partition the string into three parts using the given separator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.rsplit" title="intervene.pipeline.core.MetricStr.rsplit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsplit</span></code></a>([sep, maxsplit])</p></td>
+<td><p>Return a list of the words in the string, using sep as the delimiter string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.rstrip" title="intervene.pipeline.core.MetricStr.rstrip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rstrip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with trailing whitespace removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.split" title="intervene.pipeline.core.MetricStr.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>([sep, maxsplit])</p></td>
+<td><p>Return a list of the words in the string, using sep as the delimiter string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.splitlines" title="intervene.pipeline.core.MetricStr.splitlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">splitlines</span></code></a>([keepends])</p></td>
+<td><p>Return a list of the lines in the string, breaking at line boundaries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.startswith" title="intervene.pipeline.core.MetricStr.startswith"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startswith</span></code></a>(prefix[, start[, end]])</p></td>
+<td><p>Return True if S starts with the specified prefix, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.strip" title="intervene.pipeline.core.MetricStr.strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with leading and trailing whitespace removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.swapcase" title="intervene.pipeline.core.MetricStr.swapcase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">swapcase</span></code></a>()</p></td>
+<td><p>Convert uppercase characters to lowercase and lowercase characters to uppercase.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.title" title="intervene.pipeline.core.MetricStr.title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code></a>()</p></td>
+<td><p>Return a version of the string where each word is titlecased.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.translate" title="intervene.pipeline.core.MetricStr.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate</span></code></a>(table, /)</p></td>
+<td><p>Replace each character in the string using the given translation table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.upper" title="intervene.pipeline.core.MetricStr.upper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">upper</span></code></a>()</p></td>
+<td><p>Return a copy of the string converted to uppercase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.MetricStr.zfill" title="intervene.pipeline.core.MetricStr.zfill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zfill</span></code></a>(width, /)</p></td>
+<td><p>Pad a numeric string with zeros on the left, to fill a field of the given width.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.capitalize">
+<code class="sig-name descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.capitalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a capitalized version of the string.</p>
+<p>More specifically, make the first character have upper case and the rest lower
+case.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.casefold">
+<code class="sig-name descname">casefold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.casefold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a version of the string suitable for caseless comparisons.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.center">
+<code class="sig-name descname">center</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a centered string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.MetricStr.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of non-overlapping occurrences of substring sub in
+string S[start:end].  Optional arguments start and end are
+interpreted as in slice notation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">'utf-8'</span></em>, <em class="sig-param"><span class="n">errors</span><span class="o">=</span><span class="default_value">'strict'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode the string using the codec registered for encoding.</p>
+<dl class="simple">
+<dt>encoding</dt><dd><p>The encoding in which to encode the string.</p>
+</dd>
+<dt>errors</dt><dd><p>The error handling scheme to use for encoding errors.
+The default is ‘strict’ meaning that encoding errors raise a
+UnicodeEncodeError.  Other possible values are ‘ignore’, ‘replace’ and
+‘xmlcharrefreplace’ as well as any other name registered with
+codecs.register_error that can handle UnicodeEncodeErrors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.endswith">
+<code class="sig-name descname">endswith</code><span class="sig-paren">(</span><em class="sig-param">suffix</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#intervene.pipeline.core.MetricStr.endswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S ends with the specified suffix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+suffix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.expandtabs">
+<code class="sig-name descname">expandtabs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tabsize</span><span class="o">=</span><span class="default_value">8</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.expandtabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy where all tab characters are expanded using spaces.</p>
+<p>If tabsize is not given, a tab size of 8 characters is assumed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.find">
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.MetricStr.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lowest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#intervene.pipeline.core.MetricStr.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a formatted version of S, using substitutions from args and kwargs.
+The substitutions are identified by braces (‘{‘ and ‘}’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.format_map">
+<code class="sig-name descname">format_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mapping</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#intervene.pipeline.core.MetricStr.format_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a formatted version of S, using substitutions from mapping.
+The substitutions are identified by braces (‘{‘ and ‘}’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.MetricStr.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lowest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isalnum">
+<code class="sig-name descname">isalnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isalnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an alpha-numeric string, False otherwise.</p>
+<p>A string is alpha-numeric if all characters in the string are alpha-numeric and
+there is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isalpha">
+<code class="sig-name descname">isalpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isalpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an alphabetic string, False otherwise.</p>
+<p>A string is alphabetic if all characters in the string are alphabetic and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isascii">
+<code class="sig-name descname">isascii</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all characters in the string are ASCII, False otherwise.</p>
+<p>ASCII characters have code points in the range U+0000-U+007F.
+Empty string is ASCII too.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isdecimal">
+<code class="sig-name descname">isdecimal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isdecimal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a decimal string, False otherwise.</p>
+<p>A string is a decimal string if all characters in the string are decimal and
+there is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isdigit">
+<code class="sig-name descname">isdigit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isdigit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a digit string, False otherwise.</p>
+<p>A string is a digit string if all characters in the string are digits and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isidentifier">
+<code class="sig-name descname">isidentifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isidentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a valid Python identifier, False otherwise.</p>
+<p>Call keyword.iskeyword(s) to test whether string s is a reserved identifier,
+such as “def” or “class”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.islower">
+<code class="sig-name descname">islower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.islower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a lowercase string, False otherwise.</p>
+<p>A string is lowercase if all cased characters in the string are lowercase and
+there is at least one cased character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isnumeric">
+<code class="sig-name descname">isnumeric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isnumeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a numeric string, False otherwise.</p>
+<p>A string is numeric if all characters in the string are numeric and there is at
+least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isprintable">
+<code class="sig-name descname">isprintable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isprintable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is printable, False otherwise.</p>
+<p>A string is printable if all of its characters are considered printable in
+repr() or if it is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isspace">
+<code class="sig-name descname">isspace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a whitespace string, False otherwise.</p>
+<p>A string is whitespace if all characters in the string are whitespace and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.istitle">
+<code class="sig-name descname">istitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.istitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a title-cased string, False otherwise.</p>
+<p>In a title-cased string, upper- and title-case characters may only
+follow uncased characters and lowercase characters only cased ones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.isupper">
+<code class="sig-name descname">isupper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.isupper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an uppercase string, False otherwise.</p>
+<p>A string is uppercase if all cased characters in the string are uppercase and
+there is at least one cased character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.join">
+<code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iterable</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate any number of strings.</p>
+<p>The string whose method is called is inserted in between each given string.
+The result is returned as a new string.</p>
+<p>Example: ‘.’.join([‘ab’, ‘pq’, ‘rs’]) -&gt; ‘ab.pq.rs’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.ljust">
+<code class="sig-name descname">ljust</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.ljust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a left-justified string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.lower">
+<code class="sig-name descname">lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string converted to lowercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.lstrip">
+<code class="sig-name descname">lstrip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.lstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with leading whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.maketrans">
+<em class="property">static </em><code class="sig-name descname">maketrans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.maketrans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a translation table usable for str.translate().</p>
+<p>If there is only one argument, it must be a dictionary mapping Unicode
+ordinals (integers) or characters to Unicode ordinals, strings or None.
+Character keys will be then converted to ordinals.
+If there are two arguments, they must be strings of equal length, and
+in the resulting dictionary, each character in x will be mapped to the
+character at the same position in y. If there is a third argument, it
+must be a string, whose characters will be mapped to None in the result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.partition">
+<code class="sig-name descname">partition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the string into three parts using the given separator.</p>
+<p>This will search for the separator in the string.  If the separator is found,
+returns a 3-tuple containing the part before the separator, the separator
+itself, and the part after it.</p>
+<p>If the separator is not found, returns a 3-tuple containing the original string
+and two empty strings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.replace">
+<code class="sig-name descname">replace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">old</span></em>, <em class="sig-param"><span class="n">new</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy with all occurrences of substring old replaced by new.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>count</dt><dd><p>Maximum number of occurrences to replace.
+-1 (the default value) means replace all occurrences.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>If the optional argument count is given, only the first count occurrences are
+replaced.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.rfind">
+<code class="sig-name descname">rfind</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.MetricStr.rfind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.rindex">
+<code class="sig-name descname">rindex</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.MetricStr.rindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.rjust">
+<code class="sig-name descname">rjust</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.rjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a right-justified string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.rpartition">
+<code class="sig-name descname">rpartition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.rpartition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the string into three parts using the given separator.</p>
+<p>This will search for the separator in the string, starting at the end. If
+the separator is found, returns a 3-tuple containing the part before the
+separator, the separator itself, and the part after it.</p>
+<p>If the separator is not found, returns a 3-tuple containing two empty strings
+and the original string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.rsplit">
+<code class="sig-name descname">rsplit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.rsplit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in the string, using sep as the delimiter string.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sep</dt><dd><p>The delimiter according which to split the string.
+None (the default value) means split according to any whitespace,
+and discard empty strings from the result.</p>
+</dd>
+<dt>maxsplit</dt><dd><p>Maximum number of splits to do.
+-1 (the default value) means no limit.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Splits are done starting at the end of the string and working to the front.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.rstrip">
+<code class="sig-name descname">rstrip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.rstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with trailing whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.split">
+<code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in the string, using sep as the delimiter string.</p>
+<dl class="simple">
+<dt>sep</dt><dd><p>The delimiter according which to split the string.
+None (the default value) means split according to any whitespace,
+and discard empty strings from the result.</p>
+</dd>
+<dt>maxsplit</dt><dd><p>Maximum number of splits to do.
+-1 (the default value) means no limit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.splitlines">
+<code class="sig-name descname">splitlines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keepends</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.splitlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the lines in the string, breaking at line boundaries.</p>
+<p>Line breaks are not included in the resulting list unless keepends is given and
+true.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.startswith">
+<code class="sig-name descname">startswith</code><span class="sig-paren">(</span><em class="sig-param">prefix</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#intervene.pipeline.core.MetricStr.startswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S starts with the specified prefix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+prefix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.strip">
+<code class="sig-name descname">strip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with leading and trailing whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.swapcase">
+<code class="sig-name descname">swapcase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.swapcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert uppercase characters to lowercase and lowercase characters to uppercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.title">
+<code class="sig-name descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a version of the string where each word is titlecased.</p>
+<p>More specifically, words start with uppercased characters and all remaining
+cased characters have lower case.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace each character in the string using the given translation table.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>table</dt><dd><p>Translation table, which must be a mapping of Unicode ordinals to
+Unicode ordinals, strings, or None.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The table must implement lookup/indexing via __getitem__, for instance a
+dictionary or list.  If this operation raises LookupError, the character is
+left untouched.  Characters mapped to None are deleted.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.upper">
+<code class="sig-name descname">upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.upper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string converted to uppercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.MetricStr.zfill">
+<code class="sig-name descname">zfill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.MetricStr.zfill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad a numeric string with zeros on the left, to fill a field of the given width.</p>
+<p>The string is never truncated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.OutputLabel">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">OutputLabel</code><a class="headerlink" href="#intervene.pipeline.core.OutputLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Output Label.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.capitalize" title="intervene.pipeline.core.OutputLabel.capitalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capitalize</span></code></a>()</p></td>
+<td><p>Return a capitalized version of the string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.casefold" title="intervene.pipeline.core.OutputLabel.casefold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">casefold</span></code></a>()</p></td>
+<td><p>Return a version of the string suitable for caseless comparisons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.center" title="intervene.pipeline.core.OutputLabel.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a centered string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.count" title="intervene.pipeline.core.OutputLabel.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the number of non-overlapping occurrences of substring sub in string S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.encode" title="intervene.pipeline.core.OutputLabel.encode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encode</span></code></a>([encoding, errors])</p></td>
+<td><p>Encode the string using the codec registered for encoding.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.endswith" title="intervene.pipeline.core.OutputLabel.endswith"><code class="xref py py-obj docutils literal notranslate"><span class="pre">endswith</span></code></a>(suffix[, start[, end]])</p></td>
+<td><p>Return True if S ends with the specified suffix, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.expandtabs" title="intervene.pipeline.core.OutputLabel.expandtabs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expandtabs</span></code></a>([tabsize])</p></td>
+<td><p>Return a copy where all tab characters are expanded using spaces.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.find" title="intervene.pipeline.core.OutputLabel.find"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.format" title="intervene.pipeline.core.OutputLabel.format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Return a formatted version of S, using substitutions from args and kwargs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.format_map" title="intervene.pipeline.core.OutputLabel.format_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_map</span></code></a>(mapping)</p></td>
+<td><p>Return a formatted version of S, using substitutions from mapping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.index" title="intervene.pipeline.core.OutputLabel.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isalnum" title="intervene.pipeline.core.OutputLabel.isalnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isalnum</span></code></a>()</p></td>
+<td><p>Return True if the string is an alpha-numeric string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isalpha" title="intervene.pipeline.core.OutputLabel.isalpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isalpha</span></code></a>()</p></td>
+<td><p>Return True if the string is an alphabetic string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isascii" title="intervene.pipeline.core.OutputLabel.isascii"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isascii</span></code></a>()</p></td>
+<td><p>Return True if all characters in the string are ASCII, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isdecimal" title="intervene.pipeline.core.OutputLabel.isdecimal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isdecimal</span></code></a>()</p></td>
+<td><p>Return True if the string is a decimal string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isdigit" title="intervene.pipeline.core.OutputLabel.isdigit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isdigit</span></code></a>()</p></td>
+<td><p>Return True if the string is a digit string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isidentifier" title="intervene.pipeline.core.OutputLabel.isidentifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isidentifier</span></code></a>()</p></td>
+<td><p>Return True if the string is a valid Python identifier, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.islower" title="intervene.pipeline.core.OutputLabel.islower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">islower</span></code></a>()</p></td>
+<td><p>Return True if the string is a lowercase string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isnumeric" title="intervene.pipeline.core.OutputLabel.isnumeric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isnumeric</span></code></a>()</p></td>
+<td><p>Return True if the string is a numeric string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isprintable" title="intervene.pipeline.core.OutputLabel.isprintable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isprintable</span></code></a>()</p></td>
+<td><p>Return True if the string is printable, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isspace" title="intervene.pipeline.core.OutputLabel.isspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isspace</span></code></a>()</p></td>
+<td><p>Return True if the string is a whitespace string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.istitle" title="intervene.pipeline.core.OutputLabel.istitle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">istitle</span></code></a>()</p></td>
+<td><p>Return True if the string is a title-cased string, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.isupper" title="intervene.pipeline.core.OutputLabel.isupper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isupper</span></code></a>()</p></td>
+<td><p>Return True if the string is an uppercase string, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.join" title="intervene.pipeline.core.OutputLabel.join"><code class="xref py py-obj docutils literal notranslate"><span class="pre">join</span></code></a>(iterable, /)</p></td>
+<td><p>Concatenate any number of strings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.ljust" title="intervene.pipeline.core.OutputLabel.ljust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ljust</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a left-justified string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.lower" title="intervene.pipeline.core.OutputLabel.lower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lower</span></code></a>()</p></td>
+<td><p>Return a copy of the string converted to lowercase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.lstrip" title="intervene.pipeline.core.OutputLabel.lstrip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lstrip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with leading whitespace removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.maketrans" title="intervene.pipeline.core.OutputLabel.maketrans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maketrans</span></code></a></p></td>
+<td><p>Return a translation table usable for str.translate().</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.partition" title="intervene.pipeline.core.OutputLabel.partition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partition</span></code></a>(sep, /)</p></td>
+<td><p>Partition the string into three parts using the given separator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.replace" title="intervene.pipeline.core.OutputLabel.replace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace</span></code></a>(old, new[, count])</p></td>
+<td><p>Return a copy with all occurrences of substring old replaced by new.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.rfind" title="intervene.pipeline.core.OutputLabel.rfind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfind</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.rindex" title="intervene.pipeline.core.OutputLabel.rindex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rindex</span></code></a>(sub[, start[, end]])</p></td>
+<td><p>Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.rjust" title="intervene.pipeline.core.OutputLabel.rjust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rjust</span></code></a>(width[, fillchar])</p></td>
+<td><p>Return a right-justified string of length width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.rpartition" title="intervene.pipeline.core.OutputLabel.rpartition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rpartition</span></code></a>(sep, /)</p></td>
+<td><p>Partition the string into three parts using the given separator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.rsplit" title="intervene.pipeline.core.OutputLabel.rsplit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rsplit</span></code></a>([sep, maxsplit])</p></td>
+<td><p>Return a list of the words in the string, using sep as the delimiter string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.rstrip" title="intervene.pipeline.core.OutputLabel.rstrip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rstrip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with trailing whitespace removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.split" title="intervene.pipeline.core.OutputLabel.split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code></a>([sep, maxsplit])</p></td>
+<td><p>Return a list of the words in the string, using sep as the delimiter string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.splitlines" title="intervene.pipeline.core.OutputLabel.splitlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">splitlines</span></code></a>([keepends])</p></td>
+<td><p>Return a list of the lines in the string, breaking at line boundaries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.startswith" title="intervene.pipeline.core.OutputLabel.startswith"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startswith</span></code></a>(prefix[, start[, end]])</p></td>
+<td><p>Return True if S starts with the specified prefix, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.strip" title="intervene.pipeline.core.OutputLabel.strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip</span></code></a>([chars])</p></td>
+<td><p>Return a copy of the string with leading and trailing whitespace removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.swapcase" title="intervene.pipeline.core.OutputLabel.swapcase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">swapcase</span></code></a>()</p></td>
+<td><p>Convert uppercase characters to lowercase and lowercase characters to uppercase.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.title" title="intervene.pipeline.core.OutputLabel.title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code></a>()</p></td>
+<td><p>Return a version of the string where each word is titlecased.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.translate" title="intervene.pipeline.core.OutputLabel.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate</span></code></a>(table, /)</p></td>
+<td><p>Replace each character in the string using the given translation table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.upper" title="intervene.pipeline.core.OutputLabel.upper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">upper</span></code></a>()</p></td>
+<td><p>Return a copy of the string converted to uppercase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.OutputLabel.zfill" title="intervene.pipeline.core.OutputLabel.zfill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zfill</span></code></a>(width, /)</p></td>
+<td><p>Pad a numeric string with zeros on the left, to fill a field of the given width.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.capitalize">
+<code class="sig-name descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.capitalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a capitalized version of the string.</p>
+<p>More specifically, make the first character have upper case and the rest lower
+case.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.casefold">
+<code class="sig-name descname">casefold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.casefold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a version of the string suitable for caseless comparisons.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.center">
+<code class="sig-name descname">center</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a centered string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of non-overlapping occurrences of substring sub in
+string S[start:end].  Optional arguments start and end are
+interpreted as in slice notation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">'utf-8'</span></em>, <em class="sig-param"><span class="n">errors</span><span class="o">=</span><span class="default_value">'strict'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode the string using the codec registered for encoding.</p>
+<dl class="simple">
+<dt>encoding</dt><dd><p>The encoding in which to encode the string.</p>
+</dd>
+<dt>errors</dt><dd><p>The error handling scheme to use for encoding errors.
+The default is ‘strict’ meaning that encoding errors raise a
+UnicodeEncodeError.  Other possible values are ‘ignore’, ‘replace’ and
+‘xmlcharrefreplace’ as well as any other name registered with
+codecs.register_error that can handle UnicodeEncodeErrors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.endswith">
+<code class="sig-name descname">endswith</code><span class="sig-paren">(</span><em class="sig-param">suffix</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.endswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S ends with the specified suffix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+suffix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.expandtabs">
+<code class="sig-name descname">expandtabs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tabsize</span><span class="o">=</span><span class="default_value">8</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.expandtabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy where all tab characters are expanded using spaces.</p>
+<p>If tabsize is not given, a tab size of 8 characters is assumed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.find">
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lowest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a formatted version of S, using substitutions from args and kwargs.
+The substitutions are identified by braces (‘{‘ and ‘}’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.format_map">
+<code class="sig-name descname">format_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mapping</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.format_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a formatted version of S, using substitutions from mapping.
+The substitutions are identified by braces (‘{‘ and ‘}’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lowest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isalnum">
+<code class="sig-name descname">isalnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isalnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an alpha-numeric string, False otherwise.</p>
+<p>A string is alpha-numeric if all characters in the string are alpha-numeric and
+there is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isalpha">
+<code class="sig-name descname">isalpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isalpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an alphabetic string, False otherwise.</p>
+<p>A string is alphabetic if all characters in the string are alphabetic and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isascii">
+<code class="sig-name descname">isascii</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isascii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if all characters in the string are ASCII, False otherwise.</p>
+<p>ASCII characters have code points in the range U+0000-U+007F.
+Empty string is ASCII too.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isdecimal">
+<code class="sig-name descname">isdecimal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isdecimal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a decimal string, False otherwise.</p>
+<p>A string is a decimal string if all characters in the string are decimal and
+there is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isdigit">
+<code class="sig-name descname">isdigit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isdigit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a digit string, False otherwise.</p>
+<p>A string is a digit string if all characters in the string are digits and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isidentifier">
+<code class="sig-name descname">isidentifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isidentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a valid Python identifier, False otherwise.</p>
+<p>Call keyword.iskeyword(s) to test whether string s is a reserved identifier,
+such as “def” or “class”.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.islower">
+<code class="sig-name descname">islower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.islower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a lowercase string, False otherwise.</p>
+<p>A string is lowercase if all cased characters in the string are lowercase and
+there is at least one cased character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isnumeric">
+<code class="sig-name descname">isnumeric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isnumeric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a numeric string, False otherwise.</p>
+<p>A string is numeric if all characters in the string are numeric and there is at
+least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isprintable">
+<code class="sig-name descname">isprintable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isprintable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is printable, False otherwise.</p>
+<p>A string is printable if all of its characters are considered printable in
+repr() or if it is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isspace">
+<code class="sig-name descname">isspace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a whitespace string, False otherwise.</p>
+<p>A string is whitespace if all characters in the string are whitespace and there
+is at least one character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.istitle">
+<code class="sig-name descname">istitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.istitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is a title-cased string, False otherwise.</p>
+<p>In a title-cased string, upper- and title-case characters may only
+follow uncased characters and lowercase characters only cased ones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.isupper">
+<code class="sig-name descname">isupper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.isupper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the string is an uppercase string, False otherwise.</p>
+<p>A string is uppercase if all cased characters in the string are uppercase and
+there is at least one cased character in the string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.join">
+<code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iterable</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate any number of strings.</p>
+<p>The string whose method is called is inserted in between each given string.
+The result is returned as a new string.</p>
+<p>Example: ‘.’.join([‘ab’, ‘pq’, ‘rs’]) -&gt; ‘ab.pq.rs’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.ljust">
+<code class="sig-name descname">ljust</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.ljust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a left-justified string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.lower">
+<code class="sig-name descname">lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string converted to lowercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.lstrip">
+<code class="sig-name descname">lstrip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.lstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with leading whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.maketrans">
+<em class="property">static </em><code class="sig-name descname">maketrans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.maketrans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a translation table usable for str.translate().</p>
+<p>If there is only one argument, it must be a dictionary mapping Unicode
+ordinals (integers) or characters to Unicode ordinals, strings or None.
+Character keys will be then converted to ordinals.
+If there are two arguments, they must be strings of equal length, and
+in the resulting dictionary, each character in x will be mapped to the
+character at the same position in y. If there is a third argument, it
+must be a string, whose characters will be mapped to None in the result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.partition">
+<code class="sig-name descname">partition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the string into three parts using the given separator.</p>
+<p>This will search for the separator in the string.  If the separator is found,
+returns a 3-tuple containing the part before the separator, the separator
+itself, and the part after it.</p>
+<p>If the separator is not found, returns a 3-tuple containing the original string
+and two empty strings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.replace">
+<code class="sig-name descname">replace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">old</span></em>, <em class="sig-param"><span class="n">new</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy with all occurrences of substring old replaced by new.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>count</dt><dd><p>Maximum number of occurrences to replace.
+-1 (the default value) means replace all occurrences.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>If the optional argument count is given, only the first count occurrences are
+replaced.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.rfind">
+<code class="sig-name descname">rfind</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.rfind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Return -1 on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.rindex">
+<code class="sig-name descname">rindex</code><span class="sig-paren">(</span><em class="sig-param">sub</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.rindex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.rjust">
+<code class="sig-name descname">rjust</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">fillchar</span><span class="o">=</span><span class="default_value">' '</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.rjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a right-justified string of length width.</p>
+<p>Padding is done using the specified fill character (default is a space).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.rpartition">
+<code class="sig-name descname">rpartition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.rpartition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the string into three parts using the given separator.</p>
+<p>This will search for the separator in the string, starting at the end. If
+the separator is found, returns a 3-tuple containing the part before the
+separator, the separator itself, and the part after it.</p>
+<p>If the separator is not found, returns a 3-tuple containing two empty strings
+and the original string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.rsplit">
+<code class="sig-name descname">rsplit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.rsplit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in the string, using sep as the delimiter string.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sep</dt><dd><p>The delimiter according which to split the string.
+None (the default value) means split according to any whitespace,
+and discard empty strings from the result.</p>
+</dd>
+<dt>maxsplit</dt><dd><p>Maximum number of splits to do.
+-1 (the default value) means no limit.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Splits are done starting at the end of the string and working to the front.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.rstrip">
+<code class="sig-name descname">rstrip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.rstrip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with trailing whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.split">
+<code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sep</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maxsplit</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the words in the string, using sep as the delimiter string.</p>
+<dl class="simple">
+<dt>sep</dt><dd><p>The delimiter according which to split the string.
+None (the default value) means split according to any whitespace,
+and discard empty strings from the result.</p>
+</dd>
+<dt>maxsplit</dt><dd><p>Maximum number of splits to do.
+-1 (the default value) means no limit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.splitlines">
+<code class="sig-name descname">splitlines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keepends</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.splitlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the lines in the string, breaking at line boundaries.</p>
+<p>Line breaks are not included in the resulting list unless keepends is given and
+true.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.startswith">
+<code class="sig-name descname">startswith</code><span class="sig-paren">(</span><em class="sig-param">prefix</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#intervene.pipeline.core.OutputLabel.startswith" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if S starts with the specified prefix, False otherwise.
+With optional start, test S beginning at that position.
+With optional end, stop comparing S at that position.
+prefix can also be a tuple of strings to try.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.strip">
+<code class="sig-name descname">strip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.strip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string with leading and trailing whitespace removed.</p>
+<p>If chars is given and not None, remove characters in chars instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.swapcase">
+<code class="sig-name descname">swapcase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.swapcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert uppercase characters to lowercase and lowercase characters to uppercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.title">
+<code class="sig-name descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a version of the string where each word is titlecased.</p>
+<p>More specifically, words start with uppercased characters and all remaining
+cased characters have lower case.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace each character in the string using the given translation table.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>table</dt><dd><p>Translation table, which must be a mapping of Unicode ordinals to
+Unicode ordinals, strings, or None.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The table must implement lookup/indexing via __getitem__, for instance a
+dictionary or list.  If this operation raises LookupError, the character is
+left untouched.  Characters mapped to None are deleted.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.upper">
+<code class="sig-name descname">upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.upper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the string converted to uppercase.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.OutputLabel.zfill">
+<code class="sig-name descname">zfill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.OutputLabel.zfill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad a numeric string with zeros on the left, to fill a field of the given width.</p>
+<p>The string is never truncated.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.Pipeline">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">Pipeline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">3600</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.Pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object to store functions and state of pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>timeout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p>
+</dd>
+</dl>
+<p>Create Pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>timeout</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.Pipeline.run" title="intervene.pipeline.core.Pipeline.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Execute functions stored in self.functions.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.pipeline.core.Pipeline.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.Pipeline.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute functions stored in self.functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.PipelineItem">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">PipelineItem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.PipelineItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Enum containing allowed pipeline State attribute names.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.pipeline.core.State">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">State</code><a class="headerlink" href="#intervene.pipeline.core.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class defining the state of the pipeline.</p>
+<p>Initialise the state.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.State.as_dict" title="intervene.pipeline.core.State.as_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_dict</span></code></a>()</p></td>
+<td><p>Get the state’s attributes as a dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.State.copy" title="intervene.pipeline.core.State.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p>Copy the state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.pipeline.core.State.get" title="intervene.pipeline.core.State.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(item, *args)</p></td>
+<td><p>Get an attribute corresponding to the pipeline item.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.pipeline.core.State.unsafe_update" title="intervene.pipeline.core.State.unsafe_update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsafe_update</span></code></a>(name, value)</p></td>
+<td><p>Update a value that’s already been added to the state.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.pipeline.core.State.as_dict">
+<code class="sig-name descname">as_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.State.as_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the state’s attributes as a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.State.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.State.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.State.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.State.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an attribute corresponding to the pipeline item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineItem</span></code>) – </p></li>
+<li><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.pipeline.core.State.unsafe_update">
+<code class="sig-name descname">unsafe_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.State.unsafe_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a value that’s already been added to the state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineItem</span></code>]) – </p></li>
+<li><p><strong>value</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.pipeline.core.pipelinemethod">
+<code class="sig-prename descclassname">intervene.pipeline.core.</code><code class="sig-name descname">pipelinemethod</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">required</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">added</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">is_reduce</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_map</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.pipeline.core.pipelinemethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorate functions pipeline methods.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>]]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>]], <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code>]]], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – </p></li>
+<li><p><strong>required</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineItem</span></code>]) – </p></li>
+<li><p><strong>added</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineItem</span></code>]) – </p></li>
+<li><p><strong>is_reduce</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>is_map</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pipeline.html" class="btn btn-neutral float-left" title="intervene.pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

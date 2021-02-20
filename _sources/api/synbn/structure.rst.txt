@@ -1,0 +1,6 @@
+intervene.synbn.structure
+==========================
+
+.. automodule:: intervene.synbn.structure
+   :members:
+   :imported-members:

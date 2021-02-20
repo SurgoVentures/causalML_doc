@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Installation &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Package Overview" href="package_overview.html" />
+    <link rel="prev" title="Introduction to Causal Analysis" href="intro_to_causal.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-download-and-install-anaconda">Step 1: Download and Install Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-create-a-virtual-environment">Step 2: Create a Virtual Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-activate-the-virtual-environment">Step 3: Activate the virtual environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-clone-intervene">Step 4: Clone Intervene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5-install-intervene-into-your-environment">Step 5: Install Intervene into your environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/getting_started/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>This is a guide to setting up Intervene.
+The purpose of this guide is to provide instruction on how to set up a virtual environment and directory structure so
+that we can make continuous releases and provide updates to the user in a quick and easy way.</p>
+<p>There is a 5-step process:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#download-and-install-anaconda">Download and Install Anaconda</a></p></li>
+<li><p><a class="reference internal" href="#create-a-virtual-environment">Create a Virtual Environment</a></p></li>
+<li><p><a class="reference internal" href="#activate-the-virtual-environment">Activate the virtual environment</a></p></li>
+<li><p><a class="reference internal" href="#clone-intervene">Clone Intervene</a></p></li>
+<li><p><a class="reference internal" href="#install-intervene-into-your-environment">Install Intervene into your environment</a></p></li>
+</ol>
+<div class="section" id="step-1-download-and-install-anaconda">
+<h2>Step 1: Download and Install Anaconda<a class="headerlink" href="#step-1-download-and-install-anaconda" title="Permalink to this headline">¶</a></h2>
+<p id="download-and-install-anaconda">If you don’t already have Anaconda installed, <a class="reference external" href="https://www.anaconda.com/products/individual">this link will take you to the download page for Anaconda</a> <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.
+Download it and install it to your system.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="step-2-create-a-virtual-environment">
+<h2>Step 2: Create a Virtual Environment<a class="headerlink" href="#step-2-create-a-virtual-environment" title="Permalink to this headline">¶</a></h2>
+<p id="create-a-virtual-environment">Intervene runs on Python. Python is a great language, but it has one major drawback, its dependency management is dire
+and can quickly lead to <a class="reference external" href="_https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> <a class="footnote-reference brackets" href="#id4" id="id3">2</a>. One way to ease some of this
+is to use multiple virtual environments for different projects. So as good practice, we’re going to create a new
+virtual environment for Intervene</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check conda is installed. This should print the help page for conda</span>
+<span class="n">conda</span> <span class="o">-</span><span class="n">h</span>
+
+<span class="c1"># Check that you&#39;ve got the latest version.</span>
+<span class="n">conda</span> <span class="n">update</span> <span class="n">conda</span>
+
+<span class="c1"># Create a new virtual environment with python 3.7</span>
+<span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="o">&lt;&lt;</span><span class="n">environent</span> <span class="n">name</span><span class="o">&gt;&gt;</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
+
+<span class="c1"># e.g. conda create -n intervene python=3.7</span>
+</pre></div>
+</div>
+<p>When it’s finished, you should see something like this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># To activate this environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda activate intervene</span>
+<span class="c1">#</span>
+<span class="c1"># To deactivate an active environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda deactivate</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell">https://en.wikipedia.org/wiki/Dependency_hell</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="step-3-activate-the-virtual-environment">
+<h2>Step 3: Activate the virtual environment<a class="headerlink" href="#step-3-activate-the-virtual-environment" title="Permalink to this headline">¶</a></h2>
+<p id="activate-the-virtual-environment">There is a slight cognitive overhead to using a virtual environment, and that is you must remember to activate it.
+This is particularly important when for example, restarting the machine or restarting the terminal.</p>
+<p>If you’ve got anaconda (a distribution of useful things, one of which is the package manager <code class="docutils literal notranslate"><span class="pre">conda</span></code>), then you should
+see that when you open a terminal you’re greeted with something like the following.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(base)</span> <span class="pre">machine-name:~</span> <span class="pre">username$</span></code></p>
+<p>Here, you will notice that the left-most item that is displayed to you reads <cite>(base)</cite>. This is conda telling you that
+you are in conda’s base environment. The best way to think of the base is just the root environment from which you can
+start other environments. (This isn’t strictly true, but is true enough for our purposes.)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base</span>  <span class="o">--+--&gt;</span> <span class="n">virtual_env_1</span>
+        <span class="o">|</span>
+        <span class="o">+--&gt;</span> <span class="n">virtual_env_2</span>
+        <span class="o">|</span>
+        <span class="o">+--&gt;</span> <span class="n">virtual_env_n</span>
+</pre></div>
+</div>
+<p>If you then call <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">&lt;&lt;environment-name&gt;&gt;</span></code>, so for example <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">intervene</span></code>, then you will
+see that your conda environment changes from <code class="docutils literal notranslate"><span class="pre">base</span></code> to <code class="docutils literal notranslate"><span class="pre">intervene</span></code>.</p>
+<p>Your terminal should now look like this.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(intervene)</span> <span class="pre">machine-name:~</span> <span class="pre">username$</span></code></p>
+<p>Great, now we’ve set up a virtual environment.
+It doesn’t matter where we are on the machine, your environment will persist.
+You can change directories, or use other commands in your terminal, but if you call a command related to python,
+then you will use the version of python specific to the virtual environment you’re in.
+Basically, if you run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&lt;&lt;script-name&gt;&gt;.py</span></code> then you will use that virtual environment’s version of python.
+Similarly, if you call <code class="docutils literal notranslate"><span class="pre">pip</span></code> e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;&lt;package-name&gt;&gt;</span></code> then it will be installed within that virtual
+environment so that it’s available to that virtual-environment’s <code class="docutils literal notranslate"><span class="pre">python</span></code> executable.</p>
+</div>
+<div class="section" id="step-4-clone-intervene">
+<h2>Step 4: Clone Intervene<a class="headerlink" href="#step-4-clone-intervene" title="Permalink to this headline">¶</a></h2>
+<p id="clone-intervene">We store our code base in a private repository hosted by GitHub. GitHub handles all the authentication and authorization
+of users for us.
+If you’re new to this project, or new to GitHub, let us know and we’ll give you access to the repository.</p>
+<p>If possible, we recommend <a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">setting up an ssh key</a> <a class="footnote-reference brackets" href="#id8" id="id5">3</a> for GitHub.
+This just saves you from entering your username and password.
+If you’re not comfortable doing this, then it is not required.</p>
+<p>Your computer’s file directory will look something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">home</span> <span class="o">---+--&gt;</span> <span class="n">Documents</span>
+        <span class="o">+--&gt;</span> <span class="n">Music</span>
+        <span class="o">+--&gt;</span> <span class="n">Downloads</span>
+        <span class="o">+</span> <span class="n">etc</span>
+</pre></div>
+</div>
+<p>To make things easier and keep everything separate, I’d add a new directory at this level such as <cite>home/Development</cite>
+where we will clone Intervene, though again this isn’t necessary.</p>
+<p>Then, navigate to the directory where you want Intervene to live.
+Note, that this doesn’t have to be the directory where you want to run experiments.
+In fact, if it’s somewhere that is separate (such as <code class="docutils literal notranslate"><span class="pre">home/Development</span></code>) then it will help prevent the temptation to
+go and edit the files directly.</p>
+<p>If you’ve added an ssh key, you can clone the repository by doing
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:predictive-analytics-lab/Intervene.git</span></code></p>
+<p>If you’ve not added an ssh key, you can clone the repository by doing
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/predictive-analytics-lab/Intervene.git</span></code></p>
+<p>At this point you should have a directory that looks something like <code class="docutils literal notranslate"><span class="pre">home/Development/Intervene</span></code>.</p>
+<p>If you navigate to this directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">home/Development/Intervene</span></code>) then run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> you should see some output
+like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+<span class="n">Your</span> <span class="n">branch</span> <span class="ow">is</span> <span class="n">up</span> <span class="n">to</span> <span class="n">date</span> <span class="k">with</span> <span class="s1">&#39;origin/master&#39;</span><span class="o">.</span>
+
+<span class="n">nothing</span> <span class="n">to</span> <span class="n">commit</span><span class="p">,</span> <span class="n">working</span> <span class="n">tree</span> <span class="n">clean</span>
+</pre></div>
+</div>
+<p>This is good.
+This means that we’re on the master branch <a class="footnote-reference brackets" href="#id9" id="id6">4</a> and that the code on our local machine accurately reflects that
+hosted on GitHub, we’ve not made any changes or anything to it.</p>
+<p>So we’re on master, we’re all good, right?
+Not really.
+Master undergoes a rapid number of changes.
+It’s not unusual for the master branch to have 3 updates a day.
+From a user’s perspective, this is too fluid.
+Reproducing bugs is difficult and we need to be able to isolate problems.
+To cope with this, we provide release branches.
+These are named using <a class="reference external" href="https://semver.org/">semantic versioning</a> <a class="footnote-reference brackets" href="#id10" id="id7">5</a>.
+They usually look like <code class="docutils literal notranslate"><span class="pre">releases/v0.0.0</span></code>.
+To make things a little simpler, we also tag the release branch.
+To see what tags are available, use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">--list</span></code>.
+To checkout one of these releases, you then do <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">tags/&lt;&lt;tag&gt;&gt;</span></code>.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
+<dd><p><a class="reference external" href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account</a></p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id6">4</a></span></dt>
+<dd><p>What’s the master branch? The master branch is the canonical version of Intervene. Whilst adding new features, we usually have our own versions of Intervene that differ from the master branch. When we are happy with the changes that we’ve made, we add those changes to the master branch. Getting changes into master isn’t easy. We’ve made it so that a strict set of standards have to be satisfied before anything can be merged into the master branch.</p>
+</dd>
+</dl>
+<dl class="footnote brackets">
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id7">5</a></span></dt>
+<dd><p><a class="reference external" href="https://semver.org/">https://semver.org/</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="step-5-install-intervene-into-your-environment">
+<h2>Step 5: Install Intervene into your environment<a class="headerlink" href="#step-5-install-intervene-into-your-environment" title="Permalink to this headline">¶</a></h2>
+<p id="install-intervene-into-your-environment">Now that you’ve got a virtual environment, and also a copy of the Intervene repository, the last thing is to meld all of
+this together.
+To do this, confirm that you’re in your virtual environment (the left side of your terminal should start <code class="docutils literal notranslate"><span class="pre">(intervene)</span></code>).
+Then, install Intervene into your virtual environment by doing <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-e</span> <span class="pre">&lt;&lt;path-to-Intervene&gt;&gt;</span></code> i.e.
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-e</span> <span class="pre">home/Development/Intervene</span></code>.
+This command just means that you want to use the python package installer <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install and upgrade the Intervene
+directory, but we’ve also marked the installation as editable (with the <code class="docutils literal notranslate"><span class="pre">-e</span></code> flag) so whenever the repository changes,
+that change is copied reflected in our environment.</p>
+<p>Now to switch between release versions of Intervene, we just navigate to where it’s installed, and do
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">tags/&lt;&lt;tag&gt;&gt;</span></code>.
+Or, if we want to live dangerously, we can check out master <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code>.
+Whatever version we checkout, will be the version that is used.</p>
+<dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>When you checkout a new release of Intervene, (e.g. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">tags/v9.2.3</span></code>) there may be a difference in the
+dependencies.
+As a rule of thumb, re-running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-e</span> <span class="pre">home/Development/Intervene</span></code> should fix things.
+However, if you want to downgrade or there has been a major change,
+then you might have to clear your virtual environment and re-install everything.</p>
+</dd>
+</dl>
+<p>To clear your virtual environment: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;^-e&quot;</span> <span class="pre">|</span> <span class="pre">xargs</span> <span class="pre">pip</span> <span class="pre">uninstall</span> <span class="pre">-y</span></code></p>
+<p>Then re-install with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-e</span> <span class="pre">home/Development/Intervene</span></code></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="package_overview.html" class="btn btn-neutral float-right" title="Package Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro_to_causal.html" class="btn btn-neutral float-left" title="Introduction to Causal Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

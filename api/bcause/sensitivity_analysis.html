@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.bcause.sensitivity_analysis &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intervene.syneval" href="../syneval/syneval.html" />
+    <link rel="prev" title="intervene.bcause.ordermcmc.search_space" href="ordermcmc.search_space.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#synbn">SynBN</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#bcause">BCause</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bcause.html">intervene.bcause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdt_algorithms.html">intervene.bcause.cdt_algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interventions.html">intervene.bcause.interventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.html">intervene.bcause.ordermcmc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.optimisation.html">intervene.bcause.ordermcmc.optimisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.scoring.html">intervene.bcause.ordermcmc.scoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.search_space.html">intervene.bcause.ordermcmc.search_space</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.bcause.sensitivity_analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.bcause.sensitivity_analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/bcause/sensitivity_analysis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-intervene.bcause.sensitivity_analysis">
+<span id="intervene-bcause-sensitivity-analysis"></span><h1>intervene.bcause.sensitivity_analysis<a class="headerlink" href="#module-intervene.bcause.sensitivity_analysis" title="Permalink to this headline">¶</a></h1>
+<p>Sensitivity analysis.</p>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.sensitivity_analysis.add_latent_confounder" title="intervene.bcause.sensitivity_analysis.add_latent_confounder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_latent_confounder</span></code></a>(*, data, child_A, …)</p></td>
+<td><p>Simulate the inclusion of a latent confounder by injecting correlated noise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.sensitivity_analysis.random_flip" title="intervene.bcause.sensitivity_analysis.random_flip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random_flip</span></code></a>(data, rand_vec, threshold)</p></td>
+<td><p>Randomly shift the index of discrete variables according to a CD threshold.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.sensitivity_analysis.sensitivity_to_lccs" title="intervene.bcause.sensitivity_analysis.sensitivity_to_lccs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sensitivity_to_lccs</span></code></a>(data, dag, …[, …])</p></td>
+<td><p>Measure the sensitivity of a DAG to latent confounding.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.sensitivity_analysis.visualize_sensitivity_analysis" title="intervene.bcause.sensitivity_analysis.visualize_sensitivity_analysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_sensitivity_analysis</span></code></a>(sa_results, …)</p></td>
+<td><p>Produce a plot showing the danger level of possible latent confounders for a given DAG.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="intervene.bcause.sensitivity_analysis.add_latent_confounder">
+<code class="sig-prename descclassname">intervene.bcause.sensitivity_analysis.</code><code class="sig-name descname">add_latent_confounder</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">child_A</span></em>, <em class="sig-param"><span class="n">child_B</span></em>, <em class="sig-param"><span class="n">strength_on_A</span></em>, <em class="sig-param"><span class="n">strength_on_B</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.sensitivity_analysis.add_latent_confounder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate the inclusion of a latent confounder by injecting correlated noise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – the data to add simulated noise to</p></li>
+<li><p><strong>child_A</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the first child of the simulated latent confounder</p></li>
+<li><p><strong>child_B</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the second child of the simulated latent confounder</p></li>
+<li><p><strong>strength_on_A</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – the amount of correlated noise added to child A</p></li>
+<li><p><strong>strength_on_B</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – the amount of correlated noise added to child B</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.sensitivity_analysis.random_flip">
+<code class="sig-prename descclassname">intervene.bcause.sensitivity_analysis.</code><code class="sig-name descname">random_flip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">rand_vec</span></em>, <em class="sig-param"><span class="n">threshold</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.sensitivity_analysis.random_flip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly shift the index of discrete variables according to a CD threshold.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code>) – </p></li>
+<li><p><strong>rand_vec</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – </p></li>
+<li><p><strong>threshold</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.sensitivity_analysis.sensitivity_to_lccs">
+<code class="sig-prename descclassname">intervene.bcause.sensitivity_analysis.</code><code class="sig-name descname">sensitivity_to_lccs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">dag</span></em>, <em class="sig-param"><span class="n">intervention_config</span></em>, <em class="sig-param"><span class="n">confounding_strength</span></em>, <em class="sig-param"><span class="n">cat_encoding</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.sensitivity_analysis.sensitivity_to_lccs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure the sensitivity of a DAG to latent confounding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>dag</strong> (<em>DAG</em>) – </p></li>
+<li><p><strong>intervention_config</strong> (<a class="reference internal" href="interventions.html#intervene.bcause.interventions.Intervention" title="intervene.bcause.interventions.Intervention"><em>Intervention</em></a>) – </p></li>
+<li><p><strong>confounding_strength</strong> (<em>Union</em><em>[</em><em>_SizedIterable</em><em>[</em><em>Union</em><em>[</em><em>float</em><em>, </em><em>int</em><em>]</em><em>]</em><em>, </em><em>float</em><em>, </em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>cat_encoding</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>]</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.sensitivity_analysis.visualize_sensitivity_analysis">
+<code class="sig-prename descclassname">intervene.bcause.sensitivity_analysis.</code><code class="sig-name descname">visualize_sensitivity_analysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sa_results</span></em>, <em class="sig-param"><span class="n">dag</span></em>, <em class="sig-param"><span class="n">output_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.sensitivity_analysis.visualize_sensitivity_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a plot showing the danger level of possible latent confounders for a given DAG.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sa_results</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>dag</strong> (<em>DAG</em>) – </p></li>
+<li><p><strong>output_path</strong> (<em>Path</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../syneval/syneval.html" class="btn btn-neutral float-right" title="intervene.syneval" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ordermcmc.search_space.html" class="btn btn-neutral float-left" title="intervene.bcause.ordermcmc.search_space" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

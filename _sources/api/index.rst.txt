@@ -1,0 +1,69 @@
+API
+----
+
+Core
+^^^^
+
+.. toctree::
+    :maxdepth: 2
+
+    core/core
+    core/cli
+    core/evaluation
+    core/synthetic_data
+    core/synthetic_data.bif_datasets
+    core/templating
+    core/utils
+
+Pipeline Components
+^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+    :maxdepth: 2
+
+    components/components
+
+SynBN
+^^^^^^^^
+
+.. toctree::
+    :maxdepth: 2
+
+    synbn/synbn
+    synbn/modifier
+    synbn/structure
+    synbn/synbn_utils
+
+BCause
+^^^^^^^^^^^^
+
+.. toctree::
+    :maxdepth: 2
+
+    bcause/bcause
+    bcause/cdt_algorithms
+    bcause/interventions
+    bcause/ordermcmc
+    bcause/ordermcmc.optimisation
+    bcause/ordermcmc.scoring
+    bcause/ordermcmc.search_space
+    bcause/sensitivity_analysis
+
+
+SynEval
+^^^^^^^^^^^^^
+
+.. toctree::
+    :maxdepth: 2
+
+    syneval/syneval
+    syneval/syneval_utils
+
+Pipeline
+^^^^^^^^^^^^
+
+.. toctree::
+    :maxdepth: 2
+
+    pipeline/pipeline
+    pipeline/core

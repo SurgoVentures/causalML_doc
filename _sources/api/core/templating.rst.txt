@@ -1,0 +1,6 @@
+intervene.core.templating
+=========================
+
+.. automodule:: intervene.core.templating
+   :members:
+   :imported-members:

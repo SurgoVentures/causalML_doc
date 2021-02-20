@@ -1,0 +1,4 @@
+Constraints
+^^^^^^^^^^^
+
+Inject some pre-existing knowledge into the learning of your model. To be written by SR.

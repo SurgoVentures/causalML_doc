@@ -1,0 +1,9 @@
+Preparing Real Data
+-------------------
+
+This is what you need to do to your lovely data before you can use Intervene. To be written by MZ.
+
+.. include:: prepare/requirements.rst
+.. include:: prepare/binning.rst
+.. include:: prepare/impute.rst
+.. include:: prepare/feature_selection.rst

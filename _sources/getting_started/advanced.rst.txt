@@ -1,0 +1,10 @@
+Advanced
+========
+
+Going beyond functionality exposed to the CLI. Assumes basic python knowledge.
+
+.. toctree::
+    :glob:
+
+    advanced/write_pipeline.rst
+    advanced/write_component.rst

@@ -1,0 +1,6 @@
+intervene.core.synthetic_data
+=============================
+
+.. automodule:: intervene.core.synthetic_data
+   :members:
+   :imported-members:

@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Welcome to Intervene’s documentation! &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to Causal Analysis" href="getting_started/intro_to_causal.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Welcome to Intervene’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-intervene-s-documentation">
+<h1>Welcome to Intervene’s documentation!<a class="headerlink" href="#welcome-to-intervene-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Intervene is a python package for building, training and evaluating Causal Models.</p>
+<dl class="simple">
+<dt>We provide 3 main capabilities:</dt><dd><ul class="simple">
+<li><p>Generating Synthetic Models and the corresponding Data that the model produces.</p></li>
+<li><p>Learning a Network that represents the data.</p></li>
+<li><p>Being able to run evaluation pipelines over a learned network given the dataset that was used to produce it.</p></li>
+</ul>
+</dd>
+</dl>
+<p>In this document we go into much more detail about each of these capabilities.</p>
+<p>We envision this document as a reference text, the best way to learn about Intervene is to use it.</p>
+<p>So, have fun, and if you have any questions, or would like any clarifications, please reach out to us.
+We’ll do our best to help.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/installation.html#step-1-download-and-install-anaconda">Step 1: Download and Install Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/installation.html#step-2-create-a-virtual-environment">Step 2: Create a Virtual Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/installation.html#step-3-activate-the-virtual-environment">Step 3: Activate the virtual environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/installation.html#step-4-clone-intervene">Step 4: Clone Intervene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/installation.html#step-5-install-intervene-into-your-environment">Step 5: Install Intervene into your environment</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/package_overview.html">Package Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/package_overview.html#creating-data">Creating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/package_overview.html#inferring-causal-structure">Inferring Causal Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/package_overview.html#analyzing-and-evaluating">Analyzing and Evaluating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/package_overview.html#getting-support">Getting Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/package_overview.html#development-team">Development Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/package_overview.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/package_overview.html#institutional-partners">Institutional Partners</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/cli.html">Command-line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/cli.html#understanding-the-command-line-interface">Understanding the Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/cli.html#command-list">Command List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/cli.html#intervene">intervene</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/cli.html#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/quick_start.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/quick_start.html#running-on-synthetic-data">Running on Synthetic Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/quick_start.html#running-on-real-data">Running on Real Data</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/synth.html">Synthetic Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/synth.html#generating-synthetic-data">Generating Synthetic Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/synth.html#synthetic-output">Synthetic Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/synth.html#id1">Generating Synthetic Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/synth.html#specifying-synthetic-data-configuration-files">Specifying [Synthetic Data] Configuration Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/synth.html#running-intervene-on-synthetic-data">Running Intervene on Synthetic Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/synth.html#synthetic-pipelines">Synthetic Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/synth.html#running-on-the-cli">Running on the CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/synth.html#common-datasets">Common Datasets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/real.html">Real Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/real.html#preparing-real-data">Preparing Real Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#real-data-requirements">Real Data Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#binning-continuous-data-in-mixed-type-datasets">Binning Continuous Data in Mixed-Type Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#imputing-missing-data">Imputing Missing Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#feature-selection">Feature Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/real.html#running-on-real-data">Running on Real Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#components-of-the-real-pipeline">Components of the Real-Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#adding-constraints">Adding Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#performing-interventions">Performing Interventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/real.html#sensitivity-analysis">Sensitivity Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#running-the-analysis">Running the analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/real.html#interpreting-the-results">Interpreting the results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/methods.html">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/methods.html#structure-learning">Structure Learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/methods.html#ordermcmc">OrderMCMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/methods.html#qnml-score">qNML Score</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/methods.html#parameter-estimation">Parameter Estimation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/methods.html#maximum-likelihood-estimation-mle">Maximum Likelihood Estimation (MLE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/advanced.html">Advanced</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/advanced/write_pipeline.html">Writing a Custom Pipeline Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/advanced/write_component.html">Creating a pipeline component.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#synbn">SynBN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#bcause">BCause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="getting_started/intro_to_causal.html" class="btn btn-neutral float-right" title="Introduction to Causal Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

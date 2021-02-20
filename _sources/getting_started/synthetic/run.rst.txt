@@ -1,0 +1,112 @@
+Running Intervene on Synthetic Data
+-----------------------------------
+
+After we successfully generated synthetic data, what can we do with it?
+
+Intervene has a number of designated 'pipelines', aimed at achiving different goals.
+
+Below you can find a table of these pipelines:
+
+Synthetic Pipelines
+++++++++++++++++++++
+
+.. table:: Table of Synthetic Pipelines
+    :widths: 25 50
+
+    +------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Name       | Description                                                                                                                                      |
+    +------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+    | standard   | The standard pipeline. The OrderMCMC structure learning algorithm is first run, the performance is recorded, and a synthetic report is produced. |
+    +------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+    | diagnostic | The standard pipeline + diagnostics: Memory tracking, Convergence Plots, Extra Logging, Table of captured Hub Nodes                              |
+    +------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. role:: bash(code)
+   :language: bash
+
+Running on the CLI
+++++++++++++++++++++
+
+Both pipelines can be run via the command line interface.
+
+.. tip::
+    Use :bash:`intervene synthetic -h` on the command line to be reminded of the specific commands avilable for synthetic data!
+
+As with generating synthetic data, we will need:
+
+1. A specified *data* folder, where the generated data will be stored.
+2. A *data configuration* yaml file, which specifies the requirments from the generated data.
+
+We will **also** need:
+
+3. A specified *output* folder, where the output from running the pipeline is saved.
+4. The name of the pipeline to use.
+
+With these four things, we can simply run intervene with the command:
+
+:bash:`intervene synthetic --data /my/data/folder --yaml my/data/config.yml --output my/data/output/folder -p diagnostic`
+
+This will generate the data specified in config.yml. **Unless the data matching the configuration has already been
+generated in the specified** :bash:`--data` **directory.**
+
+Notice the :bash:`-p diagnostic` - this means the diagnostic pipeline has been specified. Replace this with :bash:`-p standard` to run the standard pipeline.
+
+Common Datasets
+++++++++++++++++
+
+As has been seen, we can generate our own data with Intervene. However, we can also use a number of *common* datasets found in the literature.
+This can be done easily, by specifying the :bash:`--bif` option in the pipeline to one of the available datasets:
+
+.. table:: Table of available common datasets
+    :widths: 25 25 25
+
+    +------------+-------+------+
+    | Name       | Nodes | Arcs |
+    +------------+-------+------+
+    | alarm      | 37    | 46   |
+    +------------+-------+------+
+    | andes      | 223   | 338  |
+    +------------+-------+------+
+    | asia       | 8     | 8    |
+    +------------+-------+------+
+    | barley     | 48    | 84   |
+    +------------+-------+------+
+    | cancer     | 5     | 4    |
+    +------------+-------+------+
+    | child      | 20    | 25   |
+    +------------+-------+------+
+    | diabetes   | 413   | 602  |
+    +------------+-------+------+
+    | earthquake | 5     | 4    |
+    +------------+-------+------+
+    | hailfinder | 56    | 66   |
+    +------------+-------+------+
+    | hepar2     | 70    | 123  |
+    +------------+-------+------+
+    | insurance  | 27    | 52   |
+    +------------+-------+------+
+    | link       | 724   | 1125 |
+    +------------+-------+------+
+    | mildew     | 35    | 46   |
+    +------------+-------+------+
+    | munin      | 1041  | 1388 |
+    +------------+-------+------+
+    | pathfinder | 109   | 195  |
+    +------------+-------+------+
+    | pigs       | 441   | 592  |
+    +------------+-------+------+
+    | sachs      | 11    | 17   |
+    +------------+-------+------+
+    | survey     | 6     | 6    |
+    +------------+-------+------+
+    | water      | 32    | 66   |
+    +------------+-------+------+
+    | win95pts   | 76    | 112  |
+    +------------+-------+------+
+
+We also have to specify options for number of samples :bash:`-n`, and number of repeats (datasets generated) :bash:`-r`.
+
+As an example, if we wanted to generate 5 datasets from the ALARM network, with 20,000 samples each,
+and then run the standard pipeline we would use the command:
+
+:bash:`intervene synthetic --data /my/data/folder --bif alarm --output my/data/output/folder -p standard -n 20000 -r 5`

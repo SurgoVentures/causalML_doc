@@ -1,0 +1,852 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.synbn &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intervene.synbn.modifier" href="modifier.html" />
+    <link rel="prev" title="intervene.components" href="../components/components.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#synbn">SynBN</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.synbn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modifier.html">intervene.synbn.modifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">intervene.synbn.structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="synbn_utils.html">intervene.synbn.synbn_utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#bcause">BCause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.synbn</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/synbn/synbn.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-intervene.synbn">
+<span id="intervene-synbn"></span><h1>intervene.synbn<a class="headerlink" href="#module-intervene.synbn" title="Permalink to this headline">¶</a></h1>
+<p>SynBN.</p>
+<p><strong>Classes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.Config" title="intervene.synbn.Config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Config</span></code></a>(index, seed, number_of_samples, …)</p></td>
+<td><p>Dataclass for base config.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.ContinuousConfig" title="intervene.synbn.ContinuousConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousConfig</span></code></a>(index, seed, …)</p></td>
+<td><p>Dataclass for yaml configs for continuous data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.DiscreteConfig" title="intervene.synbn.DiscreteConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiscreteConfig</span></code></a>(index, seed, …)</p></td>
+<td><p>Dataclass for yaml config for discrete data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.Enum" title="intervene.synbn.Enum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></a>(value)</p></td>
+<td><p>Generic enumeration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.ParameterType" title="intervene.synbn.ParameterType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParameterType</span></code></a>(value)</p></td>
+<td><p>Enum for type of parameter, discrete or cont.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.YamlConfig" title="intervene.synbn.YamlConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YamlConfig</span></code></a>(index, seed, number_of_samples, …)</p></td>
+<td><p>Dataclass for yaml configs.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.apply_missing" title="intervene.synbn.apply_missing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_missing</span></code></a>(samples, *, level, missing_type)</p></td>
+<td><p>Apply noise to a dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.apply_noise" title="intervene.synbn.apply_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_noise</span></code></a>(samples, *, level, noise_type)</p></td>
+<td><p>Apply noise to a dataframe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.asdict" title="intervene.synbn.asdict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asdict</span></code></a>(obj, *[, dict_factory])</p></td>
+<td><p>Return the fields of a dataclass instance as a new dictionary mapping field names to field values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.dataclass" title="intervene.synbn.dataclass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataclass</span></code></a>([cls, init, repr, eq, order, …])</p></td>
+<td><p>Returns the same class as was passed in, with dunder methods added based on the fields defined in the class.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.export_all" title="intervene.synbn.export_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_all</span></code></a>(yaml_path, directory)</p></td>
+<td><p>Export many Bayesian networks according to the provided yml configuration file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.export_one" title="intervene.synbn.export_one"><code class="xref py py-obj docutils literal notranslate"><span class="pre">export_one</span></code></a>(config, base_dir)</p></td>
+<td><p>Export one Bayesian network with the passed parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.load_config" title="intervene.synbn.load_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_config</span></code></a>(yaml_path, data_type)</p></td>
+<td><p>Load config from YAML file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.make_export_grid" title="intervene.synbn.make_export_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_export_grid</span></code></a>(yaml_config, config_type)</p></td>
+<td><p>Make Export Grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.save_synthetic_data" title="intervene.synbn.save_synthetic_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_synthetic_data</span></code></a>(directory, graph, …[, …])</p></td>
+<td><p>Save the components of a synthetic dataset.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="intervene.synbn.Config">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">Config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">seed</span></em>, <em class="sig-param"><span class="n">number_of_samples</span></em>, <em class="sig-param"><span class="n">number_of_variables</span></em>, <em class="sig-param"><span class="n">structure_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass for base config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_variables</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>structure_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.Config.to_dict" title="intervene.synbn.Config.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<td><p>Return config as a dict.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.synbn.Config.to_dict">
+<code class="sig-name descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.Config.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return config as a dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.ContinuousConfig">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">ContinuousConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">seed</span></em>, <em class="sig-param"><span class="n">number_of_samples</span></em>, <em class="sig-param"><span class="n">number_of_variables</span></em>, <em class="sig-param"><span class="n">structure_type</span></em>, <em class="sig-param"><span class="n">n_linked_datasets</span></em>, <em class="sig-param"><span class="n">mixing_parameter</span></em>, <em class="sig-param"><span class="n">indegree_cap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.ContinuousConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.synbn.config.YamlConfig</span></code></p>
+<p>Dataclass for yaml configs for continuous data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_variables</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>structure_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>n_linked_datasets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>mixing_parameter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>indegree_cap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.ContinuousConfig.directory" title="intervene.synbn.ContinuousConfig.directory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">directory</span></code></a></p></td>
+<td><p>Get Directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.ContinuousConfig.parameter_type" title="intervene.synbn.ContinuousConfig.parameter_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parameter_type</span></code></a></p></td>
+<td><p>Return the parameter type of the ContConfig class.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.ContinuousConfig.parameter_dict" title="intervene.synbn.ContinuousConfig.parameter_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parameter_dict</span></code></a>()</p></td>
+<td><p>Return the parameter dict of the continuous config.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.ContinuousConfig.to_dict" title="intervene.synbn.ContinuousConfig.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<td><p>Return config as a dict.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.synbn.ContinuousConfig.directory">
+<em class="property">property </em><code class="sig-name descname">directory</code><a class="headerlink" href="#intervene.synbn.ContinuousConfig.directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.ContinuousConfig.parameter_dict">
+<code class="sig-name descname">parameter_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.ContinuousConfig.parameter_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the parameter dict of the continuous config.</p>
+<p>Currently returns an empty dict. This will change upon addition of cont. parameters
+to the config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.ContinuousConfig.parameter_type">
+<em class="property">property </em><code class="sig-name descname">parameter_type</code><a class="headerlink" href="#intervene.synbn.ContinuousConfig.parameter_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the parameter type of the ContConfig class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.ContinuousConfig.to_dict">
+<code class="sig-name descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.ContinuousConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return config as a dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.DiscreteConfig">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">DiscreteConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">seed</span></em>, <em class="sig-param"><span class="n">number_of_samples</span></em>, <em class="sig-param"><span class="n">number_of_variables</span></em>, <em class="sig-param"><span class="n">structure_type</span></em>, <em class="sig-param"><span class="n">n_linked_datasets</span></em>, <em class="sig-param"><span class="n">mixing_parameter</span></em>, <em class="sig-param"><span class="n">indegree_cap</span></em>, <em class="sig-param"><span class="n">ess</span></em>, <em class="sig-param"><span class="n">n_latent_confounders</span></em>, <em class="sig-param"><span class="n">latent_confounder_type</span></em>, <em class="sig-param"><span class="n">confounder_strength</span></em>, <em class="sig-param"><span class="n">max_confounders</span></em>, <em class="sig-param"><span class="n">noise_type</span></em>, <em class="sig-param"><span class="n">noise_level</span></em>, <em class="sig-param"><span class="n">missing_type</span></em>, <em class="sig-param"><span class="n">missing_level</span></em>, <em class="sig-param"><span class="n">max_levels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.DiscreteConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.synbn.config.YamlConfig</span></code></p>
+<p>Dataclass for yaml config for discrete data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_variables</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>structure_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>n_linked_datasets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>mixing_parameter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>indegree_cap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>ess</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+<li><p><strong>n_latent_confounders</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>latent_confounder_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>confounder_strength</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>max_confounders</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>noise_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>noise_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>missing_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>missing_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>max_levels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.DiscreteConfig.directory" title="intervene.synbn.DiscreteConfig.directory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">directory</span></code></a></p></td>
+<td><p>Get Directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.DiscreteConfig.min_levels" title="intervene.synbn.DiscreteConfig.min_levels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min_levels</span></code></a></p></td>
+<td><p>Get min.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.DiscreteConfig.parameter_type" title="intervene.synbn.DiscreteConfig.parameter_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parameter_type</span></code></a></p></td>
+<td><p>Return the ParameterType of the Discrete config class.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.DiscreteConfig.parameter_dict" title="intervene.synbn.DiscreteConfig.parameter_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parameter_dict</span></code></a>()</p></td>
+<td><p>Return a dictionary from the config with just parameter generation properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.synbn.DiscreteConfig.to_dict" title="intervene.synbn.DiscreteConfig.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<td><p>Similar to calling asdict() on the dataclass, but adds property fields.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.synbn.DiscreteConfig.directory">
+<em class="property">property </em><code class="sig-name descname">directory</code><a class="headerlink" href="#intervene.synbn.DiscreteConfig.directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.DiscreteConfig.min_levels">
+<em class="property">property </em><code class="sig-name descname">min_levels</code><a class="headerlink" href="#intervene.synbn.DiscreteConfig.min_levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get min. Cardinality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.DiscreteConfig.parameter_dict">
+<code class="sig-name descname">parameter_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.DiscreteConfig.parameter_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary from the config with just parameter generation properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.DiscreteConfig.parameter_type">
+<em class="property">property </em><code class="sig-name descname">parameter_type</code><a class="headerlink" href="#intervene.synbn.DiscreteConfig.parameter_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ParameterType of the Discrete config class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.DiscreteConfig.to_dict">
+<code class="sig-name descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.DiscreteConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to calling asdict() on the dataclass, but adds property fields.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self as dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.Enum">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">Enum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.Enum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generic enumeration.</p>
+<p>Derive from this class to define new enumerations.</p>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt id="intervene.synbn.Enum.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#intervene.synbn.Enum.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the Enum member.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="intervene.synbn.Enum.value">
+<code class="sig-name descname">value</code><a class="headerlink" href="#intervene.synbn.Enum.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the Enum member.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.ParameterType">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">ParameterType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.ParameterType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Enum for type of parameter, discrete or cont.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.synbn.YamlConfig">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">YamlConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">seed</span></em>, <em class="sig-param"><span class="n">number_of_samples</span></em>, <em class="sig-param"><span class="n">number_of_variables</span></em>, <em class="sig-param"><span class="n">structure_type</span></em>, <em class="sig-param"><span class="n">n_linked_datasets</span></em>, <em class="sig-param"><span class="n">mixing_parameter</span></em>, <em class="sig-param"><span class="n">indegree_cap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.YamlConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.synbn.config.Config</span></code></p>
+<p>Dataclass for yaml configs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>number_of_variables</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>structure_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>n_linked_datasets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>mixing_parameter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>indegree_cap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.YamlConfig.directory" title="intervene.synbn.YamlConfig.directory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">directory</span></code></a></p></td>
+<td><p>Get Directory.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.synbn.YamlConfig.to_dict" title="intervene.synbn.YamlConfig.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<td><p>Return config as a dict.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.synbn.YamlConfig.directory">
+<em class="property">property </em><code class="sig-name descname">directory</code><a class="headerlink" href="#intervene.synbn.YamlConfig.directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.synbn.YamlConfig.to_dict">
+<code class="sig-name descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.YamlConfig.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return config as a dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.apply_missing">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">apply_missing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">samples</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">level</span></em>, <em class="sig-param"><span class="n">missing_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.apply_missing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply noise to a dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>missing_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>noise_type</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.apply_noise">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">apply_noise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">samples</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">level</span></em>, <em class="sig-param"><span class="n">noise_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.apply_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply noise to a dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>noise_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.asdict">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">asdict</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">*</em>, <em class="sig-param">dict_factory=&lt;class 'dict'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.asdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the fields of a dataclass instance as a new dictionary mapping
+field names to field values.</p>
+<p>Example usage:</p>
+<blockquote>
+<div><p>&#64;dataclass
+class C:</p>
+<blockquote>
+<div><p>x: int
+y: int</p>
+</div></blockquote>
+<p>c = C(1, 2)
+assert asdict(c) == {‘x’: 1, ‘y’: 2}</p>
+</div></blockquote>
+<p>If given, ‘dict_factory’ will be used instead of built-in dict.
+The function applies recursively to field values that are
+dataclass instances. This will also look into built-in containers:
+tuples, lists, and dicts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.dataclass">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">dataclass</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">init</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">repr</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">eq</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unsafe_hash</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">frozen</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.dataclass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the same class as was passed in, with dunder methods
+added based on the fields defined in the class.</p>
+<p>Examines PEP 526 __annotations__ to determine fields.</p>
+<p>If init is true, an __init__() method is added to the class. If
+repr is true, a __repr__() method is added. If order is true, rich
+comparison dunder methods are added. If unsafe_hash is true, a
+__hash__() method function is added. If frozen is true, fields may
+not be assigned to after instance creation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.export_all">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">export_all</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yaml_path</span></em>, <em class="sig-param"><span class="n">directory</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.export_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export many Bayesian networks according to the provided yml configuration file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>yaml_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p></li>
+<li><p><strong>directory</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.export_one">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">export_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">base_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.export_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export one Bayesian network with the passed parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DiscreteConfig</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ContinuousConfig</span></code>]) – </p></li>
+<li><p><strong>base_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.load_config">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">load_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yaml_path</span></em>, <em class="sig-param"><span class="n">data_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.load_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load config from YAML file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>yaml_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p></li>
+<li><p><strong>data_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterType</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.make_export_grid">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">make_export_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yaml_config</span></em>, <em class="sig-param"><span class="n">config_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.make_export_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Export Grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterType</span></code>) – </p></li>
+<li><p><strong>yaml_config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ContinuousConfig</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DiscreteConfig</span></code>]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.synbn.save_synthetic_data">
+<code class="sig-prename descclassname">intervene.synbn.</code><code class="sig-name descname">save_synthetic_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">bayesian_network</span></em>, <em class="sig-param"><span class="n">samples</span></em>, <em class="sig-param"><span class="n">network_edits</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">config</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.synbn.save_synthetic_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the components of a synthetic dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p></li>
+<li><p><strong>graph</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">SyntheticGraph</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BifGraph</span></code>]) – </p></li>
+<li><p><strong>bayesian_network</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">SyntheticGraph</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">BifGraph</span></code>]) – </p></li>
+<li><p><strong>samples</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]]) – </p></li>
+<li><p><strong>network_edits</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – </p></li>
+<li><p><strong>config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DiscreteConfig</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ContinuousConfig</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modifier.html" class="btn btn-neutral float-right" title="intervene.synbn.modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../components/components.html" class="btn btn-neutral float-left" title="intervene.components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

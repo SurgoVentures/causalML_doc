@@ -1,0 +1,55 @@
+Performing Interventions
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. role:: bash(code)
+   :language: bash
+
+As suggested by the name, the primary purpose of the intervene toolbox is to perform *interventions*.
+We can intervene on a treatment variable of interest to set a specified level, with the view of observing the effect on some outcome variable.
+In this manner we can determine what the effect of this particular intervention is.
+
+Specifically, interventions are presented as odds ratios, the odds of an outcome given treatment, vs the outcome given
+control.
+
+.. math::
+
+    \frac{\frac{P(\text{outcome} = \text{target} | \text{intervention = target})}{P(\text{outcome} = \text{target} | \text{intervention = reference})}}{\frac{P(\text{outcome} = \text{reference} | \text{intervention = target})}{P(\text{outcome} = \text{reference} | \text{intervention = reference})}}
+
+Running an Intervention
+++++++++++++++++++++++++
+In order to run an intervention, the user must specify the :bash:`--intervention` flag in the CLI. Here, a path to an
+intervention file must be given.
+
+An example command could be:
+
+:bash:`intervene real --data /my/data/folder --output my/data/output/folder --intervention my/folder/intervention_config.yml`
+
+Where we have specified the usage of the *real* component, and set the intervention flag to *my/folder/intervention_config.yml*.
+
+Constructing the Intervention YAML
+++++++++++++++++++++++++++++++++++++++
+
+To create an intervention yaml, 6 things are necessary:
+
+- The outcome variable
+- The outcome variable's reference level
+- A *list* of the outcome variable's target levels
+- A *list* of the intervention variables, along with:
+    - A *list* intervention variable's targets
+    - The intervention variable's reference level
+
+The intervention file should then be specified in the following fashion:
+
+.. code-block:: yaml
+
+    target: spontaneous_combustion
+    outcome_reference_level: not_on_fire
+    outcome_target_levels: ['on_fire', 'a_little_toasty']
+    interventions:
+    - variable: semtex_for_breakfast
+      reference_level: no
+      target_levels: ['yes', 'just a bite']
+    - variable: drank_petrol
+      reference_level: no
+      target_levels: ['yes']
+

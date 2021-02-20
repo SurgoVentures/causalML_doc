@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Performing Interventions &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Performing Interventions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/getting_started/real_dir/run_dir/interventions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="performing-interventions">
+<h1>Performing Interventions<a class="headerlink" href="#performing-interventions" title="Permalink to this headline">¶</a></h1>
+<p>As suggested by the name, the primary purpose of the intervene toolbox is to perform <em>interventions</em>.
+We can intervene on a treatment variable of interest to set a specified level, with the view of observing the effect on some outcome variable.
+In this manner we can determine what the effect of this particular intervention is.</p>
+<p>Specifically, interventions are presented as odds ratios, the odds of an outcome given treatment, vs the outcome given
+control.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\frac{P(\text{outcome} = \text{target} | \text{intervention = target})}{P(\text{outcome} = \text{target} | \text{intervention = reference})}}{\frac{P(\text{outcome} = \text{reference} | \text{intervention = target})}{P(\text{outcome} = \text{reference} | \text{intervention = reference})}}\]</div>
+<div class="section" id="running-an-intervention">
+<h2>Running an Intervention<a class="headerlink" href="#running-an-intervention" title="Permalink to this headline">¶</a></h2>
+<p>In order to run an intervention, the user must specify the <code class="code bash docutils literal notranslate"><span class="pre">--intervention</span></code> flag in the CLI. Here, a path to an
+intervention file must be given.</p>
+<p>An example command could be:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">/my/data/folder</span> <span class="pre">--output</span> <span class="pre">my/data/output/folder</span> <span class="pre">--intervention</span> <span class="pre">my/folder/intervention_config.yml</span></code></p>
+<p>Where we have specified the usage of the <em>real</em> component, and set the intervention flag to <em>my/folder/intervention_config.yml</em>.</p>
+</div>
+<div class="section" id="constructing-the-intervention-yaml">
+<h2>Constructing the Intervention YAML<a class="headerlink" href="#constructing-the-intervention-yaml" title="Permalink to this headline">¶</a></h2>
+<p>To create an intervention yaml, 6 things are necessary:</p>
+<ul class="simple">
+<li><p>The outcome variable</p></li>
+<li><p>The outcome variable’s reference level</p></li>
+<li><p>A <em>list</em> of the outcome variable’s target levels</p></li>
+<li><dl class="simple">
+<dt>A <em>list</em> of the intervention variables, along with:</dt><dd><ul>
+<li><p>A <em>list</em> intervention variable’s targets</p></li>
+<li><p>The intervention variable’s reference level</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The intervention file should then be specified in the following fashion:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spontaneous_combustion</span>
+<span class="nt">outcome_reference_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not_on_fire</span>
+<span class="nt">outcome_target_levels</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;on_fire&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;a_little_toasty&#39;</span><span class="p p-Indicator">]</span>
+<span class="nt">interventions</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">variable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">semtex_for_breakfast</span>
+  <span class="nt">reference_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">target_levels</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;yes&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;just</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">bite&#39;</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">-</span> <span class="nt">variable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">drank_petrol</span>
+  <span class="nt">reference_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">target_levels</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;yes&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

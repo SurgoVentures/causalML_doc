@@ -1,0 +1,211 @@
+Installation
+============
+
+This is a guide to setting up Intervene.
+The purpose of this guide is to provide instruction on how to set up a virtual environment and directory structure so
+that we can make continuous releases and provide updates to the user in a quick and easy way.
+
+There is a 5-step process:
+
+1. `Download and Install Anaconda`_
+2. `Create a Virtual Environment`_
+3. `Activate the virtual environment`_
+4. `Clone Intervene`_
+5. `Install Intervene into your environment`_
+
+
+Step 1: Download and Install Anaconda
+-------------------------------------
+
+.. _`Download and Install Anaconda`:
+
+If you don't already have Anaconda installed, `this link will take you to the download page for Anaconda`_ [#]_.
+Download it and install it to your system.
+
+.. _`this link will take you to the download page for Anaconda`: https://www.anaconda.com/products/individual
+.. [#] https://www.anaconda.com/products/individual
+
+
+Step 2: Create a Virtual Environment
+------------------------------------
+
+.. _`Create a Virtual Environment`:
+
+Intervene runs on Python. Python is a great language, but it has one major drawback, its dependency management is dire
+and can quickly lead to `dependency hell`_ [#]_. One way to ease some of this
+is to use multiple virtual environments for different projects. So as good practice, we're going to create a new
+virtual environment for Intervene
+
+::
+
+    # Check conda is installed. This should print the help page for conda
+    conda -h
+
+    # Check that you've got the latest version.
+    conda update conda
+
+    # Create a new virtual environment with python 3.7
+    conda create -n <<environent name>> python=3.7
+
+    # e.g. conda create -n intervene python=3.7
+
+When it's finished, you should see something like this
+
+::
+
+    # To activate this environment, use
+    #
+    #     $ conda activate intervene
+    #
+    # To deactivate an active environment, use
+    #
+    #     $ conda deactivate
+
+.. _`dependency hell`: _https://en.wikipedia.org/wiki/Dependency_hell
+.. [#] https://en.wikipedia.org/wiki/Dependency_hell
+
+
+Step 3: Activate the virtual environment
+----------------------------------------
+
+.. _`Activate the virtual environment`:
+
+There is a slight cognitive overhead to using a virtual environment, and that is you must remember to activate it.
+This is particularly important when for example, restarting the machine or restarting the terminal.
+
+If you've got anaconda (a distribution of useful things, one of which is the package manager ``conda``), then you should
+see that when you open a terminal you're greeted with something like the following.
+
+``(base) machine-name:~ username$``
+
+Here, you will notice that the left-most item that is displayed to you reads `(base)`. This is conda telling you that
+you are in conda's base environment. The best way to think of the base is just the root environment from which you can
+start other environments. (This isn't strictly true, but is true enough for our purposes.)
+
+::
+
+    base  --+--> virtual_env_1
+            |
+            +--> virtual_env_2
+            |
+            +--> virtual_env_n
+
+
+If you then call ``conda activate <<environment-name>>``, so for example ``conda activate intervene``, then you will
+see that your conda environment changes from ``base`` to ``intervene``.
+
+Your terminal should now look like this.
+
+``(intervene) machine-name:~ username$``
+
+Great, now we've set up a virtual environment.
+It doesn't matter where we are on the machine, your environment will persist.
+You can change directories, or use other commands in your terminal, but if you call a command related to python,
+then you will use the version of python specific to the virtual environment you're in.
+Basically, if you run ``python <<script-name>>.py`` then you will use that virtual environment's version of python.
+Similarly, if you call ``pip`` e.g. ``pip install <<package-name>>`` then it will be installed within that virtual
+environment so that it's available to that virtual-environment's ``python`` executable.
+
+
+Step 4: Clone Intervene
+-----------------------
+
+.. _`Clone Intervene`:
+
+We store our code base in a private repository hosted by GitHub. GitHub handles all the authentication and authorization
+of users for us.
+If you're new to this project, or new to GitHub, let us know and we'll give you access to the repository.
+
+If possible, we recommend `setting up an ssh key`_ [#]_ for GitHub.
+This just saves you from entering your username and password.
+If you're not comfortable doing this, then it is not required.
+
+Your computer's file directory will look something like
+
+::
+
+    home ---+--> Documents
+            +--> Music
+            +--> Downloads
+            + etc
+
+To make things easier and keep everything separate, I'd add a new directory at this level such as `home/Development`
+where we will clone Intervene, though again this isn't necessary.
+
+Then, navigate to the directory where you want Intervene to live.
+Note, that this doesn't have to be the directory where you want to run experiments.
+In fact, if it's somewhere that is separate (such as ``home/Development``) then it will help prevent the temptation to
+go and edit the files directly.
+
+If you've added an ssh key, you can clone the repository by doing
+``git clone git@github.com:predictive-analytics-lab/Intervene.git``
+
+If you've not added an ssh key, you can clone the repository by doing
+``git clone https://github.com/predictive-analytics-lab/Intervene.git``
+
+At this point you should have a directory that looks something like ``home/Development/Intervene``.
+
+If you navigate to this directory (``cd home/Development/Intervene``) then run ``git status`` you should see some output
+like
+
+::
+
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    nothing to commit, working tree clean
+
+This is good.
+This means that we're on the master branch [#]_ and that the code on our local machine accurately reflects that
+hosted on GitHub, we've not made any changes or anything to it.
+
+So we're on master, we're all good, right?
+Not really.
+Master undergoes a rapid number of changes.
+It's not unusual for the master branch to have 3 updates a day.
+From a user's perspective, this is too fluid.
+Reproducing bugs is difficult and we need to be able to isolate problems.
+To cope with this, we provide release branches.
+These are named using `semantic versioning`_ [#]_.
+They usually look like ``releases/v0.0.0``.
+To make things a little simpler, we also tag the release branch.
+To see what tags are available, use ``git tag --list``.
+To checkout one of these releases, you then do ``git checkout tags/<<tag>>``.
+
+.. _`setting up an ssh key`: https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+.. [#] https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
+.. [#] What's the master branch? The master branch is the canonical version of Intervene. Whilst adding new features, we usually have our own versions of Intervene that differ from the master branch. When we are happy with the changes that we've made, we add those changes to the master branch. Getting changes into master isn't easy. We've made it so that a strict set of standards have to be satisfied before anything can be merged into the master branch.
+
+.. _`semantic versioning`: https://semver.org/
+.. [#] https://semver.org/
+
+Step 5: Install Intervene into your environment
+-----------------------------------------------
+
+.. _`Install Intervene into your environment`:
+
+Now that you've got a virtual environment, and also a copy of the Intervene repository, the last thing is to meld all of
+this together.
+To do this, confirm that you're in your virtual environment (the left side of your terminal should start ``(intervene)``).
+Then, install Intervene into your virtual environment by doing ``pip install -U -e <<path-to-Intervene>>`` i.e.
+``pip install -U -e home/Development/Intervene``.
+This command just means that you want to use the python package installer ``pip`` to install and upgrade the Intervene
+directory, but we've also marked the installation as editable (with the ``-e`` flag) so whenever the repository changes,
+that change is copied reflected in our environment.
+
+Now to switch between release versions of Intervene, we just navigate to where it's installed, and do
+``git checkout tags/<<tag>>``.
+Or, if we want to live dangerously, we can check out master ``git checkout master``.
+Whatever version we checkout, will be the version that is used.
+
+**Note**
+    When you checkout a new release of Intervene, (e.g. ``git checkout tags/v9.2.3``) there may be a difference in the
+    dependencies.
+    As a rule of thumb, re-running ``pip install -U -e home/Development/Intervene`` should fix things.
+    However, if you want to downgrade or there has been a major change,
+    then you might have to clear your virtual environment and re-install everything.
+
+To clear your virtual environment: ``pip freeze | grep -v "^-e" | xargs pip uninstall -y``
+
+Then re-install with ``pip install -U -e home/Development/Intervene``

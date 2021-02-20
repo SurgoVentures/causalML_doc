@@ -1,0 +1,6 @@
+intervene.synbn
+===============
+
+.. automodule:: intervene.synbn
+   :members:
+   :imported-members:

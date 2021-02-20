@@ -1,0 +1,6 @@
+intervene.core.synthetic_data.bif_datasets
+==========================================
+
+.. automodule:: intervene.core.synthetic_data.bif_datasets
+   :members:
+   :imported-members:

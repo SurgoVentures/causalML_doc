@@ -1,0 +1,57 @@
+Output
+^^^^^^
+.. role:: bash(code)
+   :language: bash
+
+In order to run the real-pipeline, the user needs to be specify output directory. This can be
+done by providing a path (relative or absolute) to the option :bash:`--output`. The directory need not already exist
+and any parent directories in its path will be created recursively. This serves as the root output directory
+to which the output of the real-pipeline is to be saved.
+Since it is convenient for the user to be able to use the same output directory for multiple runs and
+for different datasets, each run is uniquely identifiable by a time stamp generated at runtime
+within a subdirectory taking the name of the data .csv file (minus .csv).
+More concretely, the output directory is structured as
+
+::
+
+
+    root output directory (user-specified)
+    |
+    +-- name of data .csv file (user-specified)
+        |
+        +-- timestamp of run
+            |
+            +-- output 1
+            \-- output 2
+            \-- ...
+
+with a practical example of an output directory produced for :bash:`--data alarm.csv` and
+:bash:`--output my_output_dir` (along with various interventions specified on target variable CVP)
+given below
+
+.. image:: real_dir/run_dir/output_dir_example.png
+    :width: 300
+
+The various outputs of the pipeline are collated in the **report.html** file.
+This contains information about the constraints enforced, plots of the odds ratios
+produced by any specified interventions, and a visual representation of the learnt graph.
+Checkpoints created following each expansion step of the Order MCMC algorithm can be found
+in a subdirectory entitled **checkpoints**. These checkpoints can be resumed from by supplying
+their file path to the :bash:`--checkpoints` option in subsequent runs.
+A description of each of the output files is given in the table below.
+
++----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| File                       | Description                                                                                                                                                                                                                                                                                                                              |
++============================+==========================================================================================================================================================================================================================================================================================================================================+
+| convergence_plot_chain.png | Plot showing the score of the estimated structure at each iteration of Order MCMC.                                                                                                                                                                                                                                                       |
++----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| learnt_dag.svg             | Plot of the learnt graphical model.                                                                                                                                                                                                                                                                                                      |
++----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| modelstring.txt            | Contains string specifying the learnt graphical model.                                                                                                                                                                                                                                                                                   |
++----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| odds_ratio*.svg            | Plots prefixed with odds_ratio, followed by the name of a variable and two numbers show the odds ratios computed with the aforementioned variable as the target, with the target level indicated by the first number, and the reference level indcated by the second number (see section **Performing Interventions** for more details). |
++----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| odds_ratio_results.csv     | Tabulated results (odds ratios) of the interventions.                                                                                                                                                                                                                                                                                    |
++----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| report.html                | HTML file summarising the results of the run.                                                                                                                                                                                                                                                                                            |
++----------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

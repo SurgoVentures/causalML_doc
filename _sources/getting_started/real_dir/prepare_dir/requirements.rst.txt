@@ -1,0 +1,10 @@
+Real Data Requirements
+^^^^^^^^^^^^^^^^^^^^^^^^
+The input data for intervene should should be stored in a .csv file. Each node in the learnt graph will correspond to  a column in the file with headers as the names of the nodes.
+
+Intervene is optimised to learn graphs with 20 - 60 nodes. This is the key factor for the duration of a run, however, the this will also depend on how connected the graph is, on the number of data entries and on the level of noise and missing data.
+
+For best performance, the data file should contain over 5000 up to 1,000,000 entries. if your data is incomplete, intervene offers a function to impute missing data.
+
+Intervene takes well to discrete data with the recommended number of categories being between 2 - 4.
+If your data is continuous or mixed data, intervene offers a binning function.

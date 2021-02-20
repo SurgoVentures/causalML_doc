@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Sensitivity Analysis &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Sensitivity Analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/getting_started/real_dir/analysis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sensitivity-analysis">
+<h1>Sensitivity Analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Sensitivity analysis is a technique used to eveluate how much changing one variable will affect another variable.
+It allows us to estimate the <em>sensitivity</em> of one variable with respect to another.</p>
+<p>Typically in Bayesian networks, sensitivity analysis is used to <em>refute</em> estimates: If an estimate is unstable, how can it be trusted?</p>
+<p>In intervene, we currently only have <strong>one</strong> type of sensitivity analysis. This analysis measures how susceptible an estimate
+is to breaches in the causal sufficiency (or causal Markov) assumption.</p>
+<div class="section" id="sensitivity-to-latent-confounders">
+<h2>Sensitivity to Latent Confounders<a class="headerlink" href="#sensitivity-to-latent-confounders" title="Permalink to this headline">¶</a></h2>
+<p>In order to measure the sensitivity of an intervention to latent confunders we prefom an ‘experiment’ - we introduce many different latent confounders and examine how they affect the intervention. If any of introduced confounders change the result of the intervention (i.e. <em>flip</em> the odds ratio), the intervention is
+perceived to be unstable with respect to this confounder.</p>
+<div class="section" id="running-the-analysis">
+<h3>Running the analysis<a class="headerlink" href="#running-the-analysis" title="Permalink to this headline">¶</a></h3>
+<p>In order to activate this functionality in intervene, the <code class="code bash docutils literal notranslate"><span class="pre">--measure-sensitivity</span></code> needs to be set to True.</p>
+<p>For example:
+<code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">/folder/data.csv</span> <span class="pre">--interventions</span> <span class="pre">folder/interventions.yml</span> <span class="pre">--measure-sensitivity</span> <span class="pre">True</span></code></p>
+<p>The sensitivity analysis will be run on any interventions which have been specified in the <em>interventions.yml</em></p>
+</div>
+<div class="section" id="interpreting-the-results">
+<h3>Interpreting the results<a class="headerlink" href="#interpreting-the-results" title="Permalink to this headline">¶</a></h3>
+<p>In the example below, we are performing the intervention GH -&gt; VD and trying to determine where having a confounder
+would be <em>high risk</em> for this particular intervention.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="getting_started/real_dir/images/DAG.png"><img alt="getting_started/real_dir/images/DAG.png" src="getting_started/real_dir/images/DAG.png" /></a>
+<p class="caption"><span class="caption-text">Example DAG</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The analysis produces a plot with colour coded confounders. The confounders all have the prefix <em>H_</em>.</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="getting_started/real_dir/images/danger_plot_GH_VD.png"><img alt="getting_started/real_dir/images/danger_plot_GH_VD.png" src="getting_started/real_dir/images/danger_plot_GH_VD.png" /></a>
+<p class="caption"><span class="caption-text">Danger plot for GH -&gt; VD</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>The confounders scale from Green -&gt; Red, representing low risk -&gt; high risk. In this example, the highest risk node would be H_8.
+In the case that a high risk confounder had been found, the next step would be to consult an expert to ascertain the likihood of a confounder being in the proposed location.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

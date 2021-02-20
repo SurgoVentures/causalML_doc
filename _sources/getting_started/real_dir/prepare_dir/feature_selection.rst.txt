@@ -1,0 +1,144 @@
+Feature Selection
+^^^^^^^^^^^^^^^^^^^
+.. role:: bash(code)
+   :language: bash
+
+It is often the case that not all features are useful for predicting variables of interest.
+Feature selection is the process of eliminating redundant features from the data with the view to
+decrease the learning time complexity and increase performance.
+The main motivation for reducing the dimensionality of the data and keeping the number of features
+as low as possible is to decrease the training time and enhance the performance of machine learning
+algorithms. Feature selection is inherently multi-objective in nature, with competing objectives of
+minimizing the number of features and minimizing the prediction error.
+
+The structural learning algorithm of intervene uses markov chain monte-carlo (MCMC) as its engine;
+MCMC is notoriously computationally intensive but can be made efficient for causal discovery by restricting
+the search to variable orderings, instead of global structure, the number of possibilities of which is
+superexponential with respect to the number of variables. Even using this trick, however, the search for the optimal
+structure has time complexity that is polynomial in the number of variables and so being able
+to do any kind of feature reduction is greatly beneficial.
+
+..    include:: <isonum.txt>
+
+Feature Selection in intervene
+"""""""""""""""""""""""""""""""""
+Feature selection in intervene can be accessed via the CLI using the *preprocess* subcommand.
+We currently offer two methods: one based on mutual information (MI) and one based on a
+a neural network with a self-attention mechanism (SAN).
+
+When performing interventional analysis, in order to correctly capture the causal effects, the only set of required
+variables are those in the active path between the evidence and target variables. An active path between nodes
+X and Y given nodes E is any path between X and Y such that:
+
+- For any v-structure (A → C ← B) on the path, either C or one of its descendents is in E
+- No other nodes on the path are in E
+
+The goal of this feature selection is therefore to extract only the nodes on the unconditional active paths between the
+evidence and target variables. The feature selection is naturally integrated with existing intervention functionality;
+specified using a yaml file (see section *Performing Interventions*), feature selection will attempt to find the
+:math:`k` nodes (:bash:`--n-features`) on the active path, of specified target and evidence variables, by evaluating
+which are most predictive of them. Since feature-selection is
+indifferent to whether a variable is nominally a target or an evidence node, we refer to them
+collectively as 'targets'.
+The :bash:`--interventions` and  :bash:`--n-features` options apply to both of the supported feature selection methods.
+It is important to note that :bash:`--n-features` draws only from those features not contained in the set
+of target variables.
+Since the targets are required for interventions they must always be included in the data and thus do
+not contribute to :math:`k`.
+As such the total number of variables in the graph after feature selection will be :math:`k` + 1 +
+number of evidence nodes, not :math:`k`.
+
+Mutual-Information Estimation
+"""""""""""""""""""""""""""""""""
+
+Mutual information (MI) has a straightforward interpretation as the amount of shared information between distributions,
+More technically, for two random variables, X and Y, the MI is proportional to the ratio between the joint distribution
+and the product of their marginal distributions. For discrete variables it can be written as
+
+.. math::
+
+    I(X; Y) = \sum_{y \in Y} \sum_{x \in X} p(x,y) \textrm{log}\frac{p(x, y}{p(x)p(y)}
+
+
+This is strictly non-negative and is equal to zero if and only if the X and Y
+are completely independent (meaning Y and X tell us nothing about each other), with higher values
+indicating higher dependency. Thus, MI can be utilised as a measure of features' relevance and reundancy,
+having the benefit of  not being constrained by linearity between the variables, while also being able
+to handle continuous and discrete features (with an arbitrary number of categories) alike.
+For our purposes, the mutual information is computed between the set of all features and each target
+(the set of which is disjoint from the features) independently and the intersection between
+the ranked features iteratively computed, with each iteration the subset of each feature ranking is
+expanded by 1, starting from :math:`k`, until :math:`k` features have been selected.
+
+Feature selection with MI can be performed via the CLI's preprocess subcommand by setting the value
+of the option :bash:`--fs-method` to **mi**.
+
+::
+
+    intervene preprocess -d data.csv -o new_data.csv --interventions interventions.yml --fs-method mi
+
+
+Self-Attention Network (SAN)
+"""""""""""""""""""""""""""""""""
+
+.. image:: real_dir/prepare_dir/san-diagram.png
+   :width: 600
+
+The neural network architecture that implements an attention mechanism over the input features.
+Given inputs features :math:`X \in \mathbb{R}^{N \times F}`, the first layer computes an attention mask
+with learned weight matrix :math:`W \in \mathbb{R}^{F \times F}` and associated bias term
+:math:`b \in \mathbb{R}^{F}` as
+
+.. math::
+
+    A(x) = \frac{1}{H} \bigoplus_h \textrm{softmax}(W_h X^ + b)
+
+
+where :math:`h` denotes the index among the :math:`H` attention heads.
+Simply put, we take :math:`H` weight matrices and multiply each of them by the input features,
+transform the output into a probaility distribution with the softmax operator to yield :math:`H`
+scores which are then averaged over, yielding an attention mask by which we element-wise multiply
+with the original inputs.
+
+With the network trained to predict the target variables, :math:`Y \in \mathbb{R}^O`, the weight
+matrices can be understood to represent the relations between the different features.
+Post-training, we can obtain a *global* estimate of each feature's importance by extracting the
+diagonal of the weight matrices, applying softmax, and averaging, or an *instance-based* estimate by
+computing the attention masks for all samples individually and averaging.
+
+Feature selection with SAN can be performed via the CLI's preprocess subcommand by setting the value
+of the option :bash:`--fs-method` to *san*.
+
+.. code-block::
+
+    intervene preprocess -d data.csv -o new_data.csv --interventions interventions.yml --fs-method san
+
+
+Detailed descriptions of the associated parameters are given in the table
+below. For a more in-depth explanation of SAN generally, vide Škrlj, Blaž, et al [1].
+
+.. table::
+    :widths: 25 50
+
+    =================   ==========
+    Parameter           Description
+    --batch-size        Determines the batch-size used to train the SAN with stochastic gradient descent.
+                        The smaller the batch-size the lower the memory consumption and the noisier the
+                        estimate of the gradient.
+    --epochs            Number of epochs to train the SAN for. An epoch corresponds to a complete pass
+                        through the data and thus :math:`\lceil{\frac{N}{m}}\rceil`, where :math:`N` and
+                        :math:`m` are the number of samples in the data and the batch size, respectively.
+    --hdim              Number of units in eac of the SAN's hidden layer. The SAN consists of an initial
+                        attention layer which modulates the importance of the input features, followed by
+                        a fully-connected hidden and output layer with weight matrices of size
+                        :math:`F \times hdim` and :math:`hdim \times O`, respectively (where :math:`O` is
+                        the total number of (ungrouped) outputs).
+    --n-heads           Number of heads (:math:`M`) to use in the SAN's attention layer.
+    --scoring-methods   The method used to determine importance of each feature, post-training.
+                        If 'global', feature importance is evaluated determined weight matrices.
+                        If 'instance', feature importance is determined by computing the average of the
+                        attention layer's outputs over the data samples.
+    =================   ==========
+
+
+[1] https://arxiv.org/abs/2002.04464

@@ -1,0 +1,5 @@
+Synthetic Data
+==============
+
+.. include:: synthetic/generate.rst
+.. include:: synthetic/run.rst

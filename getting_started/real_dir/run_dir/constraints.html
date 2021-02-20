@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Adding Constraints &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Adding Constraints</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/getting_started/real_dir/run_dir/constraints.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adding-constraints">
+<h1>Adding Constraints<a class="headerlink" href="#adding-constraints" title="Permalink to this headline">¶</a></h1>
+<p>Intervene allows the user to inject some pre-existing knowledge, <strong>constraints</strong>, into the learning of your model. There are currently six different types of constraints that can be enforced either on edges or nodes:</p>
+<ol class="arabic simple">
+<li><p><strong>allowed_edges</strong>: list of edges that are allowed in the learning process. It defines the edges that <em>could</em> be find in the learn graph and therefor it is used to impose that it is not possible to have parents outside the specified set.</p></li>
+<li><p><strong>exclude_edges</strong>: list of edges to exclude in the learning process. The learn graph will not have these edges.</p></li>
+<li><p><strong>include_edges</strong>: list of edges to enforce in the learning process. The learn graph will have these edges.</p></li>
+<li><p><strong>ignore_nodes</strong>: list of nodes (variables of the given dataset) to ignore in the learning process. The learn graph will not have these variables in the set of nodes.</p></li>
+<li><p><strong>input_nodes</strong>: list of source nodes with in-degree 0, i.e. node with no parents.</p></li>
+<li><p><strong>output_nodes</strong>: list of sink nodes with out-degree 0, i.e. node with no children.</p></li>
+</ol>
+<div class="section" id="how-to-specify-constraints">
+<h2>How to Specify Constraints<a class="headerlink" href="#how-to-specify-constraints" title="Permalink to this headline">¶</a></h2>
+<p>In order to use the constraints in the structure learning algorithm, we need to write a .yml file that describes as many constraints as we need according to the six types introduced above.</p>
+<p>Example:</p>
+<p>Given the following true graph:</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="getting_started/real_dir/run_dir/../images/constraints_example.png"><img alt="getting_started/real_dir/run_dir/../images/constraints_example.png" src="getting_started/real_dir/run_dir/../images/constraints_example.png" /></a>
+<p class="caption"><span class="caption-text">Example true DAG.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Let’s assume our pre-existing knowledge is the following:</p>
+<ol class="arabic simple">
+<li><p>Nodes <strong>GH</strong> and <strong>MW</strong> can have parents only in the set {<strong>OY</strong>, <strong>QS</strong>, <strong>CD</strong>} and node <strong>PF</strong> can have parents only in the set {<strong>OY</strong>, <strong>QS</strong>, <strong>CD</strong>, <strong>GH</strong>, <strong>MW</strong>}.</p></li>
+<li><p>The edges <span class="math notranslate nohighlight">\(DA \rightarrow QS\)</span>, <span class="math notranslate nohighlight">\(OQ \rightarrow QS\)</span>, <span class="math notranslate nohighlight">\(DA \rightarrow CD\)</span> and <span class="math notranslate nohighlight">\(OQ \rightarrow CD\)</span> are not present in the graph.</p></li>
+<li><p>The edges <span class="math notranslate nohighlight">\(DA \rightarrow PH\)</span> and <span class="math notranslate nohighlight">\(OQ \rightarrow PH\)</span> are present in the graph.</p></li>
+<li><p>We are not interested in learning the relationships involving node <strong>AB</strong>. N.B. the nodes specified in <strong>ignore_nodes</strong> do not need to be isolated nodes with in-degree and out-degree 0.</p></li>
+<li><p><strong>DA</strong> and <strong>OQ</strong> are source nodes.</p></li>
+<li><p><strong>PF</strong> is a sink node.</p></li>
+</ol>
+<p>It can be written as:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">group_1</span><span class="p">:</span> <span class="nl">&amp;A</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OY</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">QS</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CD</span>
+
+<span class="nt">group_2</span><span class="p">:</span> <span class="nl">&amp;B</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">GH</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MW</span>
+
+<span class="nt">group_3</span><span class="p">:</span> <span class="nl">&amp;C</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PF</span>
+
+<span class="nt">group_4</span><span class="p">:</span> <span class="nl">&amp;D</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DA</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OQ</span>
+
+<span class="nt">group_5</span><span class="p">:</span> <span class="nl">&amp;E</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PH</span>
+
+<span class="nt">group_6</span><span class="p">:</span> <span class="nl">&amp;F</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">QS</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CD</span>
+
+<span class="nt">allowed_edges</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="nv">*A</span><span class="p p-Indicator">,</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*B</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">*A</span><span class="p p-Indicator">,</span> <span class="nv">*B</span><span class="p p-Indicator">],</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*C</span><span class="p p-Indicator">}</span>
+
+<span class="nt">exclude_edges</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="nv">*D</span><span class="p p-Indicator">,</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*F</span><span class="p p-Indicator">}</span>
+
+<span class="nt">include_edges</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="nv">*D</span><span class="p p-Indicator">,</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*E</span><span class="p p-Indicator">}</span>
+
+<span class="nt">ignore_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AB</span>
+
+<span class="nt">input_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DA</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OQ</span>
+
+<span class="nt">output_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PF</span>
+</pre></div>
+</div>
+<p>Useful syntax:</p>
+<ul class="simple">
+<li><p><code class="code bash docutils literal notranslate"><span class="pre">group_n:</span> <span class="punctuation"><span class="pre">&amp;</span></span><span class="pre">X</span></code> is used as an alias to identify a set of nodes used to specify the constraints on the edges.</p></li>
+<li><p><code class="code bash docutils literal notranslate"><span class="operator"><span class="pre">{</span></span><span class="pre">from:</span> <span class="operator"><span class="pre">[</span></span><span class="pre">*A,</span> <span class="pre">*B</span><span class="operator"><span class="pre">]</span></span><span class="pre">,</span> <span class="pre">to:</span> <span class="pre">*C</span><span class="operator"><span class="pre">}</span></span></code> in <strong>allowed_edges</strong> is used to identify that the nodes in group C can have parents in the set defined by the union of groups A and B.</p></li>
+</ul>
+<p>Here there are two examples of graphs that violate some of the specified constraints:</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="getting_started/real_dir/run_dir/images/constraints_example_nonvalid_nodes.png"><img alt="getting_started/real_dir/run_dir/images/constraints_example_nonvalid_nodes.png" src="getting_started/real_dir/run_dir/images/constraints_example_nonvalid_nodes.png" /></a>
+<p class="caption"><span class="caption-text">Example of non-valid DAG according to the node constraints: dashed red edge violates the <strong>input_nodes</strong> and the solid red line both the <strong>output_nodes</strong> and <strong>ignore_nodes</strong> constraints.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="getting_started/real_dir/run_dir/images/constraints_example_nonvalid_edges.png"><img alt="getting_started/real_dir/run_dir/images/constraints_example_nonvalid_edges.png" src="getting_started/real_dir/run_dir/images/constraints_example_nonvalid_edges.png" /></a>
+<p class="caption"><span class="caption-text">Example of non-valid DAG according to the edge constraints: dashed red edge violates the <strong>exclude_edges</strong>, the solid red line the <strong>allowed_edges</strong> (GH can have parents only in the group A {OY, QS, CD}) and the two red nodes the <strong>include_edges</strong> constraint (the edge between these two nodes is missing).</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="constraints-from-the-cli">
+<h2>Constraints from the CLI<a class="headerlink" href="#constraints-from-the-cli" title="Permalink to this headline">¶</a></h2>
+<p>Once the constraints file has been created, all we need to do is run the command:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">path_to_data.csv</span> <span class="pre">--output</span> <span class="pre">path_to_output</span> <span class="pre">--constraints</span> <span class="pre">path_to_constraints_file.yml</span></code></p>
+<p>Example:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">./data.csv</span> <span class="pre">--output</span> <span class="pre">./</span> <span class="pre">--constraints</span> <span class="pre">./constraints.yml</span></code></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

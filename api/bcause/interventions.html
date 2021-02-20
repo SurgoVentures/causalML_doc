@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.bcause.interventions &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intervene.bcause.ordermcmc" href="ordermcmc.html" />
+    <link rel="prev" title="intervene.bcause.cdt_algorithms" href="cdt_algorithms.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#synbn">SynBN</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#bcause">BCause</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bcause.html">intervene.bcause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdt_algorithms.html">intervene.bcause.cdt_algorithms</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.bcause.interventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.html">intervene.bcause.ordermcmc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.optimisation.html">intervene.bcause.ordermcmc.optimisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.scoring.html">intervene.bcause.ordermcmc.scoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.search_space.html">intervene.bcause.ordermcmc.search_space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sensitivity_analysis.html">intervene.bcause.sensitivity_analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.bcause.interventions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/bcause/interventions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-intervene.bcause.interventions">
+<span id="intervene-bcause-interventions"></span><h1>intervene.bcause.interventions<a class="headerlink" href="#module-intervene.bcause.interventions" title="Permalink to this headline">¶</a></h1>
+<p>Interventions.</p>
+<p><strong>Classes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.InnerIntervention" title="intervene.bcause.interventions.InnerIntervention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InnerIntervention</span></code></a>(variable, reference_level, …)</p></td>
+<td><p>Dataclass for individual interventions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.interventions.Intervention" title="intervene.bcause.interventions.Intervention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Intervention</span></code></a>(target, …)</p></td>
+<td><p>Dataclass for Interventions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.InterventionSpecs" title="intervene.bcause.interventions.InterventionSpecs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InterventionSpecs</span></code></a>(intervened_node, …)</p></td>
+<td><p>Class capturing the configuration of a single intervention.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.all_combinations_odds_ratio" title="intervene.bcause.interventions.all_combinations_odds_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_combinations_odds_ratio</span></code></a>(model[, target, …])</p></td>
+<td><p>Get a dictionary object containing all possible odds ratios on a target.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.interventions.d_separated_v_structures" title="intervene.bcause.interventions.d_separated_v_structures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">d_separated_v_structures</span></code></a>(graph)</p></td>
+<td><p>Eliminates v-structures from the list if the two parents are not d-separated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.evidence_combination_odds_ratio" title="intervene.bcause.interventions.evidence_combination_odds_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evidence_combination_odds_ratio</span></code></a>(model, …)</p></td>
+<td><p>Get a dictionary object containing all possible odds ratios for a (evidence, target) pair.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.interventions.format_or_key" title="intervene.bcause.interventions.format_or_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_or_key</span></code></a>(int_specs)</p></td>
+<td><p>Format an odds-ratio key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.is_active_path" title="intervene.bcause.interventions.is_active_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_active_path</span></code></a>(graph, vertex_1, vertex_2)</p></td>
+<td><p>Check if there is an active path between two vertices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.interventions.load_intervention_config" title="intervene.bcause.interventions.load_intervention_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_intervention_config</span></code></a>(config)</p></td>
+<td><p>Load interventions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.odds_ratio" title="intervene.bcause.interventions.odds_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">odds_ratio</span></code></a>(model, target, evidence, …[, …])</p></td>
+<td><p>Produce odds ratios for a target node given some evidence.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.interventions.odds_ratio_equivalence_class" title="intervene.bcause.interventions.odds_ratio_equivalence_class"><code class="xref py py-obj docutils literal notranslate"><span class="pre">odds_ratio_equivalence_class</span></code></a>(graph, target, …)</p></td>
+<td><p>Compute odds ratio for each sibling DAG.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.parse_intervention_config" title="intervene.bcause.interventions.parse_intervention_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_intervention_config</span></code></a>(config)</p></td>
+<td><p>Parse interventions from a yaml config file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.interventions.targeted_or" title="intervene.bcause.interventions.targeted_or"><code class="xref py py-obj docutils literal notranslate"><span class="pre">targeted_or</span></code></a>(model, intervention_config[, …])</p></td>
+<td><p>Compute the targeted odds-ratio(s) based on an interventions config file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.validate_intervention_config" title="intervene.bcause.interventions.validate_intervention_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_intervention_config</span></code></a>(file_path)</p></td>
+<td><p>Validate constraints yaml.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="intervene.bcause.interventions.InnerIntervention">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">InnerIntervention</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variable</span></em>, <em class="sig-param"><span class="n">reference_level</span></em>, <em class="sig-param"><span class="n">target_levels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.InnerIntervention" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass for individual interventions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>reference_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target_levels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.InnerIntervention.safe_load" title="intervene.bcause.interventions.InnerIntervention.safe_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_load</span></code></a>(dictionary)</p></td>
+<td><p>Create an instance of InnerIntervention with type casting to string.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.interventions.InnerIntervention.safe_load">
+<em class="property">classmethod </em><code class="sig-name descname">safe_load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dictionary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.InnerIntervention.safe_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an instance of InnerIntervention with type casting to string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dictionary</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – Dictionary to convert to InnerIntervention</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">InnerIntervention</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.bcause.interventions.Intervention">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">Intervention</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">outcome_reference_level</span></em>, <em class="sig-param"><span class="n">outcome_target_levels</span></em>, <em class="sig-param"><span class="n">interventions</span></em>, <em class="sig-param"><span class="n">priors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.Intervention" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass for Interventions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>outcome_reference_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>outcome_target_levels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>interventions</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">InnerIntervention</span></code>]) – </p></li>
+<li><p><strong>priors</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Prior</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.Intervention.safe_load" title="intervene.bcause.interventions.Intervention.safe_load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_load</span></code></a>(dictionary)</p></td>
+<td><p>Create an instance of Intervention with type casting to string.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.interventions.Intervention.safe_load">
+<em class="property">classmethod </em><code class="sig-name descname">safe_load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dictionary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.Intervention.safe_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an instance of Intervention with type casting to string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dictionary</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]]]]]) – Dictionary to convert to Intervention</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Intervention</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.bcause.interventions.InterventionSpecs">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">InterventionSpecs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">intervened_node</span></em>, <em class="sig-param"><span class="n">target_node</span></em>, <em class="sig-param"><span class="n">evidence_ref_level</span></em>, <em class="sig-param"><span class="n">target_ref_level</span></em>, <em class="sig-param"><span class="n">evidence_target_level</span></em>, <em class="sig-param"><span class="n">target_target_level</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.InterventionSpecs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class capturing the configuration of a single intervention.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>intervened_node</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target_node</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>evidence_ref_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target_ref_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>evidence_target_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target_target_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.interventions.InterventionSpecs.to_dict" title="intervene.bcause.interventions.InterventionSpecs.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dict</span></code></a>()</p></td>
+<td><p>Return InterventionSpec as a dictionary object.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.interventions.InterventionSpecs.to_dict">
+<code class="sig-name descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.InterventionSpecs.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return InterventionSpec as a dictionary object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.all_combinations_odds_ratio">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">all_combinations_odds_ratio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">target</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">intervention_type</span><span class="o">=</span><span class="default_value">'static'</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.all_combinations_odds_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a dictionary object containing all possible odds ratios on a target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – A DAG object on which to calculate the odds ratios</p></li>
+<li><p><strong>target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A str specifying the target node</p></li>
+<li><p><strong>intervention_type</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘mle_bootstrap’, ‘static’]) – </p></li>
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary of odds ratios, with tuple keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.d_separated_v_structures">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">d_separated_v_structures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.d_separated_v_structures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Eliminates v-structures from the list if the two parents are not d-separated.</p>
+<p>I.e. connected via an active path and therefore are.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>graph</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.evidence_combination_odds_ratio">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">evidence_combination_odds_ratio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">evidence</span></em>, <em class="sig-param"><span class="n">intervention_type</span><span class="o">=</span><span class="default_value">'static'</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.evidence_combination_odds_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a dictionary object containing all possible odds ratios for a (evidence, target) pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – A DAG object on which to calculate the odds ratios</p></li>
+<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A str specifying the target node</p></li>
+<li><p><strong>evidence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – A str specifying the evidence node</p></li>
+<li><p><strong>intervention_type</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘mle_bootstrap’, ‘static’]) – </p></li>
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary of odds ratios, with tuple keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.format_or_key">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">format_or_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">int_specs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.format_or_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format an odds-ratio key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>int_specs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">InterventionSpecs</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.is_active_path">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">is_active_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">vertex_1</span></em>, <em class="sig-param"><span class="n">vertex_2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.is_active_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if there is an active path between two vertices.</p>
+<p>I.e. one is a descendent or an ancestor of the other, or if they share a common ancestor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p></li>
+<li><p><strong>vertex_1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>vertex_2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.load_intervention_config">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">load_intervention_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.load_intervention_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load interventions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Intervention</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.odds_ratio">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">odds_ratio</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">evidence</span></em>, <em class="sig-param"><span class="n">target_reference_level</span></em>, <em class="sig-param"><span class="n">target_target_level</span></em>, <em class="sig-param"><span class="n">evidence_reference_level</span></em>, <em class="sig-param"><span class="n">evidence_target_level</span></em>, <em class="sig-param"><span class="n">priors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">intervention_type</span><span class="o">=</span><span class="default_value">'static'</span></em>, <em class="sig-param"><span class="n">cat_encoding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.odds_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce odds ratios for a target node given some evidence.</p>
+<p>Does so via CPD manipulation/propagation, as opposed to network sampling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+<li><p><strong>cat_encoding</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – </p></li>
+<li><p><strong>intervention_type</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘static’, ‘mle_bootstrap’]) – </p></li>
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – DAG with structure and CPDs defined.</p></li>
+<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The target node to estimate the effect on</p></li>
+<li><p><strong>target_target_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The target level of the target node</p></li>
+<li><p><strong>target_reference_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The reference level of the target node</p></li>
+<li><p><strong>evidence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The node which is being intervened on (evidence provided for)</p></li>
+<li><p><strong>evidence_target_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The target level for the evidence node</p></li>
+<li><p><strong>evidence_reference_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The reference level for the evidence node</p></li>
+<li><p><strong>priors</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Prior</span></code>]]) – Prior do-calculus interventions to perform</p></li>
+<li><p><strong>sample</strong> – whether to use the sampling method for CI</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the estimated odds ratio</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.odds_ratio_equivalence_class">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">odds_ratio_equivalence_class</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">target</span></em>, <em class="sig-param"><span class="n">evidence</span></em>, <em class="sig-param"><span class="n">target_reference_level</span></em>, <em class="sig-param"><span class="n">target_target_level</span></em>, <em class="sig-param"><span class="n">evidence_reference_level</span></em>, <em class="sig-param"><span class="n">evidence_target_level</span></em>, <em class="sig-param"><span class="n">d_separation_flag</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cat_encoding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.odds_ratio_equivalence_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute odds ratio for each sibling DAG.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p></li>
+<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>evidence</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target_reference_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>target_target_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>evidence_reference_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>evidence_target_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>d_separation_flag</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – </p></li>
+<li><p><strong>cat_encoding</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – </p></li>
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float64</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.parse_intervention_config">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">parse_intervention_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.parse_intervention_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse interventions from a yaml config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Intervention</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.targeted_or">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">targeted_or</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">intervention_config</span></em>, <em class="sig-param"><span class="n">cat_encoding</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.targeted_or" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the targeted odds-ratio(s) based on an interventions config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DAG</span></code>) – </p></li>
+<li><p><strong>intervention_config</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Intervention</span></code>) – </p></li>
+<li><p><strong>cat_encoding</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – </p></li>
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">InterventionSpecs</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.interventions.validate_intervention_config">
+<code class="sig-prename descclassname">intervene.bcause.interventions.</code><code class="sig-name descname">validate_intervention_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.interventions.validate_intervention_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate constraints yaml.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ordermcmc.html" class="btn btn-neutral float-right" title="intervene.bcause.ordermcmc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cdt_algorithms.html" class="btn btn-neutral float-left" title="intervene.bcause.cdt_algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

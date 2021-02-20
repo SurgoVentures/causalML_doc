@@ -1,0 +1,116 @@
+Adding Constraints
+^^^^^^^^^^^^^^^^^^^^^^^
+.. role:: bash(code)
+    :language: bash
+
+Intervene allows the user to inject some pre-existing knowledge, **constraints**, into the learning of your model. There are currently six different types of constraints that can be enforced either on edges or nodes:
+
+1. **allowed_edges**: list of edges that are allowed in the learning process. It defines the edges that *could* be find in the learn graph and therefor it is used to impose that it is not possible to have parents outside the specified set.
+2. **exclude_edges**: list of edges to exclude in the learning process. The learn graph will not have these edges.
+3. **include_edges**: list of edges to enforce in the learning process. The learn graph will have these edges.
+4. **ignore_nodes**: list of nodes (variables of the given dataset) to ignore in the learning process. The learn graph will not have these variables in the set of nodes.
+5. **input_nodes**: list of source nodes with in-degree 0, i.e. node with no parents.
+6. **output_nodes**: list of sink nodes with out-degree 0, i.e. node with no children.
+
+How to Specify Constraints
+""""""""""""""""""""""""""""""
+In order to use the constraints in the structure learning algorithm, we need to write a .yml file that describes as many constraints as we need according to the six types introduced above.
+
+Example:
+
+Given the following true graph:
+
+.. figure:: ../images/constraints_example.png
+    :scale: 80 %
+
+    Example true DAG.
+
+Let's assume our pre-existing knowledge is the following:
+
+1. Nodes **GH** and **MW** can have parents only in the set {**OY**, **QS**, **CD**} and node **PF** can have parents only in the set {**OY**, **QS**, **CD**, **GH**, **MW**}.
+2. The edges :math:`DA \rightarrow QS`, :math:`OQ \rightarrow QS`, :math:`DA \rightarrow CD` and :math:`OQ \rightarrow CD` are not present in the graph.
+3. The edges :math:`DA \rightarrow PH` and :math:`OQ \rightarrow PH` are present in the graph.
+4. We are not interested in learning the relationships involving node **AB**. N.B. the nodes specified in **ignore_nodes** do not need to be isolated nodes with in-degree and out-degree 0.
+5. **DA** and **OQ** are source nodes.
+6. **PF** is a sink node.
+
+It can be written as:
+
+.. code-block:: yaml
+
+    ---
+    group_1: &A
+      - OY
+      - QS
+      - CD
+
+    group_2: &B
+      - GH
+      - MW
+
+    group_3: &C
+      - PF
+
+    group_4: &D
+      - DA
+      - OQ
+
+    group_5: &E
+      - PH
+
+    group_6: &F
+      - QS
+      - CD
+
+    allowed_edges:
+      - {from: *A, to: *B}
+      - {from: [*A, *B], to: *C}
+
+    exclude_edges:
+      - {from: *D, to: *F}
+
+    include_edges:
+      - {from: *D, to: *E}
+
+    ignore_nodes:
+      - AB
+
+    input_nodes:
+      - DA
+      - OQ
+
+    output_nodes:
+      - PF
+
+Useful syntax:
+
+- :bash:`group_n: &X` is used as an alias to identify a set of nodes used to specify the constraints on the edges.
+- :bash:`{from: [*A, *B], to: *C}` in **allowed_edges** is used to identify that the nodes in group C can have parents in the set defined by the union of groups A and B.
+
+Here there are two examples of graphs that violate some of the specified constraints:
+
+.. figure:: images/constraints_example_nonvalid_nodes.png
+    :scale: 80 %
+
+    Example of non-valid DAG according to the node constraints: dashed red edge violates the **input_nodes** and the solid red line both the **output_nodes** and **ignore_nodes** constraints.
+
+.. figure:: images/constraints_example_nonvalid_edges.png
+    :scale: 80 %
+
+    Example of non-valid DAG according to the edge constraints: dashed red edge violates the **exclude_edges**, the solid red line the **allowed_edges** (GH can have parents only in the group A {OY, QS, CD}) and the two red nodes the **include_edges** constraint (the edge between these two nodes is missing).
+
+Constraints from the CLI
+""""""""""""""""""""""""""""""
+Once the constraints file has been created, all we need to do is run the command:
+
+
+:bash:`intervene real --data path_to_data.csv --output path_to_output --constraints path_to_constraints_file.yml`
+
+Example:
+
+:bash:`intervene real --data ./data.csv --output ./ --constraints ./constraints.yml`
+
+
+
+
+

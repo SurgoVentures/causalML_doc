@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Algorithms &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Troubleshooting / FAQ" href="faq.html" />
+    <link rel="prev" title="Real Data" href="real.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="real.html">Real Data</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#structure-learning">Structure Learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ordermcmc">OrderMCMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qnml-score">qNML Score</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parameter-estimation">Parameter Estimation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#maximum-likelihood-estimation-mle">Maximum Likelihood Estimation (MLE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Algorithms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/getting_started/methods.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="algorithms">
+<h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
+<p>This section will provide an overview of the algorithms used within the intervene library. There are broadly two
+categories of algorithm employed: <strong>structural estimation</strong>, and <strong>parameter estimation</strong>. First, a structure learning
+algorithm must be used to estimate the (CP)DAG. Following this a parameter estimation method must be used to infer the
+parameters – forming a Bayesian network.</p>
+<div class="section" id="structure-learning">
+<h2>Structure Learning<a class="headerlink" href="#structure-learning" title="Permalink to this headline">¶</a></h2>
+<p>Structure learning aims to learn the (potentially causal) directed acyclic graph (DAG) given a dataset.
+There are broadly three types:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Score-based</p></li>
+<li><p>Constraint-based</p></li>
+<li><p>Hybrid</p></li>
+</ol>
+</div></blockquote>
+<p>It is the job of a score-based algorithm to optimize a given score, generally adding or removing edges which cause an increase.
+Constraint-based algorithms generally start fully connected, removing edges as they pass (conditional) independence tests.
+Hybrid algorithms are an amalgamation of the two approaches.</p>
+<p>The main structure learning algorithm in this library is OrderMCMC, or BiDAG. This is a hybrid approach, and we use the
+qNML score as our optimization target.</p>
+<div class="section" id="ordermcmc">
+<h3>OrderMCMC<a class="headerlink" href="#ordermcmc" title="Permalink to this headline">¶</a></h3>
+<p>OrderMCMC is a search approach which explores the DAG space using the <em>order
+MCM</em> schemes. The order MCMC is based on the concept of node ordering
+<span class="math notranslate nohighlight">\(\prec\)</span> which is a permutation of the <span class="math notranslate nohighlight">\(N\)</span> node labels
+(i.e. the nodes are lined up in a chain according to given permutation).
+This constraint ensures that all such consistent structures are acyclic.
+Only the DAGs sharing the same (predetermined) topological ordering of
+the nodes are considered. The score of the order then consists of the
+sum of the scores of the DAGs consistent with it:</p>
+<div class="math notranslate nohighlight">
+\[R(\prec | D) \propto \sum_{\mathcal{G} \in \prec} \prod_{i=1}^N S(X_i, \Pi_{X_i}| D)\]</div>
+<p>To reduce the complexity of the algorithm, an initial search space is
+used applying a constraint based model (e.g. PC algorithm) to allow only
+a subset of potential parents for each node. The search space is then
+enlarged such that each node can have an additional parent among the
+remaining nodes outside its permissible parent set.</p>
+<p>Each state of the chain, consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p>consider the search space, <span class="math notranslate nohighlight">\(\mathcal{H}_j\)</span>, and enlarge it <a class="footnote-reference brackets" href="#id3" id="id1">1</a></p></li>
+<li><p>consider the order, <span class="math notranslate nohighlight">\(\prec_j\)</span>, of the previous state <span class="math notranslate nohighlight">\(j\)</span>
+of the chain <a class="footnote-reference brackets" href="#id4" id="id2">2</a></p></li>
+<li><p>sample a node <span class="math notranslate nohighlight">\(i\)</span> uniformly at random</p></li>
+<li><p>define all orders, <span class="math notranslate nohighlight">\(nbd^i(\prec_j)\)</span>, with node <span class="math notranslate nohighlight">\(i\)</span> placed
+elsewhere in the order or at its current position (i.e. all possible
+local transpositions for node <span class="math notranslate nohighlight">\(i\)</span>) and score them using all the
+DAGs consistent with the given order</p></li>
+<li><p>sample a proposed order <span class="math notranslate nohighlight">\(\prec' \in nbd^i(\prec_j)\)</span>
+proportionally to the scores of all the orders in
+<span class="math notranslate nohighlight">\(nbd^i(\prec_j)\)</span></p></li>
+<li><p>accept the new order <span class="math notranslate nohighlight">\(\prec_{j+1} = \prec'\)</span></p></li>
+<li><p>select the maximally scoring DAG, <span class="math notranslate nohighlight">\(G^{\star}_{j+1}\)</span>, in
+<span class="math notranslate nohighlight">\(\prec_{j+1}\)</span></p></li>
+<li><p>define the new search space as
+<span class="math notranslate nohighlight">\(\mathcal{H}_{j+1} = \mathcal{H}_j \cup G^{\star}_{j+1}\)</span></p></li>
+</ol>
+<p>There are a few differences in our implementation of OrderMCMC compared to the BiDAG paper.
+These are listed below:</p>
+<div class="section" id="initial-search-space">
+<h4>Initial Search Space<a class="headerlink" href="#initial-search-space" title="Permalink to this headline">¶</a></h4>
+<p>The initial search space defines the starting parent set that nodes can
+take, and orders are scored using. In the paper, the PC algorithm is
+used to define this starting point. In our implementation, for each
+variable: we take the top 5 other variables which maximize the mutual
+information score. We found this achieves similar (or better)
+performance in much shorter timeframes. The relevant function can be found <a class="reference external" href="../api/bcause/ordermcmc.search_space.html?highlight=from_mutual_information#intervene.bcause.ordermcmc.search_space.SearchSpace.from_mutual_information">here.</a></p>
+</div>
+<div class="section" id="steps-in-order-space">
+<h4>Steps in Order space:<a class="headerlink" href="#steps-in-order-space" title="Permalink to this headline">¶</a></h4>
+<p>Each <em>plus-one</em> random movements are made, then either accepted or
+rejected. In the BiDAG paper, the number of steps is not specified. In
+our implementation this is a hyper-parameter and <strong>defaults at 25,000</strong>.</p>
+<p>Three types of steps in order space are used in our implementation of
+OrderMCMC:</p>
+<ul class="simple">
+<li><p>Adjacent Swaps, where adjacent nodes are swapped in the order (80%)</p></li>
+<li><p>Random Swaps, where two random nodes are swapped in the order (10%)</p></li>
+<li><p>Random Inserts, where a node is removed, then inserted, into a random
+position in the order (10%)</p></li>
+</ul>
+<p>In the paper, “Neighbourhood” Swaps are also used, however, they
+were not found to improve performance and so are not used by default.
+There is a “use_nbd” flag in the <a class="reference external" href="../api/bcause/ordermcmc.optimisation.html">MCMC object.</a></p>
+</div>
+<div class="section" id="mcmc-acceptance-criteria">
+<h4>MCMC Acceptance Criteria<a class="headerlink" href="#mcmc-acceptance-criteria" title="Permalink to this headline">¶</a></h4>
+<p>We use a form of simulated annealing to promote more random moves
+initially in the optimization, eventually cooling off, making score
+improvements gradually more important.</p>
+<p><span class="math notranslate nohighlight">\(\gamma = \frac{1}{max(0.01, \frac{t^2}{N^2})}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is the current step and <span class="math notranslate nohighlight">\(N\)</span> is the total steps.</p>
+<p><span class="math notranslate nohighlight">\(p &lt; e^{\gamma(s_t - s_{t-1})}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(p \sim U(0, 1)\)</span> , and <span class="math notranslate nohighlight">\(s_t\)</span> is the score at step
+<span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>This is not done in the BiDAG paper, and we have seen it improve
+performance.</p>
+</div>
+<div class="section" id="constraint-implementation">
+<h4>Constraint Implementation<a class="headerlink" href="#constraint-implementation" title="Permalink to this headline">¶</a></h4>
+<p>Below we specify how each type of constraints is implemented - to see
+how to use the constraints please refer to the Adding Constraints
+section.</p>
+<div class="section" id="allowed-edges">
+<h5>Allowed Edges:<a class="headerlink" href="#allowed-edges" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Creates an edge blacklist = (all possible edges - allowed edges)</p></li>
+<li><p>Stop any edges from the blacklist being added to:</p>
+<ul>
+<li><p>The initial search space</p></li>
+<li><p>The updated search space during Plus-one steps</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="exclude-edges">
+<h5>Exclude Edges:<a class="headerlink" href="#exclude-edges" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Manual blacklist which stops edges being added to:</p>
+<ul>
+<li><p>The initial search space</p></li>
+<li><p>The updated search space during Plus-one steps</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="include-edges">
+<h5>Include Edges:<a class="headerlink" href="#include-edges" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Creates an edge whitelist which is enforced by:</p>
+<ul>
+<li><p>Ensuring the order never violates the edge enforcement</p></li>
+<li><p>Ensuring the only parents sets evaluated include the enforced
+edges</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ignore-nodes">
+<h5>Ignore Nodes:<a class="headerlink" href="#ignore-nodes" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Variables are removed from the DataFrame</p></li>
+</ul>
+</div>
+<div class="section" id="input-nodes">
+<h5>Input Nodes:<a class="headerlink" href="#input-nodes" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Nodes which cannot have parents, enforced by:</p>
+<ul>
+<li><p>Placing the nodes at the end of the order</p></li>
+<li><p>Blacklists all nodes from connecting to it as in <em>Allowed Edges</em></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="output-nodes">
+<h5>Output Nodes:<a class="headerlink" href="#output-nodes" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Nodes which cannot have children, enforced by:</p>
+<ul>
+<li><p>Placing the nodes at the start of the order</p></li>
+<li><p>Blacklists the node from connecting to any other nodes as in
+<em>Allowed Edges</em></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="qnml-score">
+<h3>qNML Score<a class="headerlink" href="#qnml-score" title="Permalink to this headline">¶</a></h3>
+<p>The qNML is a modification of the NML (Normalized Maximum Likelihood)
+criterion, which is based on the Minimum Description Length method. Data
+are viewed as codes to be compressed by the model, and the model has to
+compress data by finding regularities. The aim is then to find the
+model, from a set of candidates, that allows the shortest description
+codelength (i.e. the greatest compression) of the data.</p>
+<p>The NML provides a distribution that satisfies this minimum codelenth
+principle:</p>
+<div class="math notranslate nohighlight">
+\[P_{NML}(\mathcal{D}; G) = \frac{P(D | \hat{\theta}(D; G))}{\sum_{D'}P(D' | \hat{\theta}(D'; G))},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{\theta}(D; G)\)</span> is the maximum likelihood code and the
+normalizing constant <span class="math notranslate nohighlight">\(\sum_{D'}P(D' | \hat{\theta}(D'; G))\)</span> is the
+sum of maximum likelihoods of all potential data sets <span class="math notranslate nohighlight">\(D'\)</span> of
+fixed size <span class="math notranslate nohighlight">\(n \cdot N\)</span> that could be observed in an experiment.</p>
+<p>The normalizing constant of the NML criterion renders the computation
+infeasible. Sacrificing the score equivalence a decomposable version,
+the <em>factorized NML</em>, can be used:</p>
+<div class="math notranslate nohighlight">
+\[P^1_{NML}(D_{X_i, j}; G) = \frac{P(D | \hat{\theta}(D_{X_i, j}; G))}{\sum_{D'}P(D' | \hat{\theta}(D'; G))},\]</div>
+<p>where <span class="math notranslate nohighlight">\(j\)</span> is a parent configuration, <span class="math notranslate nohighlight">\({\Pi_{X_i}=j}\)</span>, and
+the normalizing sum goes over all the possible <span class="math notranslate nohighlight">\(D'_i\)</span>-column
+vectors of length <span class="math notranslate nohighlight">\(N\)</span>, i.e.
+<span class="math notranslate nohighlight">\(D'_i \in \left\{1, \dots, r_i \right\}^N\)</span>.</p>
+<p>In 2018, Silande et al. introduced the <em>quotient NML</em> score, qNML, a
+modification of the fNML that is score equivalent. It can be factorized
+as the sum of <span class="math notranslate nohighlight">\(N\)</span> terms, one for each variable <span class="math notranslate nohighlight">\(X_i \in X\)</span>.
+The difference between this score and fNML is that it does not require
+an additional partioning based on the parent configurations.</p>
+<div class="math notranslate nohighlight">
+\[s^{qNML} = \sum_{i=1}^N s_i^{qNML} (\mathcal{D}, \mathcal{G}) = \sum_{i=1}^N \ln \left( \frac{P^1_{NML} (D_{X_i, \Pi_{X_i}}, G)}{P^1_{NML} (D_{\Pi_{X_i}}, G)}\right)\]</div>
+<p>To compute the score, all the parent configurations are collapsed into a
+N-dim vector (variable) <span class="math notranslate nohighlight">\(Y\)</span> with
+<span class="math notranslate nohighlight">\(y=\left\{1, \dots, q_i\right\}, \forall y \in Y\)</span>.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The search space of the first state of the chain is the output of a
+constraint based model</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>The order of the first state of the chain is randomly defined</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="parameter-estimation">
+<h2>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">¶</a></h2>
+<p>The global distribution of a Bayesian network <span class="math notranslate nohighlight">\(P(X \mid G, \Theta)\)</span> factorize into a set of local distributions:</p>
+<div class="math notranslate nohighlight">
+\[P(X \mid G, \Theta) = \prod_{i = 1}^{D} P(X_{i} \mid \Pi_{X_{i}}, \Theta_{X_{i}}),\]</div>
+<p>Discrete BNs assume that a variable <span class="math notranslate nohighlight">\(X_{i}\)</span> is distributed multinomially conditioned on a configuration of its parents
+<span class="math notranslate nohighlight">\(X_{i}=k\mid\Pi_{X_{i}} \sim Mul(\pi_{ik\mid j})\)</span>,
+where <span class="math notranslate nohighlight">\(\pi_{i k \mid j}=\mathrm{P}\left(X_{i}=k \mid \Pi_{X_{i}}=j\right)\)</span> is the probability when
+<span class="math notranslate nohighlight">\(X_i = k\)</span> conditioned on the jth value of the possible parent combinations. These discrete conditional
+distributions can be represented a conditional probability table (CPT). We can apply algorithms to independently
+learn each of these CPTs.</p>
+<div class="section" id="maximum-likelihood-estimation-mle">
+<h3>Maximum Likelihood Estimation (MLE)<a class="headerlink" href="#maximum-likelihood-estimation-mle" title="Permalink to this headline">¶</a></h3>
+<p>Maximum Likelihood Estimation is one such way to estimate the parameters in a CPT, given: a node, it’s parents, and
+their corresponding data. MLE is quite simple, it is simply the frequency of the nodes taking on each value, whilst
+conditioned on each of the parent values. This is then normalized by the total count when the parents are said condition.</p>
+<div class="math notranslate nohighlight">
+\[\theta_{i j k}=\frac{n_{i j k}}{\sum_{j^{\prime}} n_{i j^{\prime} k}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta_{i j k}\)</span> is the parameter value when node i, is value j, with parent configuration k.
+<span class="math notranslate nohighlight">\(n_{i j k}\)</span> is the frequency when node i has value j, with parent configuration k. MLE is the default (read: only)
+option in Intervene accessible from the CLI.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="faq.html" class="btn btn-neutral float-right" title="Troubleshooting / FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="real.html" class="btn btn-neutral float-left" title="Real Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

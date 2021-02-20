@@ -1,0 +1,677 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Synthetic Data &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Real Data" href="real.html" />
+    <link rel="prev" title="Quick Start" href="quick_start.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Synthetic Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#generating-synthetic-data">Generating Synthetic Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synthetic-output">Synthetic Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Generating Synthetic Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specifying-synthetic-data-configuration-files">Specifying [Synthetic Data] Configuration Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-intervene-on-synthetic-data">Running Intervene on Synthetic Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synthetic-pipelines">Synthetic Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-on-the-cli">Running on the CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-datasets">Common Datasets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Synthetic Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/getting_started/synth.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="synthetic-data">
+<h1>Synthetic Data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="generating-synthetic-data">
+<h2>Generating Synthetic Data<a class="headerlink" href="#generating-synthetic-data" title="Permalink to this headline">¶</a></h2>
+<p>Intervene contains the functionality to generate a variety of synthetic data-sets. This functionality enables the user to perform experiments whilst also having
+access to the <strong>ground truth</strong> Bayesian network, DAG, and data.</p>
+<p>Bayesian networks created by experts exist, alongside the corresponding <em>ground truth</em> structures and parameters. However;
+working with these networks can have its limitiations as the user doen’t have full control of the properties of the data/network.</p>
+<div class="section" id="synthetic-output">
+<h3>Synthetic Output<a class="headerlink" href="#synthetic-output" title="Permalink to this headline">¶</a></h3>
+<p>When a set of synthetic datasets are generated, there are two levels of output: The first is <strong>experiment-level</strong>, containing global
+information about all of the generated datasets. The second output is <strong>dataset-level</strong>, where the output from
+individually generated datasets is stored.</p>
+<div class="section" id="experiment-level-output">
+<h4>Experiment-level output<a class="headerlink" href="#experiment-level-output" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">File directory of the experiment-level output:</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Filename</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>master_file.csv</p></td>
+<td><p>CSV file containing a record of all of the generated synthetic data, with associated properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_config.yml</p></td>
+<td><p>A copy of the configuration file used to generate the data.</p></td>
+</tr>
+<tr class="row-even"><td><p>1..n/</p></td>
+<td><p>Numbered folders, each containing dataset level output.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dataset-level-output">
+<h4>Dataset-level output<a class="headerlink" href="#dataset-level-output" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">File directory of the dataset-level output:</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Filename</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bayesian_network.pb</p></td>
+<td><p>Protobuf file encoding the generated Bayesian Network, including structures and parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>chart.svg</p></td>
+<td><p>Visualisation of the DAG, using the <a class="reference external" href="http://www.graphviz.org/">Graphviz</a> plotting library</p></td>
+</tr>
+<tr class="row-even"><td><p>data.csv</p></td>
+<td><p>CSV file containing the generated synthetic data</p></td>
+</tr>
+<tr class="row-odd"><td><p>edge_list.csv</p></td>
+<td><p>CSV file containing the list of edges in the DAG</p></td>
+</tr>
+<tr class="row-even"><td><p>modelstring.txt</p></td>
+<td><p>TXT file containing the modelstring (string encoding the DAG)</p></td>
+</tr>
+<tr class="row-odd"><td><p>network_edits.yml</p></td>
+<td><p>A YML file containing any of the confounders which were made Latent - used for Latent confounder experimentation.</p></td>
+</tr>
+<tr class="row-even"><td><p>parameters.yml</p></td>
+<td><p>A YML file containing the configuration with which this dataset was generated</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example-master-file-output">
+<h4>Example master file output<a class="headerlink" href="#example-master-file-output" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Slice of an example master_file.csv:</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>index</p></th>
+<th class="head"><p>seed</p></th>
+<th class="head"><p>number of variables</p></th>
+<th class="head"><p>number of samples</p></th>
+<th class="head"><p>structure type</p></th>
+<th class="head"><p>in-degree cap</p></th>
+<th class="head"><p>ess</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>40</p></td>
+<td><p>5000</p></td>
+<td><p>forest fire</p></td>
+<td><p>-1</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>40</p></td>
+<td><p>5000</p></td>
+<td><p>forest fire</p></td>
+<td><p>-1</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>40</p></td>
+<td><p>5000</p></td>
+<td><p>forest fire</p></td>
+<td><p>-1</p></td>
+<td><p>20</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Generating Synthetic Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Now we know what synthetic data Intervene <em>can</em> produce, <em>how</em> does one produce it?</p>
+<p>The easiest, and the least error prone way, is to use the CLI (command-line interface).</p>
+<div class="section" id="generating-synthetic-data-from-the-cli">
+<h4>Generating synthetic data from the CLI<a class="headerlink" href="#generating-synthetic-data-from-the-cli" title="Permalink to this headline">¶</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">-h</span></code> on the command line to be reminded of the specific commands for synthetic data!</p>
+</div>
+<p>To generate synthetic data, we must specifiy the folowing:</p>
+<ol class="arabic simple">
+<li><p>A specified <em>data</em> folder, where the generated data will be stored.</p></li>
+<li><p>A <em>data configuration</em> yaml file, which specifies the requirments from the generated data.</p></li>
+<li><p>A specified <em>output</em> folder, where any output will be stored - <strong>do not worry about this if you have not read the
+section on running synthetic data, this can just be the same as your data folder</strong></p></li>
+</ol>
+<p>With the paths to these three items, we can run the command:
+<code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">--data</span> <span class="pre">/my/data/folder</span> <span class="pre">--yaml</span> <span class="pre">my/data/config.yml</span> <span class="pre">--output</span> <span class="pre">my/data/output/folder</span> <span class="pre">-p</span> <span class="pre">none</span></code></p>
+<p>where the dummy data paths are replaced with the appropriate ones.</p>
+<p>In this case, we have specified <code class="code bash docutils literal notranslate"><span class="pre">-p</span> <span class="pre">none</span></code>, which specifies we do not wish to run a pipeline, only generate the
+data. More on this in the section on running synthetic data.</p>
+<p>Now we know how to generate synthjetic data! Except, how do we create a <em>data configuration yaml file</em>?</p>
+</div>
+</div>
+<div class="section" id="specifying-synthetic-data-configuration-files">
+<h3>Specifying [Synthetic Data] Configuration Files<a class="headerlink" href="#specifying-synthetic-data-configuration-files" title="Permalink to this headline">¶</a></h3>
+<p>Lets start with an example:</p>
+<div class="section" id="example-configuration-file">
+<h4>Example Configuration File<a class="headerlink" href="#example-configuration-file" title="Permalink to this headline">¶</a></h4>
+<p>Below is an example data configuration yaml file, which will produce <strong>10 random datasets</strong> of the <strong>forest-fire structure type</strong>,
+with <strong>40 variables</strong>, <strong>5000 samples</strong>, and an <strong>effective sample size of 20</strong>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ess</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">20</span><span class="p p-Indicator">]</span>
+<span class="nt">number_of_variables</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">40</span><span class="p p-Indicator">]</span>
+<span class="nt">number_of_samples</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">5000</span><span class="p p-Indicator">]</span>
+<span class="nt">noise_type</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">noise_level</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">seed</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span> <span class="nv">2</span><span class="p p-Indicator">,</span> <span class="nv">3</span><span class="p p-Indicator">,</span> <span class="nv">4</span><span class="p p-Indicator">,</span> <span class="nv">5</span><span class="p p-Indicator">,</span> <span class="nv">6</span><span class="p p-Indicator">,</span> <span class="nv">7</span><span class="p p-Indicator">,</span> <span class="nv">8</span><span class="p p-Indicator">,</span> <span class="nv">9</span><span class="p p-Indicator">,</span> <span class="nv">10</span><span class="p p-Indicator">]</span>
+<span class="nt">max_levels</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">4</span><span class="p p-Indicator">]</span>
+<span class="nt">structure_type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;forest</span><span class="nv"> </span><span class="s">fire&#39;</span><span class="p p-Indicator">]</span>
+<span class="nt">confounder_strength</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">n_latent_confounders</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">n_linked_datasets</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">mixing_parameter</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">missing_type</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">missing_level</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">latent_confounder_type</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="nt">confounder_strength</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+</pre></div>
+</div>
+<p>This configuration can be copied, with values replaced as nessecery.</p>
+</div>
+<div class="section" id="configuration-properties">
+<h4>Configuration properties<a class="headerlink" href="#configuration-properties" title="Permalink to this headline">¶</a></h4>
+<p>Above we find an example for a data configuration - but what does each property mean?</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ess</p></td>
+<td><p>Effective sample size - controls the alpha parameter of the dirichlet used to sample each conditional multinomial. Lower value = higher imbalance = lower entropy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>number_of_variables</p></td>
+<td><p>The number of variables the dataset will have.</p></td>
+</tr>
+<tr class="row-even"><td><p>number_of_samples</p></td>
+<td><p>the number of samples the dataset will have.</p></td>
+</tr>
+<tr class="row-odd"><td><p>noise_type</p></td>
+<td><p>The type of noise to add to the dataset - options are: Random, Order, or Systematic. Refer to noise section for more information.</p></td>
+</tr>
+<tr class="row-even"><td><p>noise_level</p></td>
+<td><p>The amount of noise to add to the dataset - options are: Low, Med, High - Refer to noise section for more information.</p></td>
+</tr>
+<tr class="row-odd"><td><p>seed</p></td>
+<td><p>The random seed(s) to generate from. Adding multiple seeds allows you to generate multiple (different) networks.</p></td>
+</tr>
+<tr class="row-even"><td><p>max_levels</p></td>
+<td><p>The maximum amount of levels (cardinality) for each variable. Levels uniformly sampled between (2, max levels).</p></td>
+</tr>
+<tr class="row-odd"><td><p>structure_type</p></td>
+<td><p>The graph generation algorithm to use.
+Options are: forest fire, ic-dag, preferential attachment, waxman, small-world. Refer to the below table for more information</p></td>
+</tr>
+<tr class="row-even"><td><p>confounder_strength</p></td>
+<td><p>The strength of introduced latent confounders. Options are Low, Med, High.</p></td>
+</tr>
+<tr class="row-odd"><td><p>n_latent_confounders</p></td>
+<td><p>The number of latent confounders to introduce.</p></td>
+</tr>
+<tr class="row-even"><td><p>n_linked_datasets</p></td>
+<td><p>The number of datasets to link in the creation of this dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mixing_parameter</p></td>
+<td><p>Parameter between 0 and 1. Specifying how ‘joint’ a Bayesian network is with the other links. 0 is fully independent. 1 is fully mixed.</p></td>
+</tr>
+<tr class="row-even"><td><p>missing_type</p></td>
+<td><p>The type of missing data to introduce. Options are: Random, Order, or Systematic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>missing_level</p></td>
+<td><p>The amount of missingness to add to the dataset - options are: Low, Med, High - Refer to noise section for more information.</p></td>
+</tr>
+<tr class="row-even"><td><p>latent_confounder_type</p></td>
+<td><p>The type of latent confounder to add. Options are: DIRECT_DISCONNECTED, DIRECT_1HOP, DIRECT_NHOP, INTERVENING_PREDECESSING, TARGET_PREDECESSING</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="structure-types">
+<h4>Structure Types<a class="headerlink" href="#structure-types" title="Permalink to this headline">¶</a></h4>
+<p>In order to generate a synthetic Bayesian network a DAG is required. To maximize the variation in the generated synthetic data-sets, a different DAG is generated for each seed.
+To facilitate this, a graph generation algorithm is used. Each graph generation algorithm will generally generate a graph with different characteristics than other algorithms.
+The space of DAGs is super-exponential with respect to variables, and so it is important that Intervene offers many graph generation algorithms which cover different parts of the DAG space.</p>
+<p>Specifically, Intervene implements five graph generation algorithms:</p>
+<ul class="simple">
+<li><p><strong>Forest Fire</strong>: <a class="reference external" href="https://www.cs.cornell.edu/home/kleinber/kdd05-time.pdf">https://www.cs.cornell.edu/home/kleinber/kdd05-time.pdf</a></p></li>
+<li><p><strong>ic-dag</strong>: <a class="reference external" href="https://link.springer.com/chapter/10.1007/3-540-36127-8_35">https://link.springer.com/chapter/10.1007/3-540-36127-8_35</a></p></li>
+<li><p><strong>preferential attachment</strong>: <a class="reference external" href="https://science.sciencemag.org/content/286/5439/509">https://science.sciencemag.org/content/286/5439/509</a></p></li>
+<li><p><strong>waxman</strong>: <a class="reference external" href="https://ieeexplore.ieee.org/document/12889">https://ieeexplore.ieee.org/document/12889</a></p></li>
+<li><p><strong>small-world</strong>: <a class="reference external" href="https://en.wikipedia.org/wiki/Small-world_network">https://en.wikipedia.org/wiki/Small-world_network</a></p></li>
+</ul>
+</div>
+<div class="section" id="latent-confounder-types">
+<h4>Latent Confounder Types<a class="headerlink" href="#latent-confounder-types" title="Permalink to this headline">¶</a></h4>
+<p>A latent confounder is a unobserved node which has two (or more) children in a Bayesian network.
+When generating synthetic networks with Intervene latent confounders (H) can be introduced, these have been categorized
+into <em>types</em>, with respect to an intervention (I) and target (T) variable:</p>
+<ul class="simple">
+<li><p><strong>DIRECT_DISCONNECTED</strong>: C → I / C → T</p></li>
+<li><p><strong>DIRECT_1HOP</strong>: C → I / C → T / I → T</p></li>
+<li><p><strong>DIRECT_NHOP</strong>: C → I / C → T / I … → … T</p></li>
+<li><p><strong>INTERVENING_PREDECESSING</strong>: C → I / C → A / I … → … T</p></li>
+<li><p><strong>TARGET_PREDECESSING</strong>: C → A / C → T / I … → … T</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="running-intervene-on-synthetic-data">
+<h2>Running Intervene on Synthetic Data<a class="headerlink" href="#running-intervene-on-synthetic-data" title="Permalink to this headline">¶</a></h2>
+<p>After we successfully generated synthetic data, what can we do with it?</p>
+<p>Intervene has a number of designated ‘pipelines’, aimed at achiving different goals.</p>
+<p>Below you can find a table of these pipelines:</p>
+<div class="section" id="synthetic-pipelines">
+<h3>Synthetic Pipelines<a class="headerlink" href="#synthetic-pipelines" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">Table of Synthetic Pipelines</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>standard</p></td>
+<td><p>The standard pipeline. The OrderMCMC structure learning algorithm is first run, the performance is recorded, and a synthetic report is produced.</p></td>
+</tr>
+<tr class="row-odd"><td><p>diagnostic</p></td>
+<td><p>The standard pipeline + diagnostics: Memory tracking, Convergence Plots, Extra Logging, Table of captured Hub Nodes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="running-on-the-cli">
+<h3>Running on the CLI<a class="headerlink" href="#running-on-the-cli" title="Permalink to this headline">¶</a></h3>
+<p>Both pipelines can be run via the command line interface.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">-h</span></code> on the command line to be reminded of the specific commands avilable for synthetic data!</p>
+</div>
+<p>As with generating synthetic data, we will need:</p>
+<ol class="arabic simple">
+<li><p>A specified <em>data</em> folder, where the generated data will be stored.</p></li>
+<li><p>A <em>data configuration</em> yaml file, which specifies the requirments from the generated data.</p></li>
+</ol>
+<p>We will <strong>also</strong> need:</p>
+<ol class="arabic simple" start="3">
+<li><p>A specified <em>output</em> folder, where the output from running the pipeline is saved.</p></li>
+<li><p>The name of the pipeline to use.</p></li>
+</ol>
+<p>With these four things, we can simply run intervene with the command:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">--data</span> <span class="pre">/my/data/folder</span> <span class="pre">--yaml</span> <span class="pre">my/data/config.yml</span> <span class="pre">--output</span> <span class="pre">my/data/output/folder</span> <span class="pre">-p</span> <span class="pre">diagnostic</span></code></p>
+<p>This will generate the data specified in config.yml. <strong>Unless the data matching the configuration has already been
+generated in the specified</strong> <code class="code bash docutils literal notranslate"><span class="pre">--data</span></code> <strong>directory.</strong></p>
+<p>Notice the <code class="code bash docutils literal notranslate"><span class="pre">-p</span> <span class="pre">diagnostic</span></code> - this means the diagnostic pipeline has been specified. Replace this with <code class="code bash docutils literal notranslate"><span class="pre">-p</span> <span class="pre">standard</span></code> to run the standard pipeline.</p>
+</div>
+<div class="section" id="common-datasets">
+<h3>Common Datasets<a class="headerlink" href="#common-datasets" title="Permalink to this headline">¶</a></h3>
+<p>As has been seen, we can generate our own data with Intervene. However, we can also use a number of <em>common</em> datasets found in the literature.
+This can be done easily, by specifying the <code class="code bash docutils literal notranslate"><span class="pre">--bif</span></code> option in the pipeline to one of the available datasets:</p>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">Table of available common datasets</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>Nodes</p></td>
+<td><p>Arcs</p></td>
+</tr>
+<tr class="row-even"><td><p>alarm</p></td>
+<td><p>37</p></td>
+<td><p>46</p></td>
+</tr>
+<tr class="row-odd"><td><p>andes</p></td>
+<td><p>223</p></td>
+<td><p>338</p></td>
+</tr>
+<tr class="row-even"><td><p>asia</p></td>
+<td><p>8</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>barley</p></td>
+<td><p>48</p></td>
+<td><p>84</p></td>
+</tr>
+<tr class="row-even"><td><p>cancer</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>child</p></td>
+<td><p>20</p></td>
+<td><p>25</p></td>
+</tr>
+<tr class="row-even"><td><p>diabetes</p></td>
+<td><p>413</p></td>
+<td><p>602</p></td>
+</tr>
+<tr class="row-odd"><td><p>earthquake</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>hailfinder</p></td>
+<td><p>56</p></td>
+<td><p>66</p></td>
+</tr>
+<tr class="row-odd"><td><p>hepar2</p></td>
+<td><p>70</p></td>
+<td><p>123</p></td>
+</tr>
+<tr class="row-even"><td><p>insurance</p></td>
+<td><p>27</p></td>
+<td><p>52</p></td>
+</tr>
+<tr class="row-odd"><td><p>link</p></td>
+<td><p>724</p></td>
+<td><p>1125</p></td>
+</tr>
+<tr class="row-even"><td><p>mildew</p></td>
+<td><p>35</p></td>
+<td><p>46</p></td>
+</tr>
+<tr class="row-odd"><td><p>munin</p></td>
+<td><p>1041</p></td>
+<td><p>1388</p></td>
+</tr>
+<tr class="row-even"><td><p>pathfinder</p></td>
+<td><p>109</p></td>
+<td><p>195</p></td>
+</tr>
+<tr class="row-odd"><td><p>pigs</p></td>
+<td><p>441</p></td>
+<td><p>592</p></td>
+</tr>
+<tr class="row-even"><td><p>sachs</p></td>
+<td><p>11</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-odd"><td><p>survey</p></td>
+<td><p>6</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>water</p></td>
+<td><p>32</p></td>
+<td><p>66</p></td>
+</tr>
+<tr class="row-odd"><td><p>win95pts</p></td>
+<td><p>76</p></td>
+<td><p>112</p></td>
+</tr>
+</tbody>
+</table>
+<p>We also have to specify options for number of samples <code class="code bash docutils literal notranslate"><span class="pre">-n</span></code>, and number of repeats (datasets generated) <code class="code bash docutils literal notranslate"><span class="pre">-r</span></code>.</p>
+<p>As an example, if we wanted to generate 5 datasets from the ALARM network, with 20,000 samples each,
+and then run the standard pipeline we would use the command:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">synthetic</span> <span class="pre">--data</span> <span class="pre">/my/data/folder</span> <span class="pre">--bif</span> <span class="pre">alarm</span> <span class="pre">--output</span> <span class="pre">my/data/output/folder</span> <span class="pre">-p</span> <span class="pre">standard</span> <span class="pre">-n</span> <span class="literal number"><span class="pre">20000</span></span> <span class="pre">-r</span> <span class="literal number"><span class="pre">5</span></span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="real.html" class="btn btn-neutral float-right" title="Real Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quick_start.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

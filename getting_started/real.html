@@ -1,0 +1,813 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Real Data &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Algorithms" href="methods.html" />
+    <link rel="prev" title="Synthetic Data" href="synth.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="synth.html">Synthetic Data</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Real Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-real-data">Preparing Real Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#real-data-requirements">Real Data Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binning-continuous-data-in-mixed-type-datasets">Binning Continuous Data in Mixed-Type Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#imputing-missing-data">Imputing Missing Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-selection">Feature Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-on-real-data">Running on Real Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#components-of-the-real-pipeline">Components of the Real-Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-constraints">Adding Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performing-interventions">Performing Interventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sensitivity-analysis">Sensitivity Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-analysis">Running the analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpreting-the-results">Interpreting the results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Real Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/getting_started/real.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="real-data">
+<h1>Real Data<a class="headerlink" href="#real-data" title="Permalink to this headline">¶</a></h1>
+<p>This section will guide you on running intervene on real data-sets (datasets without a synthetic DAG).
+The main points covered will be:</p>
+<ul class="simple">
+<li><p>The commands required</p></li>
+<li><p>Pre-processing (Including <a class="reference internal" href="real_dir/prepare_dir/impute.html#imputing-missing-data"><span class="std std-ref">Imputing Missing Data</span></a> and <a class="reference internal" href="real_dir/prepare_dir/feature_selection.html#feature-selection"><span class="std std-ref">Feature Selection</span></a>)</p></li>
+<li><p><a class="reference internal" href="real_dir/run_dir/constraints.html#adding-constraints"><span class="std std-ref">Adding Constraints</span></a> to the Structure Learning</p></li>
+</ul>
+<div class="section" id="preparing-real-data">
+<h2>Preparing Real Data<a class="headerlink" href="#preparing-real-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="real-data-requirements">
+<h3>Real Data Requirements<a class="headerlink" href="#real-data-requirements" title="Permalink to this headline">¶</a></h3>
+<p>The input data for intervene should should be stored in a .csv file. Each node in the learnt graph will correspond to  a column in the file with headers as the names of the nodes.</p>
+<p>Intervene is optimised to learn graphs with 20 - 60 nodes. This is the key factor for the duration of a run, however, the this will also depend on how connected the graph is, on the number of data entries and on the level of noise and missing data.</p>
+<p>For best performance, the data file should contain over 5000 up to 1,000,000 entries. if your data is incomplete, intervene offers a function to impute missing data.</p>
+<p>Intervene takes well to discrete data with the recommended number of categories being between 2 - 4.
+If your data is continuous or mixed data, intervene offers a binning function.</p>
+</div>
+<div class="section" id="binning-continuous-data-in-mixed-type-datasets">
+<h3>Binning Continuous Data in Mixed-Type Datasets<a class="headerlink" href="#binning-continuous-data-in-mixed-type-datasets" title="Permalink to this headline">¶</a></h3>
+<p>Intervene is currently optimised to handle data sets with a low number of discreet values. If the dataset you would like to analyse contains columns that have continuous data, it is possiable to use the pre-processing module to bin the data.</p>
+<p>Binning can be done using the ‘prepocess’ subcomand within the CLI interface. The basic command is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">--data</span> <span class="pre">data_path</span> <span class="pre">--output</span> <span class="pre">output_path</span></code></p>
+<p>With only the path to the data and the output path specified by the user. This command will result in all columns binned into three even catagories using the funcition <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.qcut.html">qcut from the pandas library</a> .</p>
+<p>The binning can be further optimised with the following options.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>option</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>n_bins</p></td>
+<td><p>int</p></td>
+<td><p>The number of catagories to bin to.</p></td>
+</tr>
+<tr class="row-odd"><td><p>cols_to_bin</p></td>
+<td><p>string</p></td>
+<td><p>Specify which columns to bin. Example: ‘[col1,col2]’</p></td>
+</tr>
+<tr class="row-even"><td><p>label</p></td>
+<td><p>bool</p></td>
+<td><p>If activated will display presentage label. Example: 0% - 33%, 33% - 66%, 66% - 100%.</p></td>
+</tr>
+<tr class="row-odd"><td><p>param_file</p></td>
+<td><p>path</p></td>
+<td><p>path to a .yaml paramter configuration file that allows maximum flexibility over the binning.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">--data</span> <span class="pre">data_path</span> <span class="pre">--output</span> <span class="pre">output_path</span> <span class="pre">--n_bins</span> <span class="pre">2</span> <span class="pre">--cols_to_bin</span> <span class="pre">[col1,col2]</span> <span class="pre">--label</span> <span class="pre">True</span></code></p>
+<p>This command will bin the columns ‘col1’ and ‘col2’ to two categories with labels</p>
+<p><strong>Example Configuration File</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">variables</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;col1&quot;</span>
+  <span class="n">bin_type</span><span class="p">:</span> <span class="s2">&quot;cut&quot;</span>
+  <span class="n">bins</span><span class="p">:</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+  <span class="n">labels</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;level1&quot;</span><span class="p">,</span> <span class="s2">&quot;level2&quot;</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;col2&quot;</span>
+  <span class="n">bin_type</span><span class="p">:</span> <span class="s2">&quot;qcut&quot;</span>
+  <span class="n">bins</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="n">labels</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;level1&quot;</span><span class="p">,</span> <span class="s2">&quot;level2&quot;</span><span class="p">,</span> <span class="s2">&quot;level3&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>This confguration will result in the binning of the column ‘col1’ to two bins using the function <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.cut.html">cut from the pandas library</a> . The first bin will include values from 0 to 5 and will be labeled ‘level1’ and the second bin will include values from 5 to 10 and will be labeled ‘level2’. The lower value isn’t included in the bin. For example, the number 5 will be in ‘level1’. The column ‘col2’ will be binned to three bins using the qcut function and will bare the labels ‘level1’ for the first bin and so forth.</p>
+<p>The command to bin the data based on the parameters in the configuration is as following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">--data</span> <span class="pre">data_path</span> <span class="pre">--output</span> <span class="pre">output_path</span> <span class="pre">--param_file</span> <span class="pre">path_to_param_file</span></code></p>
+</div>
+<div class="section" id="imputing-missing-data">
+<h3>Imputing Missing Data<a class="headerlink" href="#imputing-missing-data" title="Permalink to this headline">¶</a></h3>
+<p>Intervene can be used to impute missing data from a real or synthetic dataset. There are currently five different methods for handling missing data:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>drop</strong></p></td>
+<td><p>listwise deletion method removing all entries from partial respondents. The danger with this method is that it could substantially reduce the initial dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>central_tendency</strong></p></td>
+<td><p>a single imputation method replacing the missing values with the mode (for categorical data) or median (for continuous data) value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>hot_deck</strong></p></td>
+<td><p>(<em>k</em> nearest neighbours): a single imputation method, based on feature similarity. Fills in missing values with the mode (categorical data) or median (continuous data) value of the 5 closest neighbours. To define the neighbours, either the hamming distance (categorical data) or the euclidean distance (continuous) is used.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>regression</strong></p></td>
+<td><p>single imputation method that independently predicts the missing values of each variable based on the values of the other observed variables. A logistic regression model is used for prediction if the data are categorical, linear regression otherwise. When more than one variable in the dataset present missing data an initial imputation is needed before the prediction step, here the <em>central_tendency</em> is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>mice</strong></p></td>
+<td><p>(Multivariate Imputation by Chained Equations): a multiple imputation method, filling in the missing data multiple times. It performs a regression imputation 5 times, updating the prediction at each step.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="imputing-missing-data-from-the-cli">
+<h4>Imputing Missing Data from the CLI<a class="headerlink" href="#imputing-missing-data-from-the-cli" title="Permalink to this headline">¶</a></h4>
+<p>On the command line <code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">-h</span></code> can be used to check the available methods under <code class="code bash docutils literal notranslate"><span class="pre">--imputation-method</span></code>.</p>
+<p>To impute missing data the user will need to specify:</p>
+<ol class="arabic simple">
+<li><p><em>data path</em> to the .csv file of the dataset containing missing data;</p></li>
+<li><p><em>output path</em> to the .csv file where the imputed dataset will be written;</p></li>
+<li><p><em>imputation-method</em>, one of the 5 methods available in Intervene for imputation.</p></li>
+</ol>
+<p>Now, all we need to do is run the command:
+<code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">--data</span> <span class="pre">path_to_data.csv</span> <span class="pre">--output</span> <span class="pre">path_to_output_data.csv</span> <span class="pre">--imputation-method</span> <span class="pre">method</span></code></p>
+<p>Example:
+<code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">--data</span> <span class="pre">./data_missing.csv</span> <span class="pre">--output</span> <span class="pre">./data_imputed.csv</span> <span class="pre">--imputation-method</span> <span class="pre">central_tendency</span></code></p>
+<p>In the case you also need to <em>bin</em> the data (see specific section), the <em>imputation</em> step will be computed first.</p>
+</div>
+</div>
+<div class="section" id="feature-selection">
+<h3>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">¶</a></h3>
+<p>It is often the case that not all features are useful for predicting variables of interest.
+Feature selection is the process of eliminating redundant features from the data with the view to
+decrease the learning time complexity and increase performance.
+The main motivation for reducing the dimensionality of the data and keeping the number of features
+as low as possible is to decrease the training time and enhance the performance of machine learning
+algorithms. Feature selection is inherently multi-objective in nature, with competing objectives of
+minimizing the number of features and minimizing the prediction error.</p>
+<p>The structural learning algorithm of intervene uses markov chain monte-carlo (MCMC) as its engine;
+MCMC is notoriously computationally intensive but can be made efficient for causal discovery by restricting
+the search to variable orderings, instead of global structure, the number of possibilities of which is
+superexponential with respect to the number of variables. Even using this trick, however, the search for the optimal
+structure has time complexity that is polynomial in the number of variables and so being able
+to do any kind of feature reduction is greatly beneficial.</p>
+<div class="section" id="feature-selection-in-intervene">
+<h4>Feature Selection in intervene<a class="headerlink" href="#feature-selection-in-intervene" title="Permalink to this headline">¶</a></h4>
+<p>Feature selection in intervene can be accessed via the CLI using the <em>preprocess</em> subcommand.
+We currently offer two methods: one based on mutual information (MI) and one based on a
+a neural network with a self-attention mechanism (SAN).</p>
+<p>When performing interventional analysis, in order to correctly capture the causal effects, the only set of required
+variables are those in the active path between the evidence and target variables. An active path between nodes
+X and Y given nodes E is any path between X and Y such that:</p>
+<ul class="simple">
+<li><p>For any v-structure (A → C ← B) on the path, either C or one of its descendents is in E</p></li>
+<li><p>No other nodes on the path are in E</p></li>
+</ul>
+<p>The goal of this feature selection is therefore to extract only the nodes on the unconditional active paths between the
+evidence and target variables. The feature selection is naturally integrated with existing intervention functionality;
+specified using a yaml file (see section <em>Performing Interventions</em>), feature selection will attempt to find the
+<span class="math notranslate nohighlight">\(k\)</span> nodes (<code class="code bash docutils literal notranslate"><span class="pre">--n-features</span></code>) on the active path, of specified target and evidence variables, by evaluating
+which are most predictive of them. Since feature-selection is
+indifferent to whether a variable is nominally a target or an evidence node, we refer to them
+collectively as ‘targets’.
+The <code class="code bash docutils literal notranslate"><span class="pre">--interventions</span></code> and  <code class="code bash docutils literal notranslate"><span class="pre">--n-features</span></code> options apply to both of the supported feature selection methods.
+It is important to note that <code class="code bash docutils literal notranslate"><span class="pre">--n-features</span></code> draws only from those features not contained in the set
+of target variables.
+Since the targets are required for interventions they must always be included in the data and thus do
+not contribute to <span class="math notranslate nohighlight">\(k\)</span>.
+As such the total number of variables in the graph after feature selection will be <span class="math notranslate nohighlight">\(k\)</span> + 1 +
+number of evidence nodes, not <span class="math notranslate nohighlight">\(k\)</span>.</p>
+</div>
+<div class="section" id="mutual-information-estimation">
+<h4>Mutual-Information Estimation<a class="headerlink" href="#mutual-information-estimation" title="Permalink to this headline">¶</a></h4>
+<p>Mutual information (MI) has a straightforward interpretation as the amount of shared information between distributions,
+More technically, for two random variables, X and Y, the MI is proportional to the ratio between the joint distribution
+and the product of their marginal distributions. For discrete variables it can be written as</p>
+<div class="math notranslate nohighlight">
+\[I(X; Y) = \sum_{y \in Y} \sum_{x \in X} p(x,y) \textrm{log}\frac{p(x, y}{p(x)p(y)}\]</div>
+<p>This is strictly non-negative and is equal to zero if and only if the X and Y
+are completely independent (meaning Y and X tell us nothing about each other), with higher values
+indicating higher dependency. Thus, MI can be utilised as a measure of features’ relevance and reundancy,
+having the benefit of  not being constrained by linearity between the variables, while also being able
+to handle continuous and discrete features (with an arbitrary number of categories) alike.
+For our purposes, the mutual information is computed between the set of all features and each target
+(the set of which is disjoint from the features) independently and the intersection between
+the ranked features iteratively computed, with each iteration the subset of each feature ranking is
+expanded by 1, starting from <span class="math notranslate nohighlight">\(k\)</span>, until <span class="math notranslate nohighlight">\(k\)</span> features have been selected.</p>
+<p>Feature selection with MI can be performed via the CLI’s preprocess subcommand by setting the value
+of the option <code class="code bash docutils literal notranslate"><span class="pre">--fs-method</span></code> to <strong>mi</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">preprocess</span> <span class="o">-</span><span class="n">d</span> <span class="n">data</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">new_data</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">interventions</span> <span class="n">interventions</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">fs</span><span class="o">-</span><span class="n">method</span> <span class="n">mi</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="self-attention-network-san">
+<h4>Self-Attention Network (SAN)<a class="headerlink" href="#self-attention-network-san" title="Permalink to this headline">¶</a></h4>
+<a class="reference internal image-reference" href="../_images/san-diagram.png"><img alt="../_images/san-diagram.png" src="../_images/san-diagram.png" style="width: 600px;" /></a>
+<p>The neural network architecture that implements an attention mechanism over the input features.
+Given inputs features <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{N \times F}\)</span>, the first layer computes an attention mask
+with learned weight matrix <span class="math notranslate nohighlight">\(W \in \mathbb{R}^{F \times F}\)</span> and associated bias term
+<span class="math notranslate nohighlight">\(b \in \mathbb{R}^{F}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[A(x) = \frac{1}{H} \bigoplus_h \textrm{softmax}(W_h X^ + b)\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> denotes the index among the <span class="math notranslate nohighlight">\(H\)</span> attention heads.
+Simply put, we take <span class="math notranslate nohighlight">\(H\)</span> weight matrices and multiply each of them by the input features,
+transform the output into a probaility distribution with the softmax operator to yield <span class="math notranslate nohighlight">\(H\)</span>
+scores which are then averaged over, yielding an attention mask by which we element-wise multiply
+with the original inputs.</p>
+<p>With the network trained to predict the target variables, <span class="math notranslate nohighlight">\(Y \in \mathbb{R}^O\)</span>, the weight
+matrices can be understood to represent the relations between the different features.
+Post-training, we can obtain a <em>global</em> estimate of each feature’s importance by extracting the
+diagonal of the weight matrices, applying softmax, and averaging, or an <em>instance-based</em> estimate by
+computing the attention masks for all samples individually and averaging.</p>
+<p>Feature selection with SAN can be performed via the CLI’s preprocess subcommand by setting the value
+of the option <code class="code bash docutils literal notranslate"><span class="pre">--fs-method</span></code> to <em>san</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">preprocess</span> <span class="o">-</span><span class="n">d</span> <span class="n">data</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">new_data</span><span class="o">.</span><span class="n">csv</span> <span class="o">--</span><span class="n">interventions</span> <span class="n">interventions</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">fs</span><span class="o">-</span><span class="n">method</span> <span class="n">san</span>
+</pre></div>
+</div>
+<p>Detailed descriptions of the associated parameters are given in the table
+below. For a more in-depth explanation of SAN generally, vide Škrlj, Blaž, et al [1].</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Parameter</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>–batch-size</p></td>
+<td><p>Determines the batch-size used to train the SAN with stochastic gradient descent.
+The smaller the batch-size the lower the memory consumption and the noisier the
+estimate of the gradient.</p></td>
+</tr>
+<tr class="row-odd"><td><p>–epochs</p></td>
+<td><p>Number of epochs to train the SAN for. An epoch corresponds to a complete pass
+through the data and thus <span class="math notranslate nohighlight">\(\lceil{\frac{N}{m}}\rceil\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> and
+<span class="math notranslate nohighlight">\(m\)</span> are the number of samples in the data and the batch size, respectively.</p></td>
+</tr>
+<tr class="row-even"><td><p>–hdim</p></td>
+<td><p>Number of units in eac of the SAN’s hidden layer. The SAN consists of an initial
+attention layer which modulates the importance of the input features, followed by
+a fully-connected hidden and output layer with weight matrices of size
+<span class="math notranslate nohighlight">\(F \times hdim\)</span> and <span class="math notranslate nohighlight">\(hdim \times O\)</span>, respectively (where <span class="math notranslate nohighlight">\(O\)</span> is
+the total number of (ungrouped) outputs).</p></td>
+</tr>
+<tr class="row-odd"><td><p>–n-heads</p></td>
+<td><p>Number of heads (<span class="math notranslate nohighlight">\(M\)</span>) to use in the SAN’s attention layer.</p></td>
+</tr>
+<tr class="row-even"><td><p>–scoring-methods</p></td>
+<td><p>The method used to determine importance of each feature, post-training.
+If ‘global’, feature importance is evaluated determined weight matrices.
+If ‘instance’, feature importance is determined by computing the average of the
+attention layer’s outputs over the data samples.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[1] <a class="reference external" href="https://arxiv.org/abs/2002.04464">https://arxiv.org/abs/2002.04464</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="running-on-real-data">
+<h2>Running on Real Data<a class="headerlink" href="#running-on-real-data" title="Permalink to this headline">¶</a></h2>
+<p>Just as for synthetic data, a predefined pipeline for real data can be run using the CLI and
+and is configurable by a range of command-line options.
+The command for running the real-pipeline is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervene</span> <span class="n">real</span>
+</pre></div>
+</div>
+<p>followed by the desired option and their values. Since for real-data we do not have access to a
+ground-truth, there is no evaluative aspect as there is for the synthetic pipeline. What the real-pipeline
+does allow for that its counterpart does not, however, is the performing of interventions which is
+of course one of the primary motivations for causal-modelling in the first place. Given a graph
+consisting of variables causal relations, we can predict the result of intervening, according to Pearl’s do-calculus,
+on a variable or set of variables with respect to some target variable.</p>
+<p>In the following sections, we first give a sketch of the make-up of the real-pipeline before diving
+deeper into those components that require additional explanation to configure, use or interpret.</p>
+<div class="section" id="components-of-the-real-pipeline">
+<h3>Components of the Real-Pipeline<a class="headerlink" href="#components-of-the-real-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>The main components of the real-pipeline are described below in order of execution. This tables
+is intended to just serve as an overview and we direct the reader to dedicated sections for more
+information regarding the particular components.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 95%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Components</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Constraints</p></td>
+<td><p>Using prior knowledge we can constrain which edges should or should not be taken place before another, we would want to ensure that the former cannot be a descendent of the latter. This can be enabled by passing a path to a .yml configuration file to the <code class="code bash docutils literal notranslate"><span class="pre">--constraints</span></code> option. See section <strong>constraints</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Structure learning</p></td>
+<td><p>Runs an algorithm (Order MCMC) that attempts to infer the causal structure of a dataset. This is enabled by default but can be disabled with the <code class="code bash docutils literal notranslate"><span class="pre">--no-sl</span></code> (no structure learning) option.</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameter estimation</p></td>
+<td><p>If interventions are to be performed, the learnt structure is converted into a belief network by estimation of the conditional probability tables of each node from the data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Interventions</p></td>
+<td><p>Performs interventions on a belief network based on a configuration file and computes the odds ratio for each outcome with respect to a reference level. This can be enabled by passing a path to a .yml configuration file to the <code class="code bash docutils literal notranslate"><span class="pre">--interventions</span></code> option. See section <strong>Interventions</strong> for information about what interventions are, how to configure the associated .yml file, and how to intepret the results.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sensitivity analysis</p></td>
+<td><p>Assesses how robust the learnt belief network under the influence of latent confounding. This can be enabled with the <code class="code bash docutils literal notranslate"><span class="pre">--measure-sensitivity</span></code> switch-option but has <code class="code bash docutils literal notranslate"><span class="pre">--interventions</span></code> being set as a pre-requisite. See section <strong>Sensitivity Analysis</strong> for an explanation of its purpose, how it works, and how to interpret the results.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The current available implementations of each of these is listed below.</p>
+<p>The primary structure learning algorithm implemented in intervene is OrderMCMC, using the scoring function qNML. This is the default algorithm
+which is used across all CLI access points.</p>
+<p>The user also has access to:</p>
+<ul class="simple">
+<li><p>the BIC score with OrderMCMC</p></li>
+<li><p>the BIC score with GES</p></li>
+<li><p>the constraint based algorithm, PC.</p></li>
+</ul>
+<p>These are not currently accessible through the CLI, please refer to the advanced sections for information on how to access these in Python.</p>
+<p>There are two parameter estimation techniques available to the user:</p>
+<ul class="simple">
+<li><p>Maximum Likelihood Estimation (MLE)</p></li>
+<li><p>Discriminative Frequency Estimation (DFE)</p></li>
+</ul>
+<p>Currently, only MLE is accessible through the CLI, and is the default.</p>
+</div>
+<div class="section" id="adding-constraints">
+<h3>Adding Constraints<a class="headerlink" href="#adding-constraints" title="Permalink to this headline">¶</a></h3>
+<p>Intervene allows the user to inject some pre-existing knowledge, <strong>constraints</strong>, into the learning of your model. There are currently six different types of constraints that can be enforced either on edges or nodes:</p>
+<ol class="arabic simple">
+<li><p><strong>allowed_edges</strong>: list of edges that are allowed in the learning process. It defines the edges that <em>could</em> be find in the learn graph and therefor it is used to impose that it is not possible to have parents outside the specified set.</p></li>
+<li><p><strong>exclude_edges</strong>: list of edges to exclude in the learning process. The learn graph will not have these edges.</p></li>
+<li><p><strong>include_edges</strong>: list of edges to enforce in the learning process. The learn graph will have these edges.</p></li>
+<li><p><strong>ignore_nodes</strong>: list of nodes (variables of the given dataset) to ignore in the learning process. The learn graph will not have these variables in the set of nodes.</p></li>
+<li><p><strong>input_nodes</strong>: list of source nodes with in-degree 0, i.e. node with no parents.</p></li>
+<li><p><strong>output_nodes</strong>: list of sink nodes with out-degree 0, i.e. node with no children.</p></li>
+</ol>
+<div class="section" id="how-to-specify-constraints">
+<h4>How to Specify Constraints<a class="headerlink" href="#how-to-specify-constraints" title="Permalink to this headline">¶</a></h4>
+<p>In order to use the constraints in the structure learning algorithm, we need to write a .yml file that describes as many constraints as we need according to the six types introduced above.</p>
+<p>Example:</p>
+<p>Given the following true graph:</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="getting_started/../images/constraints_example.png"><img alt="getting_started/../images/constraints_example.png" src="getting_started/../images/constraints_example.png" /></a>
+<p class="caption"><span class="caption-text">Example true DAG.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Let’s assume our pre-existing knowledge is the following:</p>
+<ol class="arabic simple">
+<li><p>Nodes <strong>GH</strong> and <strong>MW</strong> can have parents only in the set {<strong>OY</strong>, <strong>QS</strong>, <strong>CD</strong>} and node <strong>PF</strong> can have parents only in the set {<strong>OY</strong>, <strong>QS</strong>, <strong>CD</strong>, <strong>GH</strong>, <strong>MW</strong>}.</p></li>
+<li><p>The edges <span class="math notranslate nohighlight">\(DA \rightarrow QS\)</span>, <span class="math notranslate nohighlight">\(OQ \rightarrow QS\)</span>, <span class="math notranslate nohighlight">\(DA \rightarrow CD\)</span> and <span class="math notranslate nohighlight">\(OQ \rightarrow CD\)</span> are not present in the graph.</p></li>
+<li><p>The edges <span class="math notranslate nohighlight">\(DA \rightarrow PH\)</span> and <span class="math notranslate nohighlight">\(OQ \rightarrow PH\)</span> are present in the graph.</p></li>
+<li><p>We are not interested in learning the relationships involving node <strong>AB</strong>. N.B. the nodes specified in <strong>ignore_nodes</strong> do not need to be isolated nodes with in-degree and out-degree 0.</p></li>
+<li><p><strong>DA</strong> and <strong>OQ</strong> are source nodes.</p></li>
+<li><p><strong>PF</strong> is a sink node.</p></li>
+</ol>
+<p>It can be written as:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">group_1</span><span class="p">:</span> <span class="nl">&amp;A</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OY</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">QS</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CD</span>
+
+<span class="nt">group_2</span><span class="p">:</span> <span class="nl">&amp;B</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">GH</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">MW</span>
+
+<span class="nt">group_3</span><span class="p">:</span> <span class="nl">&amp;C</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PF</span>
+
+<span class="nt">group_4</span><span class="p">:</span> <span class="nl">&amp;D</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DA</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OQ</span>
+
+<span class="nt">group_5</span><span class="p">:</span> <span class="nl">&amp;E</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PH</span>
+
+<span class="nt">group_6</span><span class="p">:</span> <span class="nl">&amp;F</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">QS</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CD</span>
+
+<span class="nt">allowed_edges</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="nv">*A</span><span class="p p-Indicator">,</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*B</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">*A</span><span class="p p-Indicator">,</span> <span class="nv">*B</span><span class="p p-Indicator">],</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*C</span><span class="p p-Indicator">}</span>
+
+<span class="nt">exclude_edges</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="nv">*D</span><span class="p p-Indicator">,</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*F</span><span class="p p-Indicator">}</span>
+
+<span class="nt">include_edges</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt">from</span><span class="p">:</span> <span class="nv">*D</span><span class="p p-Indicator">,</span><span class="nt"> to</span><span class="p">:</span> <span class="nv">*E</span><span class="p p-Indicator">}</span>
+
+<span class="nt">ignore_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AB</span>
+
+<span class="nt">input_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DA</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">OQ</span>
+
+<span class="nt">output_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">PF</span>
+</pre></div>
+</div>
+<p>Useful syntax:</p>
+<ul class="simple">
+<li><p><code class="code bash docutils literal notranslate"><span class="pre">group_n:</span> <span class="punctuation"><span class="pre">&amp;</span></span><span class="pre">X</span></code> is used as an alias to identify a set of nodes used to specify the constraints on the edges.</p></li>
+<li><p><code class="code bash docutils literal notranslate"><span class="operator"><span class="pre">{</span></span><span class="pre">from:</span> <span class="operator"><span class="pre">[</span></span><span class="pre">*A,</span> <span class="pre">*B</span><span class="operator"><span class="pre">]</span></span><span class="pre">,</span> <span class="pre">to:</span> <span class="pre">*C</span><span class="operator"><span class="pre">}</span></span></code> in <strong>allowed_edges</strong> is used to identify that the nodes in group C can have parents in the set defined by the union of groups A and B.</p></li>
+</ul>
+<p>Here there are two examples of graphs that violate some of the specified constraints:</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="getting_started/images/constraints_example_nonvalid_nodes.png"><img alt="getting_started/images/constraints_example_nonvalid_nodes.png" src="getting_started/images/constraints_example_nonvalid_nodes.png" /></a>
+<p class="caption"><span class="caption-text">Example of non-valid DAG according to the node constraints: dashed red edge violates the <strong>input_nodes</strong> and the solid red line both the <strong>output_nodes</strong> and <strong>ignore_nodes</strong> constraints.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="getting_started/images/constraints_example_nonvalid_edges.png"><img alt="getting_started/images/constraints_example_nonvalid_edges.png" src="getting_started/images/constraints_example_nonvalid_edges.png" /></a>
+<p class="caption"><span class="caption-text">Example of non-valid DAG according to the edge constraints: dashed red edge violates the <strong>exclude_edges</strong>, the solid red line the <strong>allowed_edges</strong> (GH can have parents only in the group A {OY, QS, CD}) and the two red nodes the <strong>include_edges</strong> constraint (the edge between these two nodes is missing).</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="constraints-from-the-cli">
+<h4>Constraints from the CLI<a class="headerlink" href="#constraints-from-the-cli" title="Permalink to this headline">¶</a></h4>
+<p>Once the constraints file has been created, all we need to do is run the command:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">path_to_data.csv</span> <span class="pre">--output</span> <span class="pre">path_to_output</span> <span class="pre">--constraints</span> <span class="pre">path_to_constraints_file.yml</span></code></p>
+<p>Example:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">./data.csv</span> <span class="pre">--output</span> <span class="pre">./</span> <span class="pre">--constraints</span> <span class="pre">./constraints.yml</span></code></p>
+</div>
+</div>
+<div class="section" id="performing-interventions">
+<h3>Performing Interventions<a class="headerlink" href="#performing-interventions" title="Permalink to this headline">¶</a></h3>
+<p>As suggested by the name, the primary purpose of the intervene toolbox is to perform <em>interventions</em>.
+We can intervene on a treatment variable of interest to set a specified level, with the view of observing the effect on some outcome variable.
+In this manner we can determine what the effect of this particular intervention is.</p>
+<p>Specifically, interventions are presented as odds ratios, the odds of an outcome given treatment, vs the outcome given
+control.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\frac{P(\text{outcome} = \text{target} | \text{intervention = target})}{P(\text{outcome} = \text{target} | \text{intervention = reference})}}{\frac{P(\text{outcome} = \text{reference} | \text{intervention = target})}{P(\text{outcome} = \text{reference} | \text{intervention = reference})}}\]</div>
+<p>In order to run an intervention, the user must specify the <code class="code bash docutils literal notranslate"><span class="pre">--intervention</span></code> flag in the CLI. Here, a path to an
+intervention file must be given.</p>
+<p>An example command could be:</p>
+<p><code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">/my/data/folder</span> <span class="pre">--output</span> <span class="pre">my/data/output/folder</span> <span class="pre">--intervention</span> <span class="pre">my/folder/intervention_config.yml</span></code></p>
+<p>Where we have specified the usage of the <em>real</em> component, and set the intervention flag to <em>my/folder/intervention_config.yml</em>.</p>
+<p>To create an intervention yaml, 6 things are necessary:</p>
+<ul class="simple">
+<li><p>The outcome variable</p></li>
+<li><p>The outcome variable’s reference level</p></li>
+<li><p>A <em>list</em> of the outcome variable’s target levels</p></li>
+<li><dl class="simple">
+<dt>A <em>list</em> of the intervention variables, along with:</dt><dd><ul>
+<li><p>A <em>list</em> intervention variable’s targets</p></li>
+<li><p>The intervention variable’s reference level</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The intervention file should then be specified in the following fashion:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spontaneous_combustion</span>
+<span class="nt">outcome_reference_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">not_on_fire</span>
+<span class="nt">outcome_target_levels</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;on_fire&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;a_little_toasty&#39;</span><span class="p p-Indicator">]</span>
+<span class="nt">interventions</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">variable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">semtex_for_breakfast</span>
+  <span class="nt">reference_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">target_levels</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;yes&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;just</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">bite&#39;</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">-</span> <span class="nt">variable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">drank_petrol</span>
+  <span class="nt">reference_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+  <span class="nt">target_levels</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;yes&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output">
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<p>In order to run the real-pipeline, the user needs to be specify output directory. This can be
+done by providing a path (relative or absolute) to the option <code class="code bash docutils literal notranslate"><span class="pre">--output</span></code>. The directory need not already exist
+and any parent directories in its path will be created recursively. This serves as the root output directory
+to which the output of the real-pipeline is to be saved.
+Since it is convenient for the user to be able to use the same output directory for multiple runs and
+for different datasets, each run is uniquely identifiable by a time stamp generated at runtime
+within a subdirectory taking the name of the data .csv file (minus .csv).
+More concretely, the output directory is structured as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="n">output</span> <span class="n">directory</span> <span class="p">(</span><span class="n">user</span><span class="o">-</span><span class="n">specified</span><span class="p">)</span>
+<span class="o">|</span>
+<span class="o">+--</span> <span class="n">name</span> <span class="n">of</span> <span class="n">data</span> <span class="o">.</span><span class="n">csv</span> <span class="n">file</span> <span class="p">(</span><span class="n">user</span><span class="o">-</span><span class="n">specified</span><span class="p">)</span>
+    <span class="o">|</span>
+    <span class="o">+--</span> <span class="n">timestamp</span> <span class="n">of</span> <span class="n">run</span>
+        <span class="o">|</span>
+        <span class="o">+--</span> <span class="n">output</span> <span class="mi">1</span>
+        \<span class="o">--</span> <span class="n">output</span> <span class="mi">2</span>
+        \<span class="o">--</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>with a practical example of an output directory produced for <code class="code bash docutils literal notranslate"><span class="pre">--data</span> <span class="pre">alarm.csv</span></code> and
+<code class="code bash docutils literal notranslate"><span class="pre">--output</span> <span class="pre">my_output_dir</span></code> (along with various interventions specified on target variable CVP)
+given below</p>
+<a class="reference internal image-reference" href="../_images/output_dir_example.png"><img alt="../_images/output_dir_example.png" src="../_images/output_dir_example.png" style="width: 300px;" /></a>
+<p>The various outputs of the pipeline are collated in the <strong>report.html</strong> file.
+This contains information about the constraints enforced, plots of the odds ratios
+produced by any specified interventions, and a visual representation of the learnt graph.
+Checkpoints created following each expansion step of the Order MCMC algorithm can be found
+in a subdirectory entitled <strong>checkpoints</strong>. These checkpoints can be resumed from by supplying
+their file path to the <code class="code bash docutils literal notranslate"><span class="pre">--checkpoints</span></code> option in subsequent runs.
+A description of each of the output files is given in the table below.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 92%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>convergence_plot_chain.png</p></td>
+<td><p>Plot showing the score of the estimated structure at each iteration of Order MCMC.</p></td>
+</tr>
+<tr class="row-odd"><td><p>learnt_dag.svg</p></td>
+<td><p>Plot of the learnt graphical model.</p></td>
+</tr>
+<tr class="row-even"><td><p>modelstring.txt</p></td>
+<td><p>Contains string specifying the learnt graphical model.</p></td>
+</tr>
+<tr class="row-odd"><td><p>odds_ratio*.svg</p></td>
+<td><p>Plots prefixed with odds_ratio, followed by the name of a variable and two numbers show the odds ratios computed with the aforementioned variable as the target, with the target level indicated by the first number, and the reference level indcated by the second number (see section <strong>Performing Interventions</strong> for more details).</p></td>
+</tr>
+<tr class="row-even"><td><p>odds_ratio_results.csv</p></td>
+<td><p>Tabulated results (odds ratios) of the interventions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>report.html</p></td>
+<td><p>HTML file summarising the results of the run.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="sensitivity-analysis">
+<h2>Sensitivity Analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Sensitivity analysis is a technique used to eveluate how much changing one variable will affect another variable.
+It allows us to estimate the <em>sensitivity</em> of one variable with respect to another.</p>
+<p>Typically in Bayesian networks, sensitivity analysis is used to <em>refute</em> estimates: If an estimate is unstable, how can it be trusted?</p>
+<p>In intervene, we currently only have <strong>one</strong> type of sensitivity analysis. This analysis measures how susceptible an estimate
+is to breaches in the causal sufficiency (or causal Markov) assumption.</p>
+<p>In order to measure the sensitivity of an intervention to latent confunders we prefom an ‘experiment’ - we introduce many different latent confounders and examine how they affect the intervention. If any of introduced confounders change the result of the intervention (i.e. <em>flip</em> the odds ratio), the intervention is
+perceived to be unstable with respect to this confounder.</p>
+<div class="section" id="running-the-analysis">
+<h3>Running the analysis<a class="headerlink" href="#running-the-analysis" title="Permalink to this headline">¶</a></h3>
+<p>In order to activate this functionality in intervene, the <code class="code bash docutils literal notranslate"><span class="pre">--measure-sensitivity</span></code> needs to be set to True.</p>
+<p>For example:
+<code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">real</span> <span class="pre">--data</span> <span class="pre">/folder/data.csv</span> <span class="pre">--interventions</span> <span class="pre">folder/interventions.yml</span> <span class="pre">--measure-sensitivity</span> <span class="pre">True</span></code></p>
+<p>The sensitivity analysis will be run on any interventions which have been specified in the <em>interventions.yml</em></p>
+</div>
+<div class="section" id="interpreting-the-results">
+<h3>Interpreting the results<a class="headerlink" href="#interpreting-the-results" title="Permalink to this headline">¶</a></h3>
+<p>In the example below, we are performing the intervention GH -&gt; VD and trying to determine where having a confounder
+would be <em>high risk</em> for this particular intervention.</p>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/DAG.png"><img alt="../_images/DAG.png" src="../_images/DAG.png" style="width: 817.2px; height: 368.0px;" /></a>
+<p class="caption"><span class="caption-text">Example DAG</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>The analysis produces a plot with colour coded confounders. The confounders all have the prefix <em>H_</em>.</p>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/danger_plot_GH_VD.png"><img alt="../_images/danger_plot_GH_VD.png" src="../_images/danger_plot_GH_VD.png" style="width: 297.2px; height: 224.4px;" /></a>
+<p class="caption"><span class="caption-text">Danger plot for GH -&gt; VD</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>The confounders scale from Green -&gt; Red, representing low risk -&gt; high risk. In this example, the highest risk node would be H_8.
+In the case that a high risk confounder had been found, the next step would be to consult an expert to ascertain the likihood of a confounder being in the proposed location.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="methods.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="synth.html" class="btn btn-neutral float-left" title="Synthetic Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

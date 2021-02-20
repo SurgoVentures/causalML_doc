@@ -1,0 +1,8 @@
+Running on Real Data
+--------------------
+
+This is how you run Intervene on real data. To be written by MB.
+
+.. include:: run/constraints.rst
+.. include:: run/pipeline.rst
+.. include:: run/output.rst

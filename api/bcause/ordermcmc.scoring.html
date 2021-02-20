@@ -1,0 +1,1422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>intervene.bcause.ordermcmc.scoring &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intervene.bcause.ordermcmc.search_space" href="ordermcmc.search_space.html" />
+    <link rel="prev" title="intervene.bcause.ordermcmc.optimisation" href="ordermcmc.optimisation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/advanced.html">Advanced</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline-components">Pipeline Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#synbn">SynBN</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#bcause">BCause</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bcause.html">intervene.bcause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdt_algorithms.html">intervene.bcause.cdt_algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interventions.html">intervene.bcause.interventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.html">intervene.bcause.ordermcmc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.optimisation.html">intervene.bcause.ordermcmc.optimisation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">intervene.bcause.ordermcmc.scoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ordermcmc.search_space.html">intervene.bcause.ordermcmc.search_space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sensitivity_analysis.html">intervene.bcause.sensitivity_analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#syneval">SynEval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#pipeline">Pipeline</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>intervene.bcause.ordermcmc.scoring</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/bcause/ordermcmc.scoring.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-intervene.bcause.ordermcmc.scoring">
+<span id="intervene-bcause-ordermcmc-scoring"></span><h1>intervene.bcause.ordermcmc.scoring<a class="headerlink" href="#module-intervene.bcause.ordermcmc.scoring" title="Permalink to this headline">¶</a></h1>
+<p>scoring methods.</p>
+<p><strong>Classes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.BGe" title="intervene.bcause.ordermcmc.scoring.BGe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BGe</span></code></a>(data[, nu, alpha_mu, alpha_omega, …])</p></td>
+<td><p>Class to compute the BGe function for Bayesian Networks.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ContinuousData" title="intervene.bcause.ordermcmc.scoring.ContinuousData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContinuousData</span></code></a>(data[, varnames])</p></td>
+<td><p>Class to compute Continous Score functions for Bayesian Networks.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParentScoreTable</span></code></a>(score_func, data, node)</p></td>
+<td><p>Object with a dictionary-like structure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParentScoreTableDict</span></code></a>(score_func, data)</p></td>
+<td><p>Object to store ParentScoreTables, uses a dictionary-like structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator" title="intervene.bcause.ordermcmc.scoring.ScoreCalculator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScoreCalculator</span></code></a>(data[, MAP, score, search_space])</p></td>
+<td><p>An object which calculates the score for given order.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.aic_g" title="intervene.bcause.ordermcmc.scoring.aic_g"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aic_g</span></code></a>(data, target_idx, parent_idx_set)</p></td>
+<td><p>Compute the Akaike Information Criterion for a Gaussian Linear Model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.conditional_entropy" title="intervene.bcause.ordermcmc.scoring.conditional_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conditional_entropy</span></code></a>(x, y)</p></td>
+<td><p>Compute the empirical conditional entropy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.conditional_entropy_slow" title="intervene.bcause.ordermcmc.scoring.conditional_entropy_slow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conditional_entropy_slow</span></code></a>(x, y)</p></td>
+<td><p>Compute the empirical conditional entropy, slow and deprecated - used for testing purposes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.entropy" title="intervene.bcause.ordermcmc.scoring.entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">entropy</span></code></a>(n_ij_j, n_j)</p></td>
+<td><p>Compute the empirical entropy for given frequencies and normalization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.entropy_slow" title="intervene.bcause.ordermcmc.scoring.entropy_slow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">entropy_slow</span></code></a>(n_ij_j, n_j)</p></td>
+<td><p>Compute the empirical entropy for given frequencies and normalization.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.get_node_labels" title="intervene.bcause.ordermcmc.scoring.get_node_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_node_labels</span></code></a>(parent_sets)</p></td>
+<td><p>Convert parent sets into node labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.get_table_index" title="intervene.bcause.ordermcmc.scoring.get_table_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table_index</span></code></a>(parents_set)</p></td>
+<td><p>Get the table index for a given parent set.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.get_table_index_numba" title="intervene.bcause.ordermcmc.scoring.get_table_index_numba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table_index_numba</span></code></a>(parents_set)</p></td>
+<td><p>Get table index for a parent set using mapping defined in (Kuipers, Suter and Moffa, 2019).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.get_table_index_slow" title="intervene.bcause.ordermcmc.scoring.get_table_index_slow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table_index_slow</span></code></a>(parents_set)</p></td>
+<td><p>Get table index for a parent set using mapping defined in (Kuipers, Suter and Moffa, 2019).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.matrix_to_vector" title="intervene.bcause.ordermcmc.scoring.matrix_to_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matrix_to_vector</span></code></a>(x)</p></td>
+<td><p>Convert matrix x to a vector of indicies representing unique rows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.qnml" title="intervene.bcause.ordermcmc.scoring.qnml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qnml</span></code></a>(data, target_idx, parent_idx_set)</p></td>
+<td><p>Return qNML score for a specific child-parent configuration, given target and parent indicies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.regret" title="intervene.bcause.ordermcmc.scoring.regret"><code class="xref py py-obj docutils literal notranslate"><span class="pre">regret</span></code></a>(num_categories, unique_vals)</p></td>
+<td><p>Compute the Szpankowski and Weinberger approximation for regret.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.shannon_entropy" title="intervene.bcause.ordermcmc.scoring.shannon_entropy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shannon_entropy</span></code></a>(x)</p></td>
+<td><p>Compute the empirical entropy for a given variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.unique" title="intervene.bcause.ordermcmc.scoring.unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique</span></code></a>(x[, numpy])</p></td>
+<td><p>Convert matrix x to a vector of indicies representing unique rows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.vector_unique" title="intervene.bcause.ordermcmc.scoring.vector_unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_unique</span></code></a>(x)</p></td>
+<td><p>Convert matrix x to a vector of indicies representing unique rows.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="intervene.bcause.ordermcmc.scoring.BGe">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">BGe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">nu</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">alpha_mu</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">alpha_omega</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prior_matrix</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.BGe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">intervene.bcause.ordermcmc.scoring.continous_score_functions.ContinuousData</span></code></p>
+<p>Class to compute the BGe function for Bayesian Networks.</p>
+<p>Create a BGe scoring object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>numpy.ndarray</em>) – The data to use for scoring</p></li>
+<li><p><strong>nu</strong> – the mean vector for the normal part of the
+normal-Wishart prior. If not given (=None), then the sample mean
+is used.</p></li>
+<li><p><strong>alpha_omega</strong> (<em>int</em>) – The degrees of freedom for the Wishart
+part of the normal-Wishart prior. Must exceed p-1 where p is the number of
+variables. If not given (=None) then <cite>alpha_omega</cite> is set to p+2.</p></li>
+<li><p><strong>prior_matrix</strong> (<em>numpy.ndarray</em>) – The prior matrix ‘T’
+for the Wishart part of the normal-Wishart prior. If not given (=None), then
+this is set to t*I_n where t = alpha_mu*(alpha_omega-n-1)/(alpha_mu+1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.BGe.bge_component" title="intervene.bcause.ordermcmc.scoring.BGe.bge_component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bge_component</span></code></a>(vs)</p></td>
+<td><p>Compute the BGe component for given variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.BGe.bge_score" title="intervene.bcause.ordermcmc.scoring.BGe.bge_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bge_score</span></code></a>(data, child, parents)</p></td>
+<td><p>Return BGe score for a given family, plus upper bound.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.BGe.data" title="intervene.bcause.ordermcmc.scoring.BGe.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>()</p></td>
+<td><p>Return data as a Pandas dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.BGe.rawdata" title="intervene.bcause.ordermcmc.scoring.BGe.rawdata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rawdata</span></code></a>()</p></td>
+<td><p>Return data without any information about variable names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.BGe.variables" title="intervene.bcause.ordermcmc.scoring.BGe.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>()</p></td>
+<td><p>Return the list of variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.BGe.varidx" title="intervene.bcause.ordermcmc.scoring.BGe.varidx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">varidx</span></code></a>()</p></td>
+<td><p>Return a map of a variable name to its position in the list of variable names.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.BGe.bge_component">
+<code class="sig-name descname">bge_component</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.BGe.bge_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the BGe component for given variables.</p>
+<p>The BGe score for a family child&lt;-parents is the component for child+parents
+minus the component for parents (+ a constant term which just depends on the number
+of parents).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vs</strong> (<em>List</em>) – Variable names</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The BGe component for the given variables</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.BGe.bge_score">
+<code class="sig-name descname">bge_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">child</span></em>, <em class="sig-param"><span class="n">parents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.BGe.bge_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return BGe score for a given family, plus upper bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>child</strong> (<em>str</em>) – The child variable</p></li>
+<li><p><strong>parents</strong> (<em>iter</em>) – The parent variables</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>First element of tuple isf the BGe score for the family</p>
+</dd>
+</dl>
+<p>for current data (using current hyperparameters) Second element is an upper bound.
+:type: tuple</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.BGe.data">
+<code class="sig-name descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.BGe.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data as a Pandas dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dataframe</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.BGe.rawdata">
+<code class="sig-name descname">rawdata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.BGe.rawdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data without any information about variable names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the raw data-frame, without column headers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.BGe.variables">
+<code class="sig-name descname">variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.BGe.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.BGe.varidx">
+<code class="sig-name descname">varidx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.BGe.varidx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a map of a variable name to its position in the list of variable names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mapping from id to idx</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.bcause.ordermcmc.scoring.ContinuousData">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">ContinuousData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">varnames</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ContinuousData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to compute Continous Score functions for Bayesian Networks.</p>
+<p>Stored as an object as parts of the function are consistent
+and can be saved to avoid recomputiation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>varnames</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ForwardRef</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Continuous data class initialization. Computes consistent part of the function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>np.ndarray</em>) – The data (either as an array or a filename containing the data)</p></li>
+<li><p><strong>varnames</strong> (<em>List/None</em>) – The names of the variables. If not given</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.data" title="intervene.bcause.ordermcmc.scoring.ContinuousData.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>()</p></td>
+<td><p>Return data as a Pandas dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.rawdata" title="intervene.bcause.ordermcmc.scoring.ContinuousData.rawdata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rawdata</span></code></a>()</p></td>
+<td><p>Return data without any information about variable names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.variables" title="intervene.bcause.ordermcmc.scoring.ContinuousData.variables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variables</span></code></a>()</p></td>
+<td><p>Return the list of variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.varidx" title="intervene.bcause.ordermcmc.scoring.ContinuousData.varidx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">varidx</span></code></a>()</p></td>
+<td><p>Return a map of a variable name to its position in the list of variable names.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ContinuousData.data">
+<code class="sig-name descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data as a Pandas dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dataframe</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ContinuousData.rawdata">
+<code class="sig-name descname">rawdata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.rawdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data without any information about variable names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the raw data-frame, without column headers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ContinuousData.variables">
+<code class="sig-name descname">variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ContinuousData.varidx">
+<code class="sig-name descname">varidx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ContinuousData.varidx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a map of a variable name to its position in the list of variable names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mapping from id to idx</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">ParentScoreTable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">score_func</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Object with a dictionary-like structure.</p>
+<p>For storing scores of each possible parent set
+for a specific node. Keys are index based on parents’ indices, see get_table_index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score_func</strong> (<em>callable</em>) – Score function (i.e. qnml), should take arguments (data, target, parents)</p></li>
+<li><p><strong>data</strong> (<em>array_like</em>) – The data</p></li>
+<li><p><strong>node</strong> (<em>integer</em>) – Index of target node (from original order)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Init func.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score_func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p></li>
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+<li><p><strong>node</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.clear" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.copy" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.fromkeys" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.fromkeys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fromkeys</span></code></a>([value])</p></td>
+<td><p>Create a new dictionary with keys from iterable and values set to value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.get" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key[, default])</p></td>
+<td><p>Return the value for key if key is in the dictionary, else default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.get_from_parents" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.get_from_parents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_from_parents</span></code></a>(parent_index_set)</p></td>
+<td><p>Calculate score for a specific parent set.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.items" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.items"><code class="xref py py-obj docutils literal notranslate"><span class="pre">items</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.keys" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.pop" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.pop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code></a>(k[,d])</p></td>
+<td><p>If key is not found, d is returned if given, otherwise KeyError is raised</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.popitem" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.popitem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">popitem</span></code></a>()</p></td>
+<td><p>Remove and return a (key, value) pair as a 2-tuple.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.precompute" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.precompute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">precompute</span></code></a>(allowed_parent_sets)</p></td>
+<td><p>Calculate score for the possible parent sets given a set of allowed parents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.setdefault" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.setdefault"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setdefault</span></code></a>(key[, default])</p></td>
+<td><p>Insert key with a value of default if key is not in the dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.update" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>([E, ]**F)</p></td>
+<td><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k] If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v In either case, this is followed by: for k in F:  D[k] = F[k]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.values" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.node" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable.node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node</span></code></a></p></td>
+<td><p>Get the node.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None.  Remove all items from D.<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a shallow copy of D<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.fromkeys">
+<code class="sig-name descname">fromkeys</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.fromkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.get_from_parents">
+<code class="sig-name descname">get_from_parents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_index_set</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.get_from_parents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate score for a specific parent set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parent_index_set</strong> (<em>array_like</em>) – List of indicies of the parent variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score for a given set of parents</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.items">
+<code class="sig-name descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D’s items<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.keys">
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D’s keys<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.node">
+<em class="property">property </em><code class="sig-name descname">node</code><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.pop">
+<code class="sig-name descname">pop</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="optional">[</span>, <em class="sig-param">d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; v, remove specified key and return the corresponding value.<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>If key is not found, d is returned if given, otherwise KeyError is raised</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.popitem">
+<code class="sig-name descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.popitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.precompute">
+<code class="sig-name descname">precompute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">allowed_parent_sets</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.precompute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate score for the possible parent sets given a set of allowed parents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>allowed_parent_sets</strong> (<em>array_like</em>) – List of lists of indicies of allowed parents</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ParentScoreTable</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score Table with precomputed scores</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable">ParentScoreTable</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.setdefault">
+<code class="sig-name descname">setdefault</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.setdefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">E</em>, <span class="optional">]</span><em class="sig-param">**F</em><span class="sig-paren">)</span> &#x2192; None.  Update D from dict/iterable E and F.<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+In either case, this is followed by: for k in F:  D[k] = F[k]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTable.values">
+<code class="sig-name descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on D’s values<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">ParentScoreTableDict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">score_func</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Object to store ParentScoreTables, uses a dictionary-like structure.</p>
+<p>Indexed by node-id.
+Thus a precomputed score could be attained like so:
+<code class="docutils literal notranslate"><span class="pre">pst[node_idx][parent_indicies]</span></code> where <code class="docutils literal notranslate"><span class="pre">pst</span></code> is a precomputed
+instance of <a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParentScoreTableDict</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score_func</strong> (<em>callable</em>) – Score function (i.e. qnml), should take arguments (data, target, parents)</p></li>
+<li><p><strong>data</strong> (<em>array_like</em>) – The data</p></li>
+</ul>
+</dd>
+</dl>
+<p>Init func.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score_func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – </p></li>
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.clear" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.copy" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.fromkeys" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.fromkeys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fromkeys</span></code></a>([value])</p></td>
+<td><p>Create a new dictionary with keys from iterable and values set to value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.get" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key[, default])</p></td>
+<td><p>Return the value for key if key is in the dictionary, else default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.items" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.items"><code class="xref py py-obj docutils literal notranslate"><span class="pre">items</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.keys" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.pop" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.pop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code></a>(k[,d])</p></td>
+<td><p>If key is not found, d is returned if given, otherwise KeyError is raised</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.popitem" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.popitem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">popitem</span></code></a>()</p></td>
+<td><p>Remove and return a (key, value) pair as a 2-tuple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">precompute</span></code></a>(search_space[, verbose])</p></td>
+<td><p>Precompute the score for each possible parent set, for each node in the dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute_parallel" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">precompute_parallel</span></code></a>(search_space)</p></td>
+<td><p>Precompute the score for each possible parent set, for each node in the dictionary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.setdefault" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.setdefault"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setdefault</span></code></a>(key[, default])</p></td>
+<td><p>Insert key with a value of default if key is not in the dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.update" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>([E, ]**F)</p></td>
+<td><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k] If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v In either case, this is followed by: for k in F:  D[k] = F[k]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.values" title="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None.  Remove all items from D.<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a shallow copy of D<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.fromkeys">
+<code class="sig-name descname">fromkeys</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.fromkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.items">
+<code class="sig-name descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D’s items<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.keys">
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D’s keys<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.pop">
+<code class="sig-name descname">pop</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="optional">[</span>, <em class="sig-param">d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; v, remove specified key and return the corresponding value.<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>If key is not found, d is returned if given, otherwise KeyError is raised</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.popitem">
+<code class="sig-name descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.popitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute">
+<code class="sig-name descname">precompute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">search_space</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Precompute the score for each possible parent set, for each node in the dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search_space</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">space.SearchSpace</span></code>) – A list containing the allowed lists of parents for each node</p></li>
+<li><p><strong>verbose</strong> (<em>boolean</em>) – Whether to disable the entire progressbar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score Table with precomputed scores</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable">ParentScoreTable</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute_parallel">
+<code class="sig-name descname">precompute_parallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">search_space</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.precompute_parallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Precompute the score for each possible parent set, for each node in the dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>search_space</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">space.SearchSpace</span></code>) – A list containing the allowed lists of parents for each node</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score Table with precomputed scores</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTable" title="intervene.bcause.ordermcmc.scoring.ParentScoreTable">ParentScoreTable</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.setdefault">
+<code class="sig-name descname">setdefault</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">/</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.setdefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">E</em>, <span class="optional">]</span><em class="sig-param">**F</em><span class="sig-paren">)</span> &#x2192; None.  Update D from dict/iterable E and F.<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+In either case, this is followed by: for k in F:  D[k] = F[k]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.values">
+<code class="sig-name descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on D’s values<a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ParentScoreTableDict.values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="intervene.bcause.ordermcmc.scoring.ScoreCalculator">
+<em class="property">class </em><code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">ScoreCalculator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">MAP</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">score</span><span class="o">=</span><span class="default_value">'qnml'</span></em>, <em class="sig-param"><span class="n">search_space</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An object which calculates the score for given order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>array_like</em>) – Data</p></li>
+<li><p><strong>MAP</strong> (<em>boolean</em>) – Whether to use the MAP (Maximum a Posteriori) score to represent an order</p></li>
+<li><p><strong>score</strong> (<em>string</em>) – Score name</p></li>
+<li><p><strong>search_space</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">space.SearchSpace</span></code>) – A list containing the allowed lists of parents for each node</p></li>
+</ul>
+</dd>
+</dl>
+<p>Init func.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
+<li><p><strong>MAP</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>score</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[‘qnml’, ‘bge’, ‘aic-g’]) – </p></li>
+<li><p><strong>search_space</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">SearchSpace</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order" title="intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_order</span></code></a>(order, search_space[, skip_nodes])</p></td>
+<td><p>Score an order given a search space.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order_par" title="intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order_par"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_order_par</span></code></a>(order, search_space[, …])</p></td>
+<td><p>Score an order given a search space.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_permuted_order" title="intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_permuted_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_permuted_order</span></code></a>(previous_order, …)</p></td>
+<td><p>Score an order given a search space.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order">
+<code class="sig-name descname">score_order</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span></em>, <em class="sig-param"><span class="n">search_space</span></em>, <em class="sig-param"><span class="n">skip_nodes</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Score an order given a search space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> (<em>:class:space.Order</em>) – An instance of class Order representing the Order to be scored</p></li>
+<li><p><strong>search_space</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">space.SearchSpace</span></code>) – A list containing the allowed lists of parents for each node</p></li>
+<li><p><strong>skip_nodes</strong> (<em>array_like</em>) – List of node indexes to exclude</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order_par">
+<code class="sig-name descname">score_order_par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span></em>, <em class="sig-param"><span class="n">search_space</span></em>, <em class="sig-param"><span class="n">skip_nodes</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_order_par" title="Permalink to this definition">¶</a></dt>
+<dd><p>Score an order given a search space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">space.Order</span></code>) – An instance of class Order representing the Order to be scored</p></li>
+<li><p><strong>search_space</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">space.SearchSpace</span></code>) – A list containing the allowed lists of parents for each node</p></li>
+<li><p><strong>skip_nodes</strong> (<em>array_like</em>) – List of node indexes to exclude</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_permuted_order">
+<code class="sig-name descname">score_permuted_order</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">previous_order</span></em>, <em class="sig-param"><span class="n">previous_score</span></em>, <em class="sig-param"><span class="n">previous_map_dag</span></em>, <em class="sig-param"><span class="n">new_order</span></em>, <em class="sig-param"><span class="n">search_space</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.ScoreCalculator.score_permuted_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Score an order given a search space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>previous_order</strong> (<em>:class:space.Order</em>) – An instance of class Order representing the previous order</p></li>
+<li><p><strong>previous_score</strong> (<em>np.float64</em>) – Score of the previous DAG</p></li>
+<li><p><strong>previous_map_dag</strong> (<em>array_like</em>) – The MAP DAG (as adj matrix) of the previous order</p></li>
+<li><p><strong>swapped_a</strong> (<em>integer</em>) – the index of the variable to swap with swapped_b</p></li>
+<li><p><strong>swapped_b</strong> (<em>integer</em>) – the index of the variable to swap with swapped_a</p></li>
+<li><p><strong>search_space</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">space.SearchSpace</span></code>) – A list containing the allowed lists of parents for each node</p></li>
+<li><p><strong>skip_nodes</strong> (<em>array_like</em>) – List of node indexes to exclude</p></li>
+<li><p><strong>new_order</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.aic_g">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">aic_g</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">target_idx</span></em>, <em class="sig-param"><span class="n">parent_idx_set</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.aic_g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the Akaike Information Criterion for a Gaussian Linear Model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+<li><p><strong>target_idx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>parent_idx_set</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.conditional_entropy">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">conditional_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.conditional_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the empirical conditional entropy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – The variable being conditioned (target, child)</p></li>
+<li><p><strong>y</strong> (<em>array_like</em>) – The conditioning variable(s) (parent(s))</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Empirical conditional entropy</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.conditional_entropy_slow">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">conditional_entropy_slow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.conditional_entropy_slow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the empirical conditional entropy, slow and deprecated - used for testing purposes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – The variable being conditioned (target, child)</p></li>
+<li><p><strong>y</strong> (<em>array_like</em>) – The conditioning variable(s) (parent(s))</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Empirical conditional entropy</p>
+</dd>
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.entropy">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_ij_j</span></em>, <em class="sig-param"><span class="n">n_j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the empirical entropy for given frequencies and normalization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – The variable to compute entropy on</p></li>
+<li><p><strong>n_ij_j</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – </p></li>
+<li><p><strong>n_j</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Empirical entropy</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.entropy_slow">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">entropy_slow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_ij_j</span></em>, <em class="sig-param"><span class="n">n_j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.entropy_slow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the empirical entropy for given frequencies and normalization.</p>
+<p>Slow version - used for testing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – The variable to compute entropy on</p></li>
+<li><p><strong>n_ij_j</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultDict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+<li><p><strong>n_j</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Empirical entropy</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.get_node_labels">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">get_node_labels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_sets</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.get_node_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert parent sets into node labels.</p>
+<p>DEPRECATED: only really needed for visualising Hasse diagram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parents_set</strong> (<em>array_like</em>) – List of indicies of the parent variables</p></li>
+<li><p><strong>parent_sets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the labels of nodes</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.get_table_index">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">get_table_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parents_set</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.get_table_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the table index for a given parent set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parents_set</strong> (<em>array_like</em>) – List of indicies of the parent variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int64</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score table row index</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.get_table_index_numba">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">get_table_index_numba</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parents_set</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.get_table_index_numba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get table index for a parent set using mapping defined in (Kuipers, Suter and Moffa, 2019).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parents_set</strong> (<em>array_like</em>) – List of indicies of the parent variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score table row index</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.get_table_index_slow">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">get_table_index_slow</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parents_set</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.get_table_index_slow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get table index for a parent set using mapping defined in (Kuipers, Suter and Moffa, 2019).</p>
+<p>[SLOW]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parents_set</strong> (<em>array_like</em>) – List of indicies of the parent variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score table row index</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.matrix_to_vector">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">matrix_to_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.matrix_to_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert matrix x to a vector of indicies representing unique rows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em>) – Matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Indicies representing unique rows</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.qnml">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">qnml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">target_idx</span></em>, <em class="sig-param"><span class="n">parent_idx_set</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.qnml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return qNML score for a specific child-parent configuration, given target and parent indicies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>array_like</em>) – The data of the child (target) and the parents</p></li>
+<li><p><strong>target_idx</strong> (<em>integer</em>) – The id of the target (child) variable</p></li>
+<li><p><strong>parent_idx_set</strong> (<em>array_like</em>) – Set of indicies of the parent variables</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The qNML score</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.regret">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">regret</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_categories</span></em>, <em class="sig-param"><span class="n">unique_vals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.regret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the Szpankowski and Weinberger approximation for regret.</p>
+<p>(normalization term for NML) for a vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_categories</strong> (<em>integer</em>) – The length of the categorical vector which (q)NML is being calculated for</p></li>
+<li><p><strong>unique_vals</strong> (<em>integer</em>) – The number of unique categorical values in a vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Regret approximation</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.shannon_entropy">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">shannon_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.shannon_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the empirical entropy for a given variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em>) – The variable to compute entropy on</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Empirical entropy</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>numpy.float64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.unique">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">unique</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">numpy</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.unique" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert matrix x to a vector of indicies representing unique rows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array_like</em>) – Matrix</p></li>
+<li><p><strong>numpy</strong> (<em>boolean</em>) – Boolean representing whether to use numpy for the unique calculation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Indicies representing unique rows</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="intervene.bcause.ordermcmc.scoring.vector_unique">
+<code class="sig-prename descclassname">intervene.bcause.ordermcmc.scoring.</code><code class="sig-name descname">vector_unique</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#intervene.bcause.ordermcmc.scoring.vector_unique" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert matrix x to a vector of indicies representing unique rows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array_like</em>) – Matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Indicies representing unique rows</p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ordermcmc.search_space.html" class="btn btn-neutral float-right" title="intervene.bcause.ordermcmc.search_space" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ordermcmc.optimisation.html" class="btn btn-neutral float-left" title="intervene.bcause.ordermcmc.optimisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Imputing Missing Data &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Imputing Missing Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/getting_started/real_dir/prepare_dir/impute.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="imputing-missing-data">
+<h1>Imputing Missing Data<a class="headerlink" href="#imputing-missing-data" title="Permalink to this headline">¶</a></h1>
+<p>Intervene can be used to impute missing data from a real or synthetic dataset. There are currently five different methods for handling missing data:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>drop</strong></p></td>
+<td><p>listwise deletion method removing all entries from partial respondents. The danger with this method is that it could substantially reduce the initial dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>central_tendency</strong></p></td>
+<td><p>a single imputation method replacing the missing values with the mode (for categorical data) or median (for continuous data) value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>hot_deck</strong></p></td>
+<td><p>(<em>k</em> nearest neighbours): a single imputation method, based on feature similarity. Fills in missing values with the mode (categorical data) or median (continuous data) value of the 5 closest neighbours. To define the neighbours, either the hamming distance (categorical data) or the euclidean distance (continuous) is used.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>regression</strong></p></td>
+<td><p>single imputation method that independently predicts the missing values of each variable based on the values of the other observed variables. A logistic regression model is used for prediction if the data are categorical, linear regression otherwise. When more than one variable in the dataset present missing data an initial imputation is needed before the prediction step, here the <em>central_tendency</em> is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>mice</strong></p></td>
+<td><p>(Multivariate Imputation by Chained Equations): a multiple imputation method, filling in the missing data multiple times. It performs a regression imputation 5 times, updating the prediction at each step.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="imputing-missing-data-from-the-cli">
+<h2>Imputing Missing Data from the CLI<a class="headerlink" href="#imputing-missing-data-from-the-cli" title="Permalink to this headline">¶</a></h2>
+<p>On the command line <code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">-h</span></code> can be used to check the available methods under <code class="code bash docutils literal notranslate"><span class="pre">--imputation-method</span></code>.</p>
+<p>To impute missing data the user will need to specify:</p>
+<ol class="arabic simple">
+<li><p><em>data path</em> to the .csv file of the dataset containing missing data;</p></li>
+<li><p><em>output path</em> to the .csv file where the imputed dataset will be written;</p></li>
+<li><p><em>imputation-method</em>, one of the 5 methods available in Intervene for imputation.</p></li>
+</ol>
+<p>Now, all we need to do is run the command:
+<code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">--data</span> <span class="pre">path_to_data.csv</span> <span class="pre">--output</span> <span class="pre">path_to_output_data.csv</span> <span class="pre">--imputation-method</span> <span class="pre">method</span></code></p>
+<p>Example:
+<code class="code bash docutils literal notranslate"><span class="pre">intervene</span> <span class="pre">preprocess</span> <span class="pre">--data</span> <span class="pre">./data_missing.csv</span> <span class="pre">--output</span> <span class="pre">./data_imputed.csv</span> <span class="pre">--imputation-method</span> <span class="pre">central_tendency</span></code></p>
+<p>In the case you also need to <em>bin</em> the data (see specific section), the <em>imputation</em> step will be computed first.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

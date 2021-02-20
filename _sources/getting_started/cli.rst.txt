@@ -1,0 +1,63 @@
+Command-line Interface
+=======================
+
+Understanding the Command Line Interface
+------------------------------------------
+
+The easiest way to run intervene is via the text-based command-line interface (CLI).
+
+After following the steps detailed in the *installation* section you should have all of intervene and all its dependencies installed. To use the cli, make sure the python environment for which the installation was done, is activated. The basic stracture of intervene's CLI is as following:
+
+::
+
+    intervene subcommand --arg 1 --arg2 ...
+
+
+The CLI has a simple but strict syntax. The subcommand follows the entry-point 'intervene', with the options specified afterwards.
+Two hyphens followed by a word (e.g. --yaml my_yaml.yml) identify a command-line option's use. One hyphen
+can be used if an option has a short-form (-d for --data, for instance) but not all commands have this option.
+A summary of the options, along with their default values, can be displayed by typing
+the command followed by *-h* or *--help*:
+
+::
+
+    intervene subcommand -h
+
+One type of option that warrants special mention is the 'switch-option'. Options of this type are an on/off toggle, and do not need to be parameterised.
+One example is the option *--no-sl*, belonging to the 'real' subcommand: there is no need to follow the option with True; typing the option alone will disable the structure learning component.
+
+::
+
+    intervene real -d data.csv -o output_dir --no-sl
+
+The main subcommands in intervene are:
+
+.. list-table::
+   :widths: 25 50
+   :header-rows: 0
+
+   * - synthetic
+     - generating and running synthetic data.
+
+   * - real
+     - running real data.
+
+   * - preprocess
+     - preprocessing real data.
+
+Detailed guides on the specific subcommands can be found in the subsequent sections of this guide.
+
+Command List
+-----------
+
+.. click:: intervene.core.cli:run_intervene
+   :prog: intervene
+   :nested: full
+
+
+Limitations
+-------------
+The CLI has been designed to cover most use-cases but the options are by no means sufficient to cover
+every element of intervene as to do so would be overwhelming considering the range of possibilities.
+There may be components in intervene that are absent from the predefined pipelines in which case a custom pipeline needs to be written (see section
+*Advanced Usage*).

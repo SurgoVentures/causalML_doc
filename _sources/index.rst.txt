@@ -1,0 +1,89 @@
+.. Intervene documentation master file, created by
+   sphinx-quickstart on Thu Oct 17 09:23:29 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree`
+
+Welcome to Intervene's documentation!
+=====================================
+
+Intervene is a python package for building, training and evaluating Causal Models.
+
+We provide 3 main capabilities:
+    - Generating Synthetic Models and the corresponding Data that the model produces.
+    - Learning a Network that represents the data.
+    - Being able to run evaluation pipelines over a learned network given the dataset that was used to produce it.
+
+In this document we go into much more detail about each of these capabilities.
+
+We envision this document as a reference text, the best way to learn about Intervene is to use it.
+
+So, have fun, and if you have any questions, or would like any clarifications, please reach out to us.
+We'll do our best to help.
+
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/intro_to_causal
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/installation
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/package_overview
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/cli
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/quick_start
+
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/synth
+
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/real
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/methods
+
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/faq
+
+.. toctree::
+    :maxdepth: 3
+
+    getting_started/advanced
+
+.. toctree::
+    :maxdepth: 2
+
+    api/index
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

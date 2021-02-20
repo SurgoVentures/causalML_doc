@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Components of the Real-Pipeline &mdash; Codename: Intervene 0.3.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Codename: Intervene
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_to_causal.html">Introduction to Causal Analysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../package_overview.html">Package Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-line Interface</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../synth.html">Synthetic Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../real.html">Real Data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../methods.html">Algorithms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Troubleshooting / FAQ</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced.html">Advanced</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Codename: Intervene</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Components of the Real-Pipeline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/getting_started/real_dir/run_dir/pipeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="components-of-the-real-pipeline">
+<h1>Components of the Real-Pipeline<a class="headerlink" href="#components-of-the-real-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>The main components of the real-pipeline are described below in order of execution. This tables
+is intended to just serve as an overview and we direct the reader to dedicated sections for more
+information regarding the particular components.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 95%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Components</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Constraints</p></td>
+<td><p>Using prior knowledge we can constrain which edges should or should not be taken place before another, we would want to ensure that the former cannot be a descendent of the latter. This can be enabled by passing a path to a .yml configuration file to the <code class="code bash docutils literal notranslate"><span class="pre">--constraints</span></code> option. See section <strong>constraints</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Structure learning</p></td>
+<td><p>Runs an algorithm (Order MCMC) that attempts to infer the causal structure of a dataset. This is enabled by default but can be disabled with the <code class="code bash docutils literal notranslate"><span class="pre">--no-sl</span></code> (no structure learning) option.</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameter estimation</p></td>
+<td><p>If interventions are to be performed, the learnt structure is converted into a belief network by estimation of the conditional probability tables of each node from the data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Interventions</p></td>
+<td><p>Performs interventions on a belief network based on a configuration file and computes the odds ratio for each outcome with respect to a reference level. This can be enabled by passing a path to a .yml configuration file to the <code class="code bash docutils literal notranslate"><span class="pre">--interventions</span></code> option. See section <strong>Interventions</strong> for information about what interventions are, how to configure the associated .yml file, and how to intepret the results.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sensitivity analysis</p></td>
+<td><p>Assesses how robust the learnt belief network under the influence of latent confounding. This can be enabled with the <code class="code bash docutils literal notranslate"><span class="pre">--measure-sensitivity</span></code> switch-option but has <code class="code bash docutils literal notranslate"><span class="pre">--interventions</span></code> being set as a pre-requisite. See section <strong>Sensitivity Analysis</strong> for an explanation of its purpose, how it works, and how to interpret the results.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The current available implementations of each of these is listed below.</p>
+<div class="section" id="structure-learning">
+<h2>Structure Learning<a class="headerlink" href="#structure-learning" title="Permalink to this headline">¶</a></h2>
+<p>The primary structure learning algorithm implemented in intervene is OrderMCMC, using the scoring function qNML. This is the default algorithm
+which is used across all CLI access points.</p>
+<p>The user also has access to:</p>
+<ul class="simple">
+<li><p>the BIC score with OrderMCMC</p></li>
+<li><p>the BIC score with GES</p></li>
+<li><p>the constraint based algorithm, PC.</p></li>
+</ul>
+<p>These are not currently accessible through the CLI, please refer to the advanced sections for information on how to access these in Python.</p>
+</div>
+<div class="section" id="parameter-estimation">
+<h2>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">¶</a></h2>
+<p>There are two parameter estimation techniques available to the user:</p>
+<ul class="simple">
+<li><p>Maximum Likelihood Estimation (MLE)</p></li>
+<li><p>Discriminative Frequency Estimation (DFE)</p></li>
+</ul>
+<p>Currently, only MLE is accessible through the CLI, and is the default.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright Surgo Ventures.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

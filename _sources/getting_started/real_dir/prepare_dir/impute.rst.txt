@@ -1,0 +1,42 @@
+Imputing Missing Data
+^^^^^^^^^^^^^^^^^^^^^^
+.. role:: bash(code)
+    :language: bash
+
+Intervene can be used to impute missing data from a real or synthetic dataset. There are currently five different methods for handling missing data:
+
+.. list-table::
+   :widths: 25 50
+   :header-rows: 0
+
+   * - **drop**
+     - listwise deletion method removing all entries from partial respondents. The danger with this method is that it could substantially reduce the initial dataset.
+   * - **central_tendency**
+     - a single imputation method replacing the missing values with the mode (for categorical data) or median (for continuous data) value.
+   * - **hot_deck**
+     - (*k* nearest neighbours): a single imputation method, based on feature similarity. Fills in missing values with the mode (categorical data) or median (continuous data) value of the 5 closest neighbours. To define the neighbours, either the hamming distance (categorical data) or the euclidean distance (continuous) is used.
+   * - **regression**
+     - single imputation method that independently predicts the missing values of each variable based on the values of the other observed variables. A logistic regression model is used for prediction if the data are categorical, linear regression otherwise. When more than one variable in the dataset present missing data an initial imputation is needed before the prediction step, here the *central_tendency* is used.
+   * - **mice**
+     - (Multivariate Imputation by Chained Equations): a multiple imputation method, filling in the missing data multiple times. It performs a regression imputation 5 times, updating the prediction at each step.
+
+
+Imputing Missing Data from the CLI
+"""""""""""""""""""""""""""""""""""""""
+
+On the command line :bash:`intervene preprocess -h` can be used to check the available methods under :bash:`--imputation-method`.
+
+To impute missing data the user will need to specify:
+
+1. *data path* to the .csv file of the dataset containing missing data;
+2. *output path* to the .csv file where the imputed dataset will be written;
+3. *imputation-method*, one of the 5 methods available in Intervene for imputation.
+
+Now, all we need to do is run the command:
+:bash:`intervene preprocess --data path_to_data.csv --output path_to_output_data.csv --imputation-method method`
+
+Example:
+:bash:`intervene preprocess --data ./data_missing.csv --output ./data_imputed.csv --imputation-method central_tendency`
+
+In the case you also need to *bin* the data (see specific section), the *imputation* step will be computed first.
+
